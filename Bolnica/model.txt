@@ -1,0 +1,15 @@
+
+
+Osoba (PD_idOsoba, ime, prezime, oib, telefon, email, adresa, grad, pošta, država, username, password, FK1_OIB Doktor,  )
+
+Self join  Osoba -> Uloga
+
+
+Lijekovi(PK Lijek, naziv, broj odobrenja, FK_proizvoðaè, godina otkrica, opasnost po život(skala 1-10)
+Terapija (Pk Terapija, Naziv, DatumPocetka, broj dana trajanja
+Proizvoðaè ( PK Proizvoðaè, Naziv, OIB, Telefon, Email, Adresa, Grad, Pošta, FK1_Drzava, FK2_Lijek)
+Država (PK ID, NazivDrzave)
+
+Role ->
+Pacijent, može pregledavati i editirati svoje osobne podatke i svoje terapije koju odabere
+Doktor, dodaje pacijente -> i automatski postaje njegov, ima uvid u sve lijekove, dodaje terapije
