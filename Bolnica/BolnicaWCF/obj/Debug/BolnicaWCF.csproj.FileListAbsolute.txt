@@ -1,0 +1,7 @@
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.csprojResolveAssemblyReference.cache
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.csproj.CoreCompileInputs.cache
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\bin\BolnicaWCF.dll.config
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\bin\BolnicaWCF.dll
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\bin\BolnicaWCF.pdb
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.dll
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.pdb

@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BolnicaClient", "BolnicaClient\BolnicaClient.csproj", "{04D37DFC-CF85-456C-8DD8-1942F5FA6FD2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0A08324C-E83E-4802-BBAA-3EECCC2C7E01} = {0A08324C-E83E-4802-BBAA-3EECCC2C7E01}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BolnicaWCF", "BolnicaWCF\BolnicaWCF.csproj", "{0A08324C-E83E-4802-BBAA-3EECCC2C7E01}"
 EndProject
