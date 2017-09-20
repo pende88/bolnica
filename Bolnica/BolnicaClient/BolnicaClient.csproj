@@ -68,6 +68,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\SviKorsnici.aspx" />
     <Content Include="Admin\Web.config" />
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Korisnik.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -90,6 +91,8 @@
     <None Include="Connected Services\BolnicaService\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Doktor\Web.config" />
+    <Content Include="Pacijent\Web.config" />
     <None Include="packages.config" />
     <Content Include="Admin\ProbaAdmin.aspx" />
     <Content Include="default.aspx" />
@@ -113,6 +116,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\SviKorsnici.aspx.cs">
+      <DependentUpon>SviKorsnici.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\SviKorsnici.aspx.designer.cs">
+      <DependentUpon>SviKorsnici.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ProbaAdmin.aspx.cs">
       <DependentUpon>ProbaAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

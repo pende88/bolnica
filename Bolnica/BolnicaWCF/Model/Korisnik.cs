@@ -12,18 +12,16 @@ namespace BolnicaWCF.Model
         [DataMember]
         public int IDKorisnickiRacun { get; set; }
         [DataMember]
-        public int KorisnickaGrupaID { get; set; }
+        public int IDKorisnickaGrupa { get; set; }
         [DataMember]
-        public string KorisnickaGrupaNaziv { get; set; }
+        public string Grupa { get; set; }
         [DataMember]
         public string Username { get; set; }
         [DataMember]
         public string Password { get; set; }
 
-        [DataMember]
-        public int IDKorisnikDetalji { get; set; }
-        [DataMember]
-        public int KorisnickiRacunID { get; set; }
+        
+        
         [DataMember]
         public string Ime { get; set; }
         [DataMember]
@@ -38,15 +36,14 @@ namespace BolnicaWCF.Model
         public string Adresa { get; set; }
         [DataMember]
         public string PTTBroj { get; set; }
+        [DataMember]
+        public string Grad { get; set; }
 
         [DataMember]
-        public int DrzavaID { get; set; }
+        public int IDDrzava { get; set; }
         [DataMember]
-        public string DrzavaNaziv { get; set; }
+        public string Drzava { get; set; }
 
-
-        [DataMember]
-        public int LoginStatus { get; set; }
 
 
 

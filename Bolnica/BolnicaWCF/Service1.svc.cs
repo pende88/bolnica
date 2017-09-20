@@ -17,5 +17,27 @@ namespace BolnicaWCF
         {
             return (new Repository()).LoginKorisnikProvjera(Username, Password);
         }
+
+        public List<Korisnik> GetKorisnik()
+        {
+            return (new Repository()).GetKorisnik();
+        }
+
+        public void AddKorisnik(Korisnik k)
+        {
+            new Repository().AddKorisnik(k);
+        }
+
+        public void UpdateKorisnik(Korisnik k)
+        {
+            new Repository().UpdateKorisnik(k);
+        }
+
+        public void DeleteKorisnik(int id)
+        {
+            new Repository().DeleteKorisnik(id);
+        }
+
+
     }
 }

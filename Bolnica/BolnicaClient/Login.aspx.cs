@@ -53,14 +53,15 @@ namespace BolnicaClient
 
             foreach(var k in kor)// tu je problem ne dobiva vrijednost
             {
-                UserId = k.KorisnickiRacunID;
+                UserId = k.IDKorisnickiRacun;
                 roles = k.KorisnickaGrupaNaziv;
                 
             }
 
+            this.Session["TrenutniKorisnik"] = UserId;
 
 
-                switch (UserId)
+            switch (UserId)
                 {
                     case -1:
                         Login1.FailureText = "Username and/or password is incorrect.";

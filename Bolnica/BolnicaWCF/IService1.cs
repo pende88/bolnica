@@ -16,5 +16,17 @@ namespace BolnicaWCF
 
         [OperationContract]
         List<Korisnik> LoginKorisnikProvjera(string Username, string Password);
+
+        [OperationContract]
+        List<Korisnik> GetKorisnik();
+
+        [OperationContract]
+        void AddKorisnik(Korisnik k);
+
+        [OperationContract]
+        void UpdateKorisnik(Korisnik k);
+
+        [OperationContract]
+        void DeleteKorisnik(int id);
     }
 }

@@ -30,6 +30,7 @@ namespace BolnicaClient
 
                         HttpContext.Current.User = new GenericPrincipal(id, roles);
 
+
                        
                     }
                 }
