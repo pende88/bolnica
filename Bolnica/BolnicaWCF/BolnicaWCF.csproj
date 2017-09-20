@@ -67,6 +67,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Drzava.cs" />
+    <Compile Include="Model\Grupa.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Service1.svc.cs">

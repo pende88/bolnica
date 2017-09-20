@@ -26,34 +26,28 @@ namespace BolnicaClient.BolnicaService {
         private string AdresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int DrzavaIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DrzavaNazivField;
+        private string DrzavaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GradField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string GrupaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDDrzavaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDKorisnickaGrupaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDKorisnickiRacunField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDKorisnikDetaljiField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ImeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int KorisnickaGrupaIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string KorisnickaGrupaNazivField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int KorisnickiRacunIDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int LoginStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string OIBField;
@@ -97,27 +91,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int DrzavaID {
+        public string Drzava {
             get {
-                return this.DrzavaIDField;
+                return this.DrzavaField;
             }
             set {
-                if ((this.DrzavaIDField.Equals(value) != true)) {
-                    this.DrzavaIDField = value;
-                    this.RaisePropertyChanged("DrzavaID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string DrzavaNaziv {
-            get {
-                return this.DrzavaNazivField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DrzavaNazivField, value) != true)) {
-                    this.DrzavaNazivField = value;
-                    this.RaisePropertyChanged("DrzavaNaziv");
+                if ((object.ReferenceEquals(this.DrzavaField, value) != true)) {
+                    this.DrzavaField = value;
+                    this.RaisePropertyChanged("Drzava");
                 }
             }
         }
@@ -136,6 +117,58 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Grad {
+            get {
+                return this.GradField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GradField, value) != true)) {
+                    this.GradField = value;
+                    this.RaisePropertyChanged("Grad");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Grupa {
+            get {
+                return this.GrupaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.GrupaField, value) != true)) {
+                    this.GrupaField = value;
+                    this.RaisePropertyChanged("Grupa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDDrzava {
+            get {
+                return this.IDDrzavaField;
+            }
+            set {
+                if ((this.IDDrzavaField.Equals(value) != true)) {
+                    this.IDDrzavaField = value;
+                    this.RaisePropertyChanged("IDDrzava");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDKorisnickaGrupa {
+            get {
+                return this.IDKorisnickaGrupaField;
+            }
+            set {
+                if ((this.IDKorisnickaGrupaField.Equals(value) != true)) {
+                    this.IDKorisnickaGrupaField = value;
+                    this.RaisePropertyChanged("IDKorisnickaGrupa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int IDKorisnickiRacun {
             get {
                 return this.IDKorisnickiRacunField;
@@ -149,19 +182,6 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDKorisnikDetalji {
-            get {
-                return this.IDKorisnikDetaljiField;
-            }
-            set {
-                if ((this.IDKorisnikDetaljiField.Equals(value) != true)) {
-                    this.IDKorisnikDetaljiField = value;
-                    this.RaisePropertyChanged("IDKorisnikDetalji");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Ime {
             get {
                 return this.ImeField;
@@ -170,58 +190,6 @@ namespace BolnicaClient.BolnicaService {
                 if ((object.ReferenceEquals(this.ImeField, value) != true)) {
                     this.ImeField = value;
                     this.RaisePropertyChanged("Ime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int KorisnickaGrupaID {
-            get {
-                return this.KorisnickaGrupaIDField;
-            }
-            set {
-                if ((this.KorisnickaGrupaIDField.Equals(value) != true)) {
-                    this.KorisnickaGrupaIDField = value;
-                    this.RaisePropertyChanged("KorisnickaGrupaID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string KorisnickaGrupaNaziv {
-            get {
-                return this.KorisnickaGrupaNazivField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.KorisnickaGrupaNazivField, value) != true)) {
-                    this.KorisnickaGrupaNazivField = value;
-                    this.RaisePropertyChanged("KorisnickaGrupaNaziv");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int KorisnickiRacunID {
-            get {
-                return this.KorisnickiRacunIDField;
-            }
-            set {
-                if ((this.KorisnickiRacunIDField.Equals(value) != true)) {
-                    this.KorisnickiRacunIDField = value;
-                    this.RaisePropertyChanged("KorisnickiRacunID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int LoginStatus {
-            get {
-                return this.LoginStatusField;
-            }
-            set {
-                if ((this.LoginStatusField.Equals(value) != true)) {
-                    this.LoginStatusField = value;
-                    this.RaisePropertyChanged("LoginStatus");
                 }
             }
         }
@@ -314,6 +282,128 @@ namespace BolnicaClient.BolnicaService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Grupa", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Grupa : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDKorisnickaGrupaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string KorisnickaGrupaNazivField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDKorisnickaGrupa {
+            get {
+                return this.IDKorisnickaGrupaField;
+            }
+            set {
+                if ((this.IDKorisnickaGrupaField.Equals(value) != true)) {
+                    this.IDKorisnickaGrupaField = value;
+                    this.RaisePropertyChanged("IDKorisnickaGrupa");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string KorisnickaGrupaNaziv {
+            get {
+                return this.KorisnickaGrupaNazivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.KorisnickaGrupaNazivField, value) != true)) {
+                    this.KorisnickaGrupaNazivField = value;
+                    this.RaisePropertyChanged("KorisnickaGrupaNaziv");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Drzava", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Drzava : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDDrzavaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDDrzava {
+            get {
+                return this.IDDrzavaField;
+            }
+            set {
+                if ((this.IDDrzavaField.Equals(value) != true)) {
+                    this.IDDrzavaField = value;
+                    this.RaisePropertyChanged("IDDrzava");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Naziv {
+            get {
+                return this.NazivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivField, value) != true)) {
+                    this.NazivField = value;
+                    this.RaisePropertyChanged("Naziv");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BolnicaService.IService1")]
     public interface IService1 {
@@ -321,8 +411,23 @@ namespace BolnicaClient.BolnicaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginKorisnikProvjera", ReplyAction="http://tempuri.org/IService1/LoginKorisnikProvjeraResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> LoginKorisnikProvjera(string Username, string Password);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginKorisnikProvjera", ReplyAction="http://tempuri.org/IService1/LoginKorisnikProvjeraResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik>> LoginKorisnikProvjeraAsync(string Username, string Password);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetKorisnik", ReplyAction="http://tempuri.org/IService1/GetKorisnikResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetKorisnik();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddKorisnik", ReplyAction="http://tempuri.org/IService1/AddKorisnikResponse")]
+        void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateKorisnik", ReplyAction="http://tempuri.org/IService1/UpdateKorisnikResponse")]
+        void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteKorisnik", ReplyAction="http://tempuri.org/IService1/DeleteKorisnikResponse")]
+        void DeleteKorisnik(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupa", ReplyAction="http://tempuri.org/IService1/GetGrupaResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Grupa> GetGrupa();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDrzava", ReplyAction="http://tempuri.org/IService1/GetDrzavaResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Drzava> GetDrzava();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -356,8 +461,28 @@ namespace BolnicaClient.BolnicaService {
             return base.Channel.LoginKorisnikProvjera(Username, Password);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik>> LoginKorisnikProvjeraAsync(string Username, string Password) {
-            return base.Channel.LoginKorisnikProvjeraAsync(Username, Password);
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetKorisnik() {
+            return base.Channel.GetKorisnik();
+        }
+        
+        public void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
+            base.Channel.AddKorisnik(k);
+        }
+        
+        public void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
+            base.Channel.UpdateKorisnik(k);
+        }
+        
+        public void DeleteKorisnik(int id) {
+            base.Channel.DeleteKorisnik(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Grupa> GetGrupa() {
+            return base.Channel.GetGrupa();
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Drzava> GetDrzava() {
+            return base.Channel.GetDrzava();
         }
     }
 }

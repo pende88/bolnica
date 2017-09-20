@@ -45,7 +45,7 @@ namespace BolnicaWCF
 
                         if (k.IDKorisnickiRacun != -1)
                         {
-                            k.KorisnickaGrupaNaziv = dr["Naziv"].ToString();
+                            k.Grupa = dr["Naziv"].ToString();
 
                         }
 
@@ -72,7 +72,7 @@ namespace BolnicaWCF
             {
                 using (SqlConnection Sqlcon = new SqlConnection(_cs))
                 {
-                    SqlCommand cmd = new SqlCommand("dbo.LoginKorisnik", Sqlcon);
+                    SqlCommand cmd = new SqlCommand("dbo.GetKorisnik", Sqlcon);
 
                     cmd.CommandType = CommandType.StoredProcedure;
           
@@ -97,7 +97,8 @@ namespace BolnicaWCF
                         k.Adresa = dr["Adresa"].ToString();
                         k.PTTBroj = dr["PTTBroj"].ToString();
                         k.Grad = dr["Grad"].ToString();
-                        k.IDDrzava = Convert.ToInt32(dr["IDDrzava"]);
+                       
+                        k.IDDrzava = dr["IDDrzava"] == DBNull.Value ? 0 : (int)dr["IDDrzava"];
                         k.Drzava = dr["Drzava"].ToString();
 
 
@@ -131,11 +132,13 @@ namespace BolnicaWCF
                     command.Parameters.Add(new SqlParameter("@Ime", k.Ime));
                     command.Parameters.Add(new SqlParameter("@Prezime", k.Prezime));
                     command.Parameters.Add(new SqlParameter("@OIB", k.OIB));
+                    command.Parameters.Add(new SqlParameter("@Telefon", k.Telefon));
+                    command.Parameters.Add(new SqlParameter("@Email", k.Email));
                     command.Parameters.Add(new SqlParameter("@Adresa", k.Adresa));
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
                     command.Parameters.Add(new SqlParameter("@DrzavaID", k.IDDrzava));
-                   
+
                     command.ExecuteNonQuery();
                 }
             }
@@ -156,13 +159,15 @@ namespace BolnicaWCF
                     SqlCommand command = new SqlCommand("dbo.UpdateKorisnik", conn);
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.Add(new SqlParameter("@Username", k.IDKorisnickiRacun));
+                    command.Parameters.Add(new SqlParameter("@IDKorisnickiRacun", k.IDKorisnickiRacun));
                     command.Parameters.Add(new SqlParameter("@Username", k.Username));
                     command.Parameters.Add(new SqlParameter("@Password", k.Password));
                     command.Parameters.Add(new SqlParameter("@KorisnickaGrupaID", k.IDKorisnickaGrupa));
                     command.Parameters.Add(new SqlParameter("@Ime", k.Ime));
                     command.Parameters.Add(new SqlParameter("@Prezime", k.Prezime));
                     command.Parameters.Add(new SqlParameter("@OIB", k.OIB));
+                    command.Parameters.Add(new SqlParameter("@Telefon", k.Telefon));
+                    command.Parameters.Add(new SqlParameter("@Email", k.Email));
                     command.Parameters.Add(new SqlParameter("@Adresa", k.Adresa));
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
@@ -199,6 +204,81 @@ namespace BolnicaWCF
             }
         }
 
+        public List<Grupa> GetGrupa()
+        {
+            List<Grupa> lista = new List<Grupa>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetGrupa", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Grupa g = new Grupa();
+
+                        g.IDKorisnickaGrupa = Convert.ToInt32(dr["IDKorisnickaGrupa"]);
+                        g.KorisnickaGrupaNaziv = dr["Naziv"].ToString();
+
+
+                        lista.Add(g);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
+
+        public List<Drzava> GetDrzava()
+        {
+            List<Drzava> lista = new List<Drzava>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetDrzava", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Drzava d = new Drzava();
+
+                        d.IDDrzava = Convert.ToInt32(dr["IDDrzava"]);
+                        d.Naziv = dr["Naziv"].ToString();
+
+
+                        lista.Add(d);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
 
 
 

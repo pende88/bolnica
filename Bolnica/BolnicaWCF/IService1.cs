@@ -28,5 +28,11 @@ namespace BolnicaWCF
 
         [OperationContract]
         void DeleteKorisnik(int id);
+
+        [OperationContract]
+        List<Grupa> GetGrupa();
+
+        [OperationContract]
+        List<Drzava> GetDrzava();
     }
 }

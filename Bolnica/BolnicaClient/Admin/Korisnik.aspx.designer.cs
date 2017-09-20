@@ -10,7 +10,7 @@
 namespace BolnicaClient.Admin {
     
     
-    public partial class SviKorisnici {
+    public partial class Korisnik {
         
         /// <summary>
         /// lblIDKorisnickiRacun control.
@@ -40,13 +40,13 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.Label lblUsername;
         
         /// <summary>
-        /// txtUserName control.
+        /// txtUsername control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtUserName;
+        protected global::System.Web.UI.WebControls.TextBox txtUsername;
         
         /// <summary>
         /// RequiredFieldValidator1 control.
@@ -85,13 +85,22 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         /// <summary>
-        /// Label1 control.
+        /// RegularExpressionValidatorPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorPassword;
+        
+        /// <summary>
+        /// lblGrupa control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGrupa;
         
         /// <summary>
         /// ddlGrupa control.
@@ -103,13 +112,13 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlGrupa;
         
         /// <summary>
-        /// CustomValidator1 control.
+        /// validatorDdlGrupa control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator CustomValidator1;
+        protected global::System.Web.UI.WebControls.CustomValidator validatorDdlGrupa;
         
         /// <summary>
         /// lblIme control.
@@ -193,6 +202,15 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator7;
         
         /// <summary>
+        /// validatorOIB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator validatorOIB;
+        
+        /// <summary>
         /// lblTelefon control.
         /// </summary>
         /// <remarks>
@@ -220,6 +238,15 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator8;
         
         /// <summary>
+        /// RegularExpressionValidatorTelefon control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorTelefon;
+        
+        /// <summary>
         /// lblEmail control.
         /// </summary>
         /// <remarks>
@@ -245,6 +272,15 @@ namespace BolnicaClient.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator9;
+        
+        /// <summary>
+        /// RegularExpressionValidatorEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidatorEmail;
         
         /// <summary>
         /// lblAdresa control.
@@ -301,22 +337,22 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
         
         /// <summary>
-        /// lblPTT control.
+        /// lblPTTbroj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPTT;
+        protected global::System.Web.UI.WebControls.Label lblPTTbroj;
         
         /// <summary>
-        /// txtPTT control.
+        /// txtPTTbroj control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPTT;
+        protected global::System.Web.UI.WebControls.TextBox txtPTTbroj;
         
         /// <summary>
         /// RequiredFieldValidator10 control.
@@ -400,12 +436,12 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// GridViewKlijent control.
+        /// GridViewKorisnik control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewKlijent;
+        protected global::System.Web.UI.WebControls.GridView GridViewKorisnik;
     }
 }

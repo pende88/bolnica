@@ -7,6 +7,7 @@
       
       <siteMapNode url="javascript:;" title="Administrator" description="Admin Page" roles ="Administrator">
         <siteMapNode url ="~/Admin/ProbaAdmin.aspx" title="Proba" description="Admin Page"></siteMapNode>
+        <siteMapNode url ="~/Admin/Korisnik.aspx" title="Korisnici" description="Admin Korisnika"></siteMapNode>
       </siteMapNode>
 
      

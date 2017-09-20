@@ -54,7 +54,7 @@ namespace BolnicaClient
             foreach(var k in kor)// tu je problem ne dobiva vrijednost
             {
                 UserId = k.IDKorisnickiRacun;
-                roles = k.KorisnickaGrupaNaziv;
+                roles = k.Grupa;
                 
             }
 

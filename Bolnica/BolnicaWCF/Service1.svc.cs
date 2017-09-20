@@ -38,6 +38,14 @@ namespace BolnicaWCF
             new Repository().DeleteKorisnik(id);
         }
 
+        public List<Grupa> GetGrupa()
+        {
+            return (new Repository()).GetGrupa();
+        }
 
+        public List<Drzava> GetDrzava()
+        {
+            return (new Repository()).GetDrzava();
+        }
     }
 }

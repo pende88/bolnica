@@ -13,16 +13,130 @@
   <wsdl:message name="IService1_LoginKorisnikProvjera_OutputMessage">
     <wsdl:part name="parameters" element="tns:LoginKorisnikProvjeraResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteKorisnik_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKorisnik" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteKorisnik_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteKorisnikResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGrupa_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupa" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetGrupa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGrupaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDrzava_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrzava" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDrzava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrzavaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjeraResponse" message="tns:IService1_LoginKorisnikProvjera_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetKorisnik" message="tns:IService1_GetKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetKorisnikResponse" message="tns:IService1_GetKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddKorisnik" message="tns:IService1_AddKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddKorisnikResponse" message="tns:IService1_AddKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateKorisnik" message="tns:IService1_UpdateKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateKorisnikResponse" message="tns:IService1_UpdateKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKorisnik">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteKorisnik" message="tns:IService1_DeleteKorisnik_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteKorisnikResponse" message="tns:IService1_DeleteKorisnik_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGrupa">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupa" message="tns:IService1_GetGrupa_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGrupaResponse" message="tns:IService1_GetGrupa_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDrzava">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDrzava" message="tns:IService1_GetDrzava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDrzavaResponse" message="tns:IService1_GetDrzava_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="LoginKorisnikProvjera">
       <soap:operation soapAction="http://tempuri.org/IService1/LoginKorisnikProvjera" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetKorisnik">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetKorisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddKorisnik">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddKorisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateKorisnik">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateKorisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteKorisnik">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteKorisnik" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGrupa">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetGrupa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDrzava">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDrzava" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

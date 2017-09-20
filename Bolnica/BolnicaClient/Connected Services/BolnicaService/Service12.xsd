@@ -9,16 +9,14 @@
   <xs:complexType name="Korisnik">
     <xs:sequence>
       <xs:element minOccurs="0" name="Adresa" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="DrzavaID" type="xs:int" />
-      <xs:element minOccurs="0" name="DrzavaNaziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Drzava" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grad" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Grupa" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDDrzava" type="xs:int" />
+      <xs:element minOccurs="0" name="IDKorisnickaGrupa" type="xs:int" />
       <xs:element minOccurs="0" name="IDKorisnickiRacun" type="xs:int" />
-      <xs:element minOccurs="0" name="IDKorisnikDetalji" type="xs:int" />
       <xs:element minOccurs="0" name="Ime" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="KorisnickaGrupaID" type="xs:int" />
-      <xs:element minOccurs="0" name="KorisnickaGrupaNaziv" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="KorisnickiRacunID" type="xs:int" />
-      <xs:element minOccurs="0" name="LoginStatus" type="xs:int" />
       <xs:element minOccurs="0" name="OIB" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PTTBroj" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
@@ -28,4 +26,30 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Korisnik" nillable="true" type="tns:Korisnik" />
+  <xs:complexType name="ArrayOfGrupa">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Grupa" nillable="true" type="tns:Grupa" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGrupa" nillable="true" type="tns:ArrayOfGrupa" />
+  <xs:complexType name="Grupa">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDKorisnickaGrupa" type="xs:int" />
+      <xs:element minOccurs="0" name="KorisnickaGrupaNaziv" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Grupa" nillable="true" type="tns:Grupa" />
+  <xs:complexType name="ArrayOfDrzava">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Drzava" nillable="true" type="tns:Drzava" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDrzava" nillable="true" type="tns:ArrayOfDrzava" />
+  <xs:complexType name="Drzava">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDDrzava" type="xs:int" />
+      <xs:element minOccurs="0" name="Naziv" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Drzava" nillable="true" type="tns:Drzava" />
 </xs:schema>

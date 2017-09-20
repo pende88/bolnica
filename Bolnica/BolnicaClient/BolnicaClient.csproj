@@ -68,8 +68,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Admin\SviKorsnici.aspx" />
+    <Content Include="Admin\Korisnik.aspx" />
     <Content Include="Admin\Web.config" />
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Drzava.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Grupa.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Korisnik.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -116,12 +122,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin\SviKorsnici.aspx.cs">
-      <DependentUpon>SviKorsnici.aspx</DependentUpon>
+    <Compile Include="Admin\Korisnik.aspx.cs">
+      <DependentUpon>Korisnik.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\SviKorsnici.aspx.designer.cs">
-      <DependentUpon>SviKorsnici.aspx</DependentUpon>
+    <Compile Include="Admin\Korisnik.aspx.designer.cs">
+      <DependentUpon>Korisnik.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ProbaAdmin.aspx.cs">
       <DependentUpon>ProbaAdmin.aspx</DependentUpon>
