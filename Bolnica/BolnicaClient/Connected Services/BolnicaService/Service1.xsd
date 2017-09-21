@@ -88,4 +88,92 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetPacijentByDoktorID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IDDoktor" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacijentByDoktorIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetPacijentByDoktorIDResult" nillable="true" type="q7:ArrayOfPacijentDoktor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPacijentDoktorVeza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pd" nillable="true" type="q8:PacijentDoktor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddPacijentDoktorVezaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePacijentDoktorVeza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pd" nillable="true" type="q9:PacijentDoktor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdatePacijentDoktorVezaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePacijentDoktorVeza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePacijentDoktorVezaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoktor">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDoktorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetDoktorResult" nillable="true" type="q10:ArrayOfDoktor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacijent">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacijentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetPacijentResult" nillable="true" type="q11:ArrayOfPacijent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacijentByVeza">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPacijentByVezaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetPacijentByVezaResult" nillable="true" type="q12:ArrayOfKorisnik" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

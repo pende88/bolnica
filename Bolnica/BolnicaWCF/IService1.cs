@@ -34,5 +34,28 @@ namespace BolnicaWCF
 
         [OperationContract]
         List<Drzava> GetDrzava();
+
+
+        [OperationContract]
+        List<PacijentDoktor> GetPacijentByDoktorID(int IDDoktor);
+
+        [OperationContract]
+        void AddPacijentDoktorVeza(PacijentDoktor pd);
+
+        [OperationContract]
+        void UpdatePacijentDoktorVeza(PacijentDoktor pd);
+
+        [OperationContract]
+        void DeletePacijentDoktorVeza(int id);
+
+
+        [OperationContract]
+        List<Doktor> GetDoktor();
+
+        [OperationContract]
+        List<Pacijent> GetPacijent();
+
+        [OperationContract]
+        List<Korisnik> GetPacijentByVeza(int id);
     }
 }

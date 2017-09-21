@@ -49,6 +49,48 @@
   <wsdl:message name="IService1_GetDrzava_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetDrzavaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByDoktorID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByDoktorID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByDoktorID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByDoktorIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPacijentDoktorVeza_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPacijentDoktorVeza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPacijentDoktorVeza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPacijentDoktorVezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePacijentDoktorVeza_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePacijentDoktorVeza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePacijentDoktorVeza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePacijentDoktorVezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePacijentDoktorVeza_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePacijentDoktorVeza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePacijentDoktorVeza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePacijentDoktorVezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoktor_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoktor" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoktor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoktorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijent" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByVeza_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByVeza" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByVeza_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByVezaResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
@@ -77,6 +119,34 @@
     <wsdl:operation name="GetDrzava">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDrzava" message="tns:IService1_GetDrzava_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDrzavaResponse" message="tns:IService1_GetDrzava_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByDoktorID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByDoktorID" message="tns:IService1_GetPacijentByDoktorID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentByDoktorIDResponse" message="tns:IService1_GetPacijentByDoktorID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPacijentDoktorVeza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPacijentDoktorVeza" message="tns:IService1_AddPacijentDoktorVeza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPacijentDoktorVezaResponse" message="tns:IService1_AddPacijentDoktorVeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePacijentDoktorVeza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePacijentDoktorVeza" message="tns:IService1_UpdatePacijentDoktorVeza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePacijentDoktorVezaResponse" message="tns:IService1_UpdatePacijentDoktorVeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePacijentDoktorVeza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePacijentDoktorVeza" message="tns:IService1_DeletePacijentDoktorVeza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePacijentDoktorVezaResponse" message="tns:IService1_DeletePacijentDoktorVeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoktor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDoktor" message="tns:IService1_GetDoktor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDoktorResponse" message="tns:IService1_GetDoktor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijent" message="tns:IService1_GetPacijent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentResponse" message="tns:IService1_GetPacijent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByVeza">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByVeza" message="tns:IService1_GetPacijentByVeza_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentByVezaResponse" message="tns:IService1_GetPacijentByVeza_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -137,6 +207,69 @@
     </wsdl:operation>
     <wsdl:operation name="GetDrzava">
       <soap:operation soapAction="http://tempuri.org/IService1/GetDrzava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByDoktorID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPacijentByDoktorID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPacijentDoktorVeza">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddPacijentDoktorVeza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePacijentDoktorVeza">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePacijentDoktorVeza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePacijentDoktorVeza">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletePacijentDoktorVeza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoktor">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDoktor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijent">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPacijent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByVeza">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPacijentByVeza" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -204,6 +204,8 @@ namespace BolnicaWCF
             }
         }
 
+
+
         public List<Grupa> GetGrupa()
         {
             List<Grupa> lista = new List<Grupa>();
@@ -281,6 +283,247 @@ namespace BolnicaWCF
         }
 
 
+
+
+        public List<PacijentDoktor> GetPacijentByDoktorID(int IDDoktor)
+        {
+            List<PacijentDoktor> lista = new List<PacijentDoktor>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetPacijentByDoktorID", Sqlcon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IDDoktor", IDDoktor));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        PacijentDoktor pd = new PacijentDoktor();
+
+                        pd.IDPacijentDoktorVeza = Convert.ToInt32(dr["IDPacijentDoktorVeza"]);
+                        pd.DoktorKorisnickiRacunID = Convert.ToInt32(dr["DoktorKorisnickiRacunID"]);
+                        pd.PacijentKorisnickiRacunID = Convert.ToInt32(dr["IDPacijenta"]);
+                        pd.NazivPacijenta = dr["NazivPacijenta"].ToString();
+
+
+                        lista.Add(pd);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
+
+        public void AddPacijentDoktorVeza(PacijentDoktor pd)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.AddPacijentDoktorVeza", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@DoktorKorisnickiRacunID", pd.DoktorKorisnickiRacunID));
+                    command.Parameters.Add(new SqlParameter("@PacijentKorisnickiRacunID", pd.PacijentKorisnickiRacunID));
+               
+                    
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void UpdatePacijentKorisnikVeza(PacijentDoktor pd)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.UpdatePacijentKorisnikVeza", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@IDPacijentDoktorVeza", pd.IDPacijentDoktorVeza));
+                    command.Parameters.Add(new SqlParameter("@DoktorKorisnickiRacunID", pd.DoktorKorisnickiRacunID));
+                    command.Parameters.Add(new SqlParameter("@PacijentKorisnickiRacunID", pd.PacijentKorisnickiRacunID));
+                    
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void DeletePacijentDoktorVeza(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.DeletePacijentDoktorVeza", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDPacijentDoktorVeza", id));
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+        public List<Doktor> GetDoktor()
+        {
+            List<Doktor> lista = new List<Doktor>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetDoktor", Sqlcon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                   
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Doktor d = new Doktor();
+
+                        d.IDKOrisnickiRacun = Convert.ToInt32(dr["IDKOrisnickiRacun"]);
+                        d.NazivDoktora = dr["NazivDoktora"].ToString();
+                        
+                        lista.Add(d);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
+
+        public List<Pacijent> GetPacijent()
+        {
+            List<Pacijent> lista = new List<Pacijent>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetPacijent", Sqlcon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Pacijent p = new Pacijent();
+
+                        p.IDKOrisnickiRacun = Convert.ToInt32(dr["IDKOrisnickiRacun"]);
+                        p.NazivPacijenta = dr["NazivPacijenta"].ToString();
+
+                        lista.Add(p);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
+
+        public List<Korisnik> GetPacijentByVeza(int id)
+        {
+            List<Korisnik> lista = new List<Korisnik>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetPacijentByVeza", Sqlcon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@IDPacijentDoktorVeza", id));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Korisnik k = new Korisnik();
+
+                        k.IDKorisnickiRacun = Convert.ToInt32(dr["IDKorisnickiRacun"]);
+                       
+                        k.Username = dr["Username"].ToString();
+                        k.Password = dr["Password"].ToString();
+                        k.Ime = dr["Ime"].ToString();
+                        k.Prezime = dr["Prezime"].ToString();
+                        k.OIB = dr["OIB"].ToString();
+                        k.Telefon = dr["Telefon"].ToString();
+                        k.Email = dr["Email"].ToString();
+                        k.Adresa = dr["Adresa"].ToString();
+                        k.PTTBroj = dr["PTTBroj"].ToString();
+                        k.Grad = dr["Grad"].ToString();
+
+                        k.IDDrzava = dr["IDDrzava"] == DBNull.Value ? 0 : (int)dr["IDDrzava"];
+                        k.Drzava = dr["Drzava"].ToString();
+
+
+                        lista.Add(k);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
+        }
 
     }
 

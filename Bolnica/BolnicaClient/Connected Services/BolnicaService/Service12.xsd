@@ -52,4 +52,45 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Drzava" nillable="true" type="tns:Drzava" />
+  <xs:complexType name="ArrayOfPacijentDoktor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PacijentDoktor" nillable="true" type="tns:PacijentDoktor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPacijentDoktor" nillable="true" type="tns:ArrayOfPacijentDoktor" />
+  <xs:complexType name="PacijentDoktor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DoktorKorisnickiRacunID" type="xs:int" />
+      <xs:element minOccurs="0" name="IDPacijentDoktorVeza" type="xs:int" />
+      <xs:element minOccurs="0" name="NazivPacijenta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PacijentKorisnickiRacunID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PacijentDoktor" nillable="true" type="tns:PacijentDoktor" />
+  <xs:complexType name="ArrayOfDoktor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Doktor" nillable="true" type="tns:Doktor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfDoktor" nillable="true" type="tns:ArrayOfDoktor" />
+  <xs:complexType name="Doktor">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDKOrisnickiRacun" type="xs:int" />
+      <xs:element minOccurs="0" name="NazivDoktora" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Doktor" nillable="true" type="tns:Doktor" />
+  <xs:complexType name="ArrayOfPacijent">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Pacijent" nillable="true" type="tns:Pacijent" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPacijent" nillable="true" type="tns:ArrayOfPacijent" />
+  <xs:complexType name="Pacijent">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDKOrisnickiRacun" type="xs:int" />
+      <xs:element minOccurs="0" name="NazivPacijenta" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pacijent" nillable="true" type="tns:Pacijent" />
 </xs:schema>

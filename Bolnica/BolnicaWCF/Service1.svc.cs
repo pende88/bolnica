@@ -47,5 +47,40 @@ namespace BolnicaWCF
         {
             return (new Repository()).GetDrzava();
         }
+
+        public List<PacijentDoktor> GetPacijentByDoktorID(int IDDoktor)
+        {
+            return (new Repository()).GetPacijentByDoktorID(IDDoktor);
+        }
+
+        public void AddPacijentDoktorVeza(PacijentDoktor pd)
+        {
+            new Repository().AddPacijentDoktorVeza(pd);
+        }
+
+        public void UpdatePacijentDoktorVeza(PacijentDoktor pd)
+        {
+            new Repository().UpdatePacijentKorisnikVeza(pd);
+        }
+
+        public void DeletePacijentDoktorVeza(int id)
+        {
+            new Repository().DeletePacijentDoktorVeza(id);
+        }
+
+        public List<Doktor> GetDoktor()
+        {
+            return (new Repository()).GetDoktor();
+        }
+
+        public List<Pacijent> GetPacijent()
+        {
+            return (new Repository()).GetPacijent();
+        }
+
+        public List<Korisnik> GetPacijentByVeza(int id)
+        {
+            return (new Repository()).GetPacijentByVeza(id);
+        }
     }
 }

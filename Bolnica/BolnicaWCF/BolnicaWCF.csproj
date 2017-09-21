@@ -67,9 +67,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Doktor.cs" />
     <Compile Include="Model\Drzava.cs" />
     <Compile Include="Model\Grupa.cs" />
     <Compile Include="Model\Korisnik.cs" />
+    <Compile Include="Model\Pacijent.cs" />
+    <Compile Include="Model\PacijentDoktor.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
