@@ -7,17 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace BolnicaClient.Admin
 {
-    public partial class Drzave : System.Web.UI.Page
+    public partial class Bolesti : System.Web.UI.Page
     {
-
         BolnicaService.IService1 proxy;
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 FillGridView();
+                FillDdlOpasnosti();
+
                 btnSave.Enabled = true;
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
@@ -26,29 +26,64 @@ namespace BolnicaClient.Admin
 
         private void FillGridView()
         {
+
+            {
+                try
+                {
+                    proxy = new BolnicaService.Service1Client();
+                    GridviewBolest.DataSource = proxy.GetBolest();
+                    GridviewBolest.DataBind();
+                }
+                catch (Exception ex)
+                {
+                    lblStatus.Text = ("Pogreška pri učitavanju podataka, greška: " + ex);
+                }
+            }
+        }
+
+        private void FillDdlOpasnosti()
+        {
             try
             {
                 proxy = new BolnicaService.Service1Client();
-                GridViewDrzave.DataSource = proxy.GetDrzava();
-                GridViewDrzave.DataBind();
+                ddlOpasnosti.DataSource = proxy.GetOpasnostBolesti();
+                ddlOpasnosti.DataBind();
             }
             catch (Exception ex)
             {
                 lblStatus.Text = ("Pogreška pri učitavanju podataka, greška: " + ex);
             }
-
         }
 
-        protected void GridViewDrzave_SelectedIndexChanged(object sender, EventArgs e)
+        protected void CustomValidatorOdabirOpasnosti_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            txtIDProizvodjac.Text = GridViewDrzave.DataKeys[GridViewDrzave.SelectedRow.RowIndex].Value.ToString();
+            if (ddlOpasnosti.SelectedValue.Equals(""))
+            {
+                args.IsValid = false;
+            }
+        }
 
-            txtNazivProizvodjac.Text = (GridViewDrzave.SelectedRow.FindControl("lblNazivDrzave") as Label).Text;
+        protected void GridviewBolest_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtIDBolest.Text = GridviewBolest.DataKeys[GridviewBolest.SelectedRow.RowIndex].Value.ToString();
+            txtNazivBolesti.Text = (GridviewBolest.SelectedRow.FindControl("lblNazivBolesti") as Label).Text;
+            txtGodinaOtkrica.Text = (GridviewBolest.SelectedRow.FindControl("lblGodinaOtkrica") as Label).Text;
+            string probaBolest = (GridviewBolest.SelectedRow.FindControl("lblOpasnostID") as Label).Text.Trim();
+            if (probaBolest == "")
+            {
+                ddlOpasnosti.SelectedValue = "";
+            }
+            else
+            {
+                ddlOpasnosti.SelectedValue = (GridviewBolest.SelectedRow.FindControl("lblOpasnostID") as Label).Text.Trim();
+            }
 
             btnSave.Enabled = false;
             btnDelete.Enabled = true;
             btnUpdate.Enabled = true;
         }
+
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -59,17 +94,19 @@ namespace BolnicaClient.Admin
                 try
                 {
                     proxy = new BolnicaService.Service1Client();
-                    BolnicaService.Proizvodjac d = new BolnicaService.Proizvodjac();
+                    BolnicaService.Bolest b = new BolnicaService.Bolest();
 
 
                     try
                     {
-                       d.Naziv = txtNazivProizvodjac.Text;
-                       proxy.AddProizvodjac(d);
-                        FillGridView();
-                        
+                        b.NazivBolesti= txtNazivBolesti.Text;
+                        b.GodinaOtkrica= Convert.ToInt32(txtGodinaOtkrica.Text);
+                        b.OpasnostID= Convert.ToInt32(ddlOpasnosti.SelectedValue);
+
+                        proxy.AddBolest(b);
 
                         lblStatus.Text = "Operacija uspješno spremljena";
+                        FillGridView();
 
                     }
                     catch (Exception ex)
@@ -103,35 +140,30 @@ namespace BolnicaClient.Admin
                 try
                 {
                     proxy = new BolnicaService.Service1Client();
-                    BolnicaService.Proizvodjac d = new BolnicaService.Proizvodjac();
+                    BolnicaService.Bolest b = new BolnicaService.Bolest();
 
 
                     try
                     {
-                        d.IDProizvodjac= Convert.ToInt32(txtIDProizvodjac.Text);
-                        d.Naziv= txtNazivProizvodjac.Text;
-                        proxy.UpdateProizvodjac(d);
+                        b.IDBolest = Convert.ToInt32(txtIDBolest.Text);
+                        b.NazivBolesti = txtNazivBolesti.Text;
+                        b.GodinaOtkrica = Convert.ToInt32(txtGodinaOtkrica.Text);
+                        b.OpasnostID = Convert.ToInt32(ddlOpasnosti.SelectedValue);
+
+                        proxy.UpdateBolest(b);
+
+                        lblStatus.Text = "Operacija uspješno spremljena";
                         FillGridView();
-
-                        lblStatus.Text = "Podaci uspješno izmjenjeni";
-
-                        ClearAll();
-
-                        btnSave.Enabled = true;
-                        btnDelete.Enabled = false;
-                        btnUpdate.Enabled = false;
 
                     }
                     catch (Exception ex)
                     {
-                        lblStatus.Text = ("Operacija nije izvršena, greška u pristupu kod baze podataka: " + ex);
-
-                        btnSave.Enabled = false;
-                        btnDelete.Enabled = true;
-                        btnUpdate.Enabled = true;
+                        lblStatus.Text = ("Operacija nije izvršena, greška: " + ex);
                     }
 
 
+
+                    ClearAll();
                 }
                 catch (Exception ex)
                 {
@@ -139,19 +171,21 @@ namespace BolnicaClient.Admin
                 }
 
                 FillGridView();
+
                 btnSave.Enabled = true;
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
+
             }
         }
 
         protected void btnDelete_Click(object sender, EventArgs e)
         {
-            int id = Convert.ToInt32(txtIDProizvodjac.Text);
-
+            int id = Convert.ToInt32(txtIDBolest.Text);
+            proxy = new BolnicaService.Service1Client();
             try
             {
-                proxy.DeleteProizvodjac(id);
+                proxy.DeleteBolest(id);
                 lblStatus.Text = "Svi podaci uspješno izbrisani";
                 ClearAll();
                 FillGridView();
@@ -179,10 +213,16 @@ namespace BolnicaClient.Admin
             btnUpdate.Enabled = false;
         }
 
-
         private void ClearAll()
         {
-            txtIDProizvodjac.Text = txtNazivProizvodjac.Text = "";
+            txtIDBolest.Text = txtNazivBolesti.Text = txtGodinaOtkrica.Text = "";
+            ddlOpasnosti.SelectedValue = "";
+
+            btnSave.Enabled = true;
+            btnDelete.Enabled = false;
+            btnUpdate.Enabled = false;
         }
+
+
     }
 }

@@ -31,7 +31,7 @@
                     <div class="col-sm-10">
                         <asp:TextBox TextMode="Password" PasswordChar='*' ID="txtPassword" runat="server" Enabled="true" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Obavezan unos" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
-                        <asp:RegularExpressionValidator ControlToValidate="txtPassword" ID="RegularExpressionValidatorPassword" runat="server" ValidationExpression="^[\s\S]{,}$" runat="server" ErrorMessage="Minimum 6 znakova je potrebno."></asp:RegularExpressionValidator>
+                        <asp:RegularExpressionValidator ControlToValidate="txtPassword" ID="RegularExpressionValidatorPassword" runat="server" ValidationExpression="^[\s\S]{,}$"  ErrorMessage="Minimum 6 znakova je potrebno."></asp:RegularExpressionValidator>
                     </div>
                 </div>
 
@@ -124,14 +124,14 @@
 
 
                 <div class="form-group">
-                    <asp:Label CssClass="control-label col-sm-2" ID="lblProizvodjac" runat="server" Text="Proizvodjac:" AssociatedControlID="ddlProizvodjac"></asp:Label>
+                    <asp:Label CssClass="control-label col-sm-2" ID="lblIDDrzava" runat="server" Text="Proizvodjac:" AssociatedControlID="ddlDrzava"></asp:Label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlProizvodjac" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDProizvodjac" DataTextField="Naziv">
+                        <asp:DropDownList CssClass="btn btn-default" ID="ddlDrzava" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDDrzava" DataTextField="Naziv">
                             <Items>
                                 <asp:ListItem Text="Odaberi državu" Value="" Selected="True"></asp:ListItem>
                             </Items>
                         </asp:DropDownList>
-                        <asp:CustomValidator ID="validatorDdlProizvodjac" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlProizvodjac_ServerValidate"></asp:CustomValidator>
+                        <asp:CustomValidator ID="validatorDdlDrzava" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlDrzava_ServerValidate"></asp:CustomValidator>
 
                     </div>
                 </div>
@@ -242,15 +242,15 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="IDProizvodjac">
+                    <asp:TemplateField HeaderText="ID Države">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblIDProizvodjac" runat="server" Text='<%# Convert.ToString(Eval("IDProizvodjac")) == null ? "Nema" : Eval("IDProizvodjac") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblDrzavaID" runat="server" Text='<%# Convert.ToString(Eval("DrzavaID")) == null ? "Nema" : Eval("DrzavaID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Proizvodjac">
+                    <asp:TemplateField HeaderText="Država">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblProizvodjac" runat="server" Text='<%# Convert.ToString(Eval("Proizvodjac")) == null ? "Nema" : Eval("Proizvodjac") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblDrzava" runat="server" Text='<%# Convert.ToString(Eval("Drzava")) == null ? "Nema" : Eval("Drzava") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

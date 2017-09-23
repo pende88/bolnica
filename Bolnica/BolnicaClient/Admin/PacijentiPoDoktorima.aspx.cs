@@ -18,7 +18,16 @@ namespace BolnicaClient.Admin
             {
                 FillDdlOdabirDoktora();
                 FillDdlOdabirPacijenta();
-                FillDdlProizvodjac();
+                FillDdlDrzava();
+
+                btnSave.Enabled = true;
+                btnDodaj.Enabled = false;
+                btnDodaj2.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
+            if(ddlOdabirDoktora.SelectedValue != "" && ddlOdabirPacijenta.SelectedValue != "")
+            {
+                btnDodaj.Enabled = true;
             }
         }
 
@@ -50,13 +59,13 @@ namespace BolnicaClient.Admin
             }
         }
 
-        private void FillDdlProizvodjac()
+        private void FillDdlDrzava()
         {
             try
             {
                 proxy = new BolnicaService.Service1Client();
-                ddlProizvodjac.DataSource = proxy.GetProizvodjac();
-                ddlProizvodjac.DataBind();
+                ddlDrzava.DataSource = proxy.GetDrzava();
+                ddlDrzava.DataBind();
             }
             catch (Exception ex)
             {
@@ -65,7 +74,7 @@ namespace BolnicaClient.Admin
         }
 
 
-
+        
 
 
 
@@ -125,10 +134,15 @@ namespace BolnicaClient.Admin
 
                     txtPTTbroj.Text = kor.PTTBroj;
 
-                    ddlProizvodjac.SelectedValue = kor.IDProizvodjac.ToString();
+                    ddlDrzava.SelectedValue = kor.DrzavaID.ToString();
+
 
                     
                 }
+                btnSave.Enabled = false;
+                btnDodaj.Enabled = false;
+                btnDodaj2.Enabled = true;
+                btnUpdate.Enabled = true;
 
 
             }
@@ -175,11 +189,17 @@ namespace BolnicaClient.Admin
                 proxy.DeletePacijentDoktorVeza(Convert.ToInt32(veza));
                 lblStatus.Text = ("Uspješno izbrisano");
                 FillGridViewPacijentiByDoktor();
+
+                btnSave.Enabled = true;
+                btnDodaj.Enabled = false;
+                btnDodaj2.Enabled = false;
+                btnUpdate.Enabled = false;
             }
             catch(Exception ex)
             {
                 lblStatus.Text=("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
             }
+
             
             
         }
@@ -241,7 +261,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
+                        k.DrzavaID = Convert.ToInt32(ddlDrzava.SelectedValue);
 
                         proxy.AddKorisnik(k);
 
@@ -252,10 +272,13 @@ namespace BolnicaClient.Admin
                     {
                         lblStatus.Text = ("Operacija nije izvršena, greška: " + ex);
                     }
+                    FillGridViewPacijentiByDoktor();
+                    
+                    btnSave.Enabled = true;
+                    btnDodaj.Enabled = false;
+                    btnDodaj2.Enabled = false;
+                    btnUpdate.Enabled = false;
 
-
-
-                    // ClearAll();
                 }
                 catch (Exception ex)
                 {
@@ -289,7 +312,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
+                        k.DrzavaID = Convert.ToInt32(ddlDrzava.SelectedValue);
 
                         proxy.UpdateKorisnik(k);
 
@@ -320,11 +343,17 @@ namespace BolnicaClient.Admin
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-
+            ClearAll();
         }
 
+        private void ClearAll()
+        {
+            txtIDKorisnickiRacun.Text = txtUsername.Text = txtPassword.Text
+                       = txtIme.Text = txtPrezime.Text = txtOIB.Text = txtTelefon.Text = txtEmail.Text =
+                        txtAdresa.Text = txtGrad.Text = txtPTTbroj.Text = "";
 
-
+            ddlDrzava.SelectedValue = ddlOdabirDoktora.SelectedValue = ddlOdabirPacijenta.SelectedValue = "";
+        }
 
         protected void ddlOdabirPacijenta_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -385,9 +414,9 @@ namespace BolnicaClient.Admin
             }
         }
 
-        protected void validatorDdlProizvodjac_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void validatorDdlDrzava_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (ddlProizvodjac.SelectedValue.Equals(""))
+            if (ddlDrzava.SelectedValue.Equals(""))
             {
                 args.IsValid = false;
             }
@@ -398,28 +427,7 @@ namespace BolnicaClient.Admin
         {
             FillGridViewPacijentiByDoktor();
         }
-
-        //protected void lbtndelete_Click(object sender, EventArgs e)
-        //{
-
-        //    try
-        //    {
-
-               
-        //        int  id = Convert.ToInt32((GridViewPacijentiByDoktor.SelectedRow.FindControl("lblPacijentDoktorVeza") as Label).Text);
-
-
-
-        //        proxy = new BolnicaService.Service1Client();
-        //        proxy.DeletePacijentDoktorVeza(id);
-        //        lblStatus.Text = ("Uspješno izbrisano");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        lblStatus.Text = ("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
-        //    }
-        //}
-
+        
 
     }
 }

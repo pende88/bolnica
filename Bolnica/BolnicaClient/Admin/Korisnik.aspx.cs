@@ -17,7 +17,7 @@ namespace BolnicaClient.Admin
             {
                 FillGridView();
                 FillddlGrupa();
-                FillddlProizvodjac();
+                FillDdlDrzava();
 
                 btnSave.Enabled = true;
                 btnDelete.Enabled = false;
@@ -61,13 +61,13 @@ namespace BolnicaClient.Admin
 
         }
 
-        private void FillddlProizvodjac()
+        private void FillDdlDrzava()
         {
             try
             {
                 proxy = new BolnicaService.Service1Client();
-                ddlProizvodjac.DataSource = proxy.GetProizvodjac();
-                ddlProizvodjac.DataBind();
+                ddlDrzava.DataSource = proxy.GetDrzava();
+                ddlDrzava.DataBind();
             }
             catch (Exception ex)
             {
@@ -118,14 +118,14 @@ namespace BolnicaClient.Admin
 
             txtPTTbroj.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPTTbroj") as Label).Text;
 
-            string probaProizvodjac = (GridViewKorisnik.SelectedRow.FindControl("lblProizvodjac") as Label).Text.Trim();
+            string probaProizvodjac = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
             if (probaProizvodjac == "")
             {
-                ddlProizvodjac.SelectedValue = "";
+                ddlDrzava.SelectedValue = "";
             }
             else
             {
-                ddlProizvodjac.SelectedValue = (GridViewKorisnik.SelectedRow.FindControl("lblIDProizvodjac") as Label).Text.Trim();
+                ddlDrzava.SelectedValue = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
 
             }
 
@@ -160,7 +160,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
+                        k.DrzavaID = Convert.ToInt32(ddlDrzava.SelectedValue);
 
                         proxy.AddKorisnik(k);
 
@@ -215,7 +215,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
+                        k.DrzavaID = Convert.ToInt32(ddlDrzava.SelectedValue);
 
                         proxy.UpdateKorisnik(k);
 
@@ -293,7 +293,7 @@ namespace BolnicaClient.Admin
             txtAdresa.Text = txtGrad.Text = txtPTTbroj.Text = "";
 
             ddlGrupa.SelectedValue = "";
-            ddlProizvodjac.SelectedValue = "";
+            ddlDrzava.SelectedValue = "";
         }
 
         protected void validatorDdlGrupa_ServerValidate(object source, ServerValidateEventArgs args)
@@ -304,9 +304,9 @@ namespace BolnicaClient.Admin
             }
         }
 
-        protected void validatorDdlProizvodjac_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void validatorDdlDrzava_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (ddlProizvodjac.SelectedValue.Equals(""))
+            if (ddlDrzava.SelectedValue.Equals(""))
             {
                 args.IsValid = false;
             }

@@ -9,11 +9,11 @@
   <xs:complexType name="Korisnik">
     <xs:sequence>
       <xs:element minOccurs="0" name="Adresa" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Proizvodjac" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Drzava" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DrzavaID" type="xs:int" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Grad" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Grupa" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IDProizvodjac" type="xs:int" />
       <xs:element minOccurs="0" name="IDKorisnickaGrupa" type="xs:int" />
       <xs:element minOccurs="0" name="IDKorisnickiRacun" type="xs:int" />
       <xs:element minOccurs="0" name="Ime" nillable="true" type="xs:string" />
@@ -39,19 +39,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Grupa" nillable="true" type="tns:Grupa" />
-  <xs:complexType name="ArrayOfProizvodjac">
+  <xs:complexType name="ArrayOfDrzava">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Proizvodjac" nillable="true" type="tns:Proizvodjac" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Drzava" nillable="true" type="tns:Drzava" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfProizvodjac" nillable="true" type="tns:ArrayOfProizvodjac" />
-  <xs:complexType name="Proizvodjac">
+  <xs:element name="ArrayOfDrzava" nillable="true" type="tns:ArrayOfDrzava" />
+  <xs:complexType name="Drzava">
     <xs:sequence>
-      <xs:element minOccurs="0" name="IDProizvodjac" type="xs:int" />
+      <xs:element minOccurs="0" name="IDDrzava" type="xs:int" />
       <xs:element minOccurs="0" name="Naziv" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Proizvodjac" nillable="true" type="tns:Proizvodjac" />
+  <xs:element name="Drzava" nillable="true" type="tns:Drzava" />
   <xs:complexType name="ArrayOfPacijentDoktor">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="PacijentDoktor" nillable="true" type="tns:PacijentDoktor" />
@@ -93,6 +93,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Pacijent" nillable="true" type="tns:Pacijent" />
+  <xs:complexType name="ArrayOfProizvodjac">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Proizvodjac" nillable="true" type="tns:Proizvodjac" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfProizvodjac" nillable="true" type="tns:ArrayOfProizvodjac" />
+  <xs:complexType name="Proizvodjac">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDProizvodjac" type="xs:int" />
+      <xs:element minOccurs="0" name="Naziv" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Proizvodjac" nillable="true" type="tns:Proizvodjac" />
   <xs:complexType name="ArrayOfLijek">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Lijek" nillable="true" type="tns:Lijek" />
@@ -102,9 +115,10 @@
   <xs:complexType name="Lijek">
     <xs:sequence>
       <xs:element minOccurs="0" name="BrojOdobrenja" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="IDLIjek" type="xs:int" />
+      <xs:element minOccurs="0" name="IDLijek" type="xs:int" />
       <xs:element minOccurs="0" name="NazivLijeka" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ProizvodjacID" type="xs:int" />
+      <xs:element minOccurs="0" name="ProizvodjacNaziv" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Lijek" nillable="true" type="tns:Lijek" />
@@ -124,4 +138,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Bolest" nillable="true" type="tns:Bolest" />
+  <xs:complexType name="ArrayOfOpasnostBolesti">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="OpasnostBolesti" nillable="true" type="tns:OpasnostBolesti" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfOpasnostBolesti" nillable="true" type="tns:ArrayOfOpasnostBolesti" />
+  <xs:complexType name="OpasnostBolesti">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDOPasnost" type="xs:int" />
+      <xs:element minOccurs="0" name="Opasnost" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="OpasnostBolesti" nillable="true" type="tns:OpasnostBolesti" />
 </xs:schema>

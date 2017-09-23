@@ -73,6 +73,7 @@
     <Compile Include="Model\Grupa.cs" />
     <Compile Include="Model\Korisnik.cs" />
     <Compile Include="Model\Lijek.cs" />
+    <Compile Include="Model\OpasnostBolesti.cs" />
     <Compile Include="Model\Pacijent.cs" />
     <Compile Include="Model\PacijentDoktor.cs" />
     <Compile Include="Model\Proizvodjac.cs" />

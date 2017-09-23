@@ -12,12 +12,14 @@ namespace BolnicaWCF.Model
 
 
         [DataMember]
-        public int IDLIjek { get; set; }
+        public int IDLijek { get; set; }
         [DataMember]
         public string NazivLijeka { get; set; }
         [DataMember]
         public string BrojOdobrenja { get; set; }
         [DataMember]
         public int ProizvodjacID { get; set; }
+        [DataMember]
+        public string ProizvodjacNaziv { get; set; }
     }
 }

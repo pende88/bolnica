@@ -10,7 +10,10 @@
         <siteMapNode url ="~/Admin/Korisnik.aspx" title="Korisnici" description="Admin Korisnika"></siteMapNode>
         <siteMapNode url ="~/Admin/PacijentiPoDoktorima.aspx" title="Pacijenti po doktorima" description="Admin pacijenata"></siteMapNode>
         <siteMapNode url ="~/Admin/Drzave.aspx" title="Države" description="Admin država"></siteMapNode>
-        <siteMapNode url ="~/Admin/Proizvodjaci.aspx" title="Države" description="Admin država"></siteMapNode>
+        <siteMapNode url ="~/Admin/Proizvodjaci.aspx" title="Proizvođači" description="Admin Proizvođača"></siteMapNode>
+        <siteMapNode url ="~/Admin/Lijekovi.aspx" title="Lijekovi" description="Admin Lijekova"></siteMapNode>
+        <siteMapNode url ="~/Admin/Bolesti.aspx" title="Bolesti" description="Admin Bolesti"></siteMapNode>
+
 
       </siteMapNode>
       <!--<siteMapNode url="javascript:;" title="Doktor" description="Doktor Page" roles ="Doktor">
@@ -25,6 +28,6 @@
       
       
       
-      <siteMapNode url="~/default.aspx" title="Contact" description="Početna stranica" roles="*" />
+      <!--<siteMapNode url="~/default.aspx" title="Contact" description="Početna stranica" roles="*" />-->
       </siteMapNode>
     </siteMap>

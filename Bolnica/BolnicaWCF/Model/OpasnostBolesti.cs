@@ -7,11 +7,12 @@ using System.Web;
 namespace BolnicaWCF.Model
 {
     [DataContract]
-    public class Drzava
+    public class OpasnostBolesti
     {
         [DataMember]
-        public int IDDrzava { get; set; }
+        public int IDOPasnost { get; set; }
+
         [DataMember]
-        public string Naziv { get; set; }
+        public string Opasnost { get; set; }
     }
 }

@@ -76,15 +76,15 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetProizvodjac">
+  <xs:element name="GetDrzava">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetProizvodjacResponse">
+  <xs:element name="GetDrzavaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetProizvodjacResult" nillable="true" type="q6:ArrayOfProizvodjac" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetDrzavaResult" nillable="true" type="q6:ArrayOfDrzava" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -176,10 +176,58 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddDrzava">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="d" nillable="true" type="q13:Drzava" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDrzavaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDrzava">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="d" nillable="true" type="q14:Drzava" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateDrzavaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDrzava">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteDrzavaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProizvodjac">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetProizvodjacResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetProizvodjacResult" nillable="true" type="q15:ArrayOfProizvodjac" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddProizvodjac">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="d" nillable="true" type="q13:Proizvodjac" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="p" nillable="true" type="q16:Proizvodjac" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -191,7 +239,7 @@
   <xs:element name="UpdateProizvodjac">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="d" nillable="true" type="q14:Proizvodjac" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="p" nillable="true" type="q17:Proizvodjac" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -220,14 +268,14 @@
   <xs:element name="GetLijekResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetLijekResult" nillable="true" type="q15:ArrayOfLijek" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetLijekResult" nillable="true" type="q18:ArrayOfLijek" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddLijek">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="l" nillable="true" type="q16:Lijek" />
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="l" nillable="true" type="q19:Lijek" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -239,7 +287,7 @@
   <xs:element name="UpdateLijek">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="l" nillable="true" type="q17:Lijek" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="l" nillable="true" type="q20:Lijek" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -268,14 +316,14 @@
   <xs:element name="GetBolestResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetBolestResult" nillable="true" type="q18:ArrayOfBolest" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetBolestResult" nillable="true" type="q21:ArrayOfBolest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddBolest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="b" nillable="true" type="q19:Bolest" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="b" nillable="true" type="q22:Bolest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -287,7 +335,7 @@
   <xs:element name="UpdateBolest">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="b" nillable="true" type="q20:Bolest" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="b" nillable="true" type="q23:Bolest" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -306,6 +354,18 @@
   <xs:element name="DeleteBolestResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpasnostBolesti">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetOpasnostBolestiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetOpasnostBolestiResult" nillable="true" type="q24:ArrayOfOpasnostBolesti" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

@@ -33,7 +33,7 @@ namespace BolnicaWCF
         List<Grupa> GetGrupa();
 
         [OperationContract]
-        List<Proizvodjac> GetProizvodjac();
+        List<Drzava> GetDrzava();
 
 
         [OperationContract]
@@ -59,13 +59,29 @@ namespace BolnicaWCF
         List<Korisnik> GetPacijentByVeza(int id);
 
 
+        [OperationContract]
+        void AddDrzava(Drzava d);
+
+        [OperationContract]
+        void UpdateDrzava(Drzava d);
+
+        [OperationContract]
+        void DeleteDrzava(int id);
+
+
+
+
+
+
+        [OperationContract]
+        List<Proizvodjac> GetProizvodjac();
        
 
         [OperationContract]
-        void AddProizvodjac(Proizvodjac d);
+        void AddProizvodjac(Proizvodjac p);
 
         [OperationContract]
-        void UpdateProizvodjac(Proizvodjac d);
+        void UpdateProizvodjac(Proizvodjac p);
 
         [OperationContract]
         void DeleteProizvodjac (int id);
@@ -97,5 +113,11 @@ namespace BolnicaWCF
 
         [OperationContract]
         void DeleteBolest(int id);
+
+        [OperationContract]
+        List<OpasnostBolesti> GetOpasnostBolesti();
+
     }
+
+
 }

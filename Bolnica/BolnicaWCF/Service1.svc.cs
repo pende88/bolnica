@@ -138,6 +138,29 @@ namespace BolnicaWCF
             new Repository().DeleteBolest(id);
         }
 
-       
+        public List<Drzava> GetDrzava()
+        {
+            return (new Repository()).GetDrzava();
+        }
+
+        public void AddDrzava(Drzava d)
+        {
+            new Repository().AddDrzava(d);
+        }
+
+        public void UpdateDrzava(Drzava d)
+        {
+            new Repository().UpdateDrzava(d);
+        }
+
+        public void DeleteDrzava(int id)
+        {
+            new Repository().DeleteBolest(id);
+        }
+
+        public List<OpasnostBolesti> GetOpasnostBolesti()
+        {
+            return (new Repository()).GetOpasnostBolesti();
+        }
     }
 }

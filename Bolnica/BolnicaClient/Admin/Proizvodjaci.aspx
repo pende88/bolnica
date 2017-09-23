@@ -64,7 +64,7 @@
 
                     <asp:TemplateField HeaderText="Naziv Proizvođača">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblNazivProizvodjaca" runat="server" Text='<%# Convert.ToString(Eval("NazivProizvodjac")) == null ? "Nema" : Eval("NazivProizvodjac") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblNazivProizvodjaca" runat="server" Text='<%# Convert.ToString(Eval("Naziv")) == null ? "Nema" : Eval("Naziv") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

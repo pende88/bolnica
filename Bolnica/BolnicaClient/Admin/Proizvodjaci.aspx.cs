@@ -44,7 +44,7 @@ namespace BolnicaClient.Admin
             {
                 txtIDProizvodjac.Text = GridViewProizvodjac.DataKeys[GridViewProizvodjac.SelectedRow.RowIndex].Value.ToString();
 
-                txtNazivProizvodjac.Text = (GridViewProizvodjac.SelectedRow.FindControl("lblNazivProizvodjac") as Label).Text;
+                txtNazivProizvodjac.Text = (GridViewProizvodjac.SelectedRow.FindControl("lblNazivProizvodjaca") as Label).Text;
 
                 btnSave.Enabled = false;
                 btnDelete.Enabled = true;
@@ -152,7 +152,8 @@ namespace BolnicaClient.Admin
 
                 try
                 {
-                    proxy.DeleteProizvodjac(id);
+                proxy = new BolnicaService.Service1Client();
+                proxy.DeleteProizvodjac(id);
                     lblStatus.Text = "Svi podaci uspješno izbrisani";
                     ClearAll();
                     FillGridView();

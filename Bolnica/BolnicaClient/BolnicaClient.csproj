@@ -68,8 +68,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin\Bolesti.aspx" />
     <Content Include="Admin\Drzave.aspx" />
     <Content Include="Admin\Korisnik.aspx" />
+    <Content Include="Admin\Lijekovi.aspx" />
     <Content Include="Admin\PacijentiPoDoktorima.aspx" />
     <Content Include="Admin\Proizvodjaci.aspx" />
     <Content Include="Admin\Web.config" />
@@ -91,10 +93,16 @@
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Lijek.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.OpasnostBolesti.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Pacijent.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.PacijentDoktor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Proizvodjac.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\BolnicaService\Service1.disco" />
@@ -142,6 +150,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Bolesti.aspx.cs">
+      <DependentUpon>Bolesti.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Bolesti.aspx.designer.cs">
+      <DependentUpon>Bolesti.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\Drzave.aspx.cs">
       <DependentUpon>Drzave.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -155,6 +170,13 @@
     </Compile>
     <Compile Include="Admin\Korisnik.aspx.designer.cs">
       <DependentUpon>Korisnik.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Lijekovi.aspx.cs">
+      <DependentUpon>Lijekovi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Lijekovi.aspx.designer.cs">
+      <DependentUpon>Lijekovi.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\PacijentiPoDoktorima.aspx.cs">
       <DependentUpon>PacijentiPoDoktorima.aspx</DependentUpon>

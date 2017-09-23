@@ -43,11 +43,11 @@
   <wsdl:message name="IService1_GetGrupa_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGrupaResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetProizvodjac_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetProizvodjac" />
+  <wsdl:message name="IService1_GetDrzava_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrzava" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetProizvodjac_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetProizvodjacResponse" />
+  <wsdl:message name="IService1_GetDrzava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDrzavaResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetPacijentByDoktorID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPacijentByDoktorID" />
@@ -90,6 +90,30 @@
   </wsdl:message>
   <wsdl:message name="IService1_GetPacijentByVeza_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPacijentByVezaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDrzava_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDrzava" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDrzava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDrzavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDrzava_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDrzava" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateDrzava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateDrzavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteDrzava_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDrzava" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteDrzava_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteDrzavaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProizvodjac_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProizvodjac" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetProizvodjac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProizvodjacResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_AddProizvodjac_InputMessage">
     <wsdl:part name="parameters" element="tns:AddProizvodjac" />
@@ -157,6 +181,12 @@
   <wsdl:message name="IService1_DeleteBolest_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteBolestResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetOpasnostBolesti_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpasnostBolesti" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetOpasnostBolesti_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpasnostBolestiResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
@@ -182,9 +212,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupa" message="tns:IService1_GetGrupa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGrupaResponse" message="tns:IService1_GetGrupa_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetProizvodjac">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProizvodjac" message="tns:IService1_GetProizvodjac_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProizvodjacResponse" message="tns:IService1_GetProizvodjac_OutputMessage" />
+    <wsdl:operation name="GetDrzava">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDrzava" message="tns:IService1_GetDrzava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDrzavaResponse" message="tns:IService1_GetDrzava_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPacijentByDoktorID">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByDoktorID" message="tns:IService1_GetPacijentByDoktorID_InputMessage" />
@@ -213,6 +243,22 @@
     <wsdl:operation name="GetPacijentByVeza">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByVeza" message="tns:IService1_GetPacijentByVeza_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentByVezaResponse" message="tns:IService1_GetPacijentByVeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDrzava">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDrzava" message="tns:IService1_AddDrzava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDrzavaResponse" message="tns:IService1_AddDrzava_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDrzava">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateDrzava" message="tns:IService1_UpdateDrzava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateDrzavaResponse" message="tns:IService1_UpdateDrzava_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDrzava">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteDrzava" message="tns:IService1_DeleteDrzava_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteDrzavaResponse" message="tns:IService1_DeleteDrzava_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProizvodjac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProizvodjac" message="tns:IService1_GetProizvodjac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProizvodjacResponse" message="tns:IService1_GetProizvodjac_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddProizvodjac">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddProizvodjac" message="tns:IService1_AddProizvodjac_InputMessage" />
@@ -257,6 +303,10 @@
     <wsdl:operation name="DeleteBolest">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteBolest" message="tns:IService1_DeleteBolest_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteBolestResponse" message="tns:IService1_DeleteBolest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpasnostBolesti">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOpasnostBolesti" message="tns:IService1_GetOpasnostBolesti_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOpasnostBolestiResponse" message="tns:IService1_GetOpasnostBolesti_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -315,8 +365,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetProizvodjac">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetProizvodjac" style="document" />
+    <wsdl:operation name="GetDrzava">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDrzava" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -380,6 +430,42 @@
     </wsdl:operation>
     <wsdl:operation name="GetPacijentByVeza">
       <soap:operation soapAction="http://tempuri.org/IService1/GetPacijentByVeza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDrzava">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddDrzava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateDrzava">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateDrzava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteDrzava">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteDrzava" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProizvodjac">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProizvodjac" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -479,6 +565,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteBolest">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteBolest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOpasnostBolesti">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetOpasnostBolesti" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

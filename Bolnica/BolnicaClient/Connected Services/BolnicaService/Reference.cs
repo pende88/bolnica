@@ -26,7 +26,10 @@ namespace BolnicaClient.BolnicaService {
         private string AdresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string ProizvodjacField;
+        private string DrzavaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DrzavaIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
@@ -36,9 +39,6 @@ namespace BolnicaClient.BolnicaService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string GrupaField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDProizvodjacField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDKorisnickaGrupaField;
@@ -91,14 +91,27 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Proizvodjac {
+        public string Drzava {
             get {
-                return this.ProizvodjacField;
+                return this.DrzavaField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProizvodjacField, value) != true)) {
-                    this.ProizvodjacField = value;
-                    this.RaisePropertyChanged("Proizvodjac");
+                if ((object.ReferenceEquals(this.DrzavaField, value) != true)) {
+                    this.DrzavaField = value;
+                    this.RaisePropertyChanged("Drzava");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DrzavaID {
+            get {
+                return this.DrzavaIDField;
+            }
+            set {
+                if ((this.DrzavaIDField.Equals(value) != true)) {
+                    this.DrzavaIDField = value;
+                    this.RaisePropertyChanged("DrzavaID");
                 }
             }
         }
@@ -138,19 +151,6 @@ namespace BolnicaClient.BolnicaService {
                 if ((object.ReferenceEquals(this.GrupaField, value) != true)) {
                     this.GrupaField = value;
                     this.RaisePropertyChanged("Grupa");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDProizvodjac {
-            get {
-                return this.IDProizvodjacField;
-            }
-            set {
-                if ((this.IDProizvodjacField.Equals(value) != true)) {
-                    this.IDProizvodjacField = value;
-                    this.RaisePropertyChanged("IDProizvodjac");
                 }
             }
         }
@@ -345,15 +345,15 @@ namespace BolnicaClient.BolnicaService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Proizvodjac", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Drzava", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
     [System.SerializableAttribute()]
-    public partial class Proizvodjac : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Drzava : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDProizvodjacField;
+        private int IDDrzavaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NazivField;
@@ -369,14 +369,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDProizvodjac {
+        public int IDDrzava {
             get {
-                return this.IDProizvodjacField;
+                return this.IDDrzavaField;
             }
             set {
-                if ((this.IDProizvodjacField.Equals(value) != true)) {
-                    this.IDProizvodjacField = value;
-                    this.RaisePropertyChanged("IDProizvodjac");
+                if ((this.IDDrzavaField.Equals(value) != true)) {
+                    this.IDDrzavaField = value;
+                    this.RaisePropertyChanged("IDDrzava");
                 }
             }
         }
@@ -621,6 +621,67 @@ namespace BolnicaClient.BolnicaService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Proizvodjac", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Proizvodjac : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDProizvodjacField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDProizvodjac {
+            get {
+                return this.IDProizvodjacField;
+            }
+            set {
+                if ((this.IDProizvodjacField.Equals(value) != true)) {
+                    this.IDProizvodjacField = value;
+                    this.RaisePropertyChanged("IDProizvodjac");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Naziv {
+            get {
+                return this.NazivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivField, value) != true)) {
+                    this.NazivField = value;
+                    this.RaisePropertyChanged("Naziv");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Lijek", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
     [System.SerializableAttribute()]
     public partial class Lijek : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -632,13 +693,16 @@ namespace BolnicaClient.BolnicaService {
         private string BrojOdobrenjaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDLIjekField;
+        private int IDLijekField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NazivLijekaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int ProizvodjacIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProizvodjacNazivField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -664,14 +728,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDLIjek {
+        public int IDLijek {
             get {
-                return this.IDLIjekField;
+                return this.IDLijekField;
             }
             set {
-                if ((this.IDLIjekField.Equals(value) != true)) {
-                    this.IDLIjekField = value;
-                    this.RaisePropertyChanged("IDLIjek");
+                if ((this.IDLijekField.Equals(value) != true)) {
+                    this.IDLijekField = value;
+                    this.RaisePropertyChanged("IDLijek");
                 }
             }
         }
@@ -698,6 +762,19 @@ namespace BolnicaClient.BolnicaService {
                 if ((this.ProizvodjacIDField.Equals(value) != true)) {
                     this.ProizvodjacIDField = value;
                     this.RaisePropertyChanged("ProizvodjacID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ProizvodjacNaziv {
+            get {
+                return this.ProizvodjacNazivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProizvodjacNazivField, value) != true)) {
+                    this.ProizvodjacNazivField = value;
+                    this.RaisePropertyChanged("ProizvodjacNaziv");
                 }
             }
         }
@@ -821,6 +898,67 @@ namespace BolnicaClient.BolnicaService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OpasnostBolesti", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class OpasnostBolesti : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDOPasnostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpasnostField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDOPasnost {
+            get {
+                return this.IDOPasnostField;
+            }
+            set {
+                if ((this.IDOPasnostField.Equals(value) != true)) {
+                    this.IDOPasnostField = value;
+                    this.RaisePropertyChanged("IDOPasnost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Opasnost {
+            get {
+                return this.OpasnostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpasnostField, value) != true)) {
+                    this.OpasnostField = value;
+                    this.RaisePropertyChanged("Opasnost");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BolnicaService.IService1")]
     public interface IService1 {
@@ -843,8 +981,8 @@ namespace BolnicaClient.BolnicaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupa", ReplyAction="http://tempuri.org/IService1/GetGrupaResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.Grupa> GetGrupa();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProizvodjac", ReplyAction="http://tempuri.org/IService1/GetProizvodjacResponse")]
-        System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDrzava", ReplyAction="http://tempuri.org/IService1/GetDrzavaResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Drzava> GetDrzava();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByDoktorID", ReplyAction="http://tempuri.org/IService1/GetPacijentByDoktorIDResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetPacijentByDoktorID(int IDDoktor);
@@ -867,11 +1005,23 @@ namespace BolnicaClient.BolnicaService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByVeza", ReplyAction="http://tempuri.org/IService1/GetPacijentByVezaResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetPacijentByVeza(int id);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDrzava", ReplyAction="http://tempuri.org/IService1/AddDrzavaResponse")]
+        void AddDrzava(BolnicaClient.BolnicaService.Drzava d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateDrzava", ReplyAction="http://tempuri.org/IService1/UpdateDrzavaResponse")]
+        void UpdateDrzava(BolnicaClient.BolnicaService.Drzava d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteDrzava", ReplyAction="http://tempuri.org/IService1/DeleteDrzavaResponse")]
+        void DeleteDrzava(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProizvodjac", ReplyAction="http://tempuri.org/IService1/GetProizvodjacResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProizvodjac", ReplyAction="http://tempuri.org/IService1/AddProizvodjacResponse")]
-        void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d);
+        void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateProizvodjac", ReplyAction="http://tempuri.org/IService1/UpdateProizvodjacResponse")]
-        void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d);
+        void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac p);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteProizvodjac", ReplyAction="http://tempuri.org/IService1/DeleteProizvodjacResponse")]
         void DeleteProizvodjac(int id);
@@ -899,6 +1049,9 @@ namespace BolnicaClient.BolnicaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteBolest", ReplyAction="http://tempuri.org/IService1/DeleteBolestResponse")]
         void DeleteBolest(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOpasnostBolesti", ReplyAction="http://tempuri.org/IService1/GetOpasnostBolestiResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.OpasnostBolesti> GetOpasnostBolesti();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -952,8 +1105,8 @@ namespace BolnicaClient.BolnicaService {
             return base.Channel.GetGrupa();
         }
         
-        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac() {
-            return base.Channel.GetProizvodjac();
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Drzava> GetDrzava() {
+            return base.Channel.GetDrzava();
         }
         
         public System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetPacijentByDoktorID(int IDDoktor) {
@@ -984,12 +1137,28 @@ namespace BolnicaClient.BolnicaService {
             return base.Channel.GetPacijentByVeza(id);
         }
         
-        public void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d) {
-            base.Channel.AddProizvodjac(d);
+        public void AddDrzava(BolnicaClient.BolnicaService.Drzava d) {
+            base.Channel.AddDrzava(d);
         }
         
-        public void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d) {
-            base.Channel.UpdateProizvodjac(d);
+        public void UpdateDrzava(BolnicaClient.BolnicaService.Drzava d) {
+            base.Channel.UpdateDrzava(d);
+        }
+        
+        public void DeleteDrzava(int id) {
+            base.Channel.DeleteDrzava(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac() {
+            return base.Channel.GetProizvodjac();
+        }
+        
+        public void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac p) {
+            base.Channel.AddProizvodjac(p);
+        }
+        
+        public void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac p) {
+            base.Channel.UpdateProizvodjac(p);
         }
         
         public void DeleteProizvodjac(int id) {
@@ -1026,6 +1195,10 @@ namespace BolnicaClient.BolnicaService {
         
         public void DeleteBolest(int id) {
             base.Channel.DeleteBolest(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.OpasnostBolesti> GetOpasnostBolesti() {
+            return base.Channel.GetOpasnostBolesti();
         }
     }
 }
