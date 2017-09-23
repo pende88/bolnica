@@ -3,12 +3,22 @@
 
     <siteMapNode url="" title="Home" description="" roles ="*">
       
-      <siteMapNode url="~/Home.aspx" title="Home" description="Home Page" roles="*" />
+      <siteMapNode url="~/default.aspx" title="Home" description="Home Page" roles="*" />
       
       <siteMapNode url="javascript:;" title="Administrator" description="Admin Page" roles ="Administrator">
         <siteMapNode url ="~/Admin/ProbaAdmin.aspx" title="Proba" description="Admin Page"></siteMapNode>
         <siteMapNode url ="~/Admin/Korisnik.aspx" title="Korisnici" description="Admin Korisnika"></siteMapNode>
+        <siteMapNode url ="~/Admin/PacijentiPoDoktorima.aspx" title="Pacijenti po doktorima" description="Admin pacijenata"></siteMapNode>
+        <siteMapNode url ="~/Admin/Drzave.aspx" title="Države" description="Admin država"></siteMapNode>
+        <siteMapNode url ="~/Admin/Proizvodjaci.aspx" title="Države" description="Admin država"></siteMapNode>
+
       </siteMapNode>
+      <!--<siteMapNode url="javascript:;" title="Doktor" description="Doktor Page" roles ="Doktor">
+       
+      </siteMapNode>
+      <siteMapNode url="javascript:;" title="Pacijent" description="Pacijent Page" roles ="Pacijent">
+        
+      </siteMapNode>-->
 
      
 

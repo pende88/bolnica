@@ -40,9 +40,9 @@ namespace BolnicaWCF.Model
         public string Grad { get; set; }
 
         [DataMember]
-        public int IDDrzava { get; set; }
+        public int IDProizvodjac { get; set; }
         [DataMember]
-        public string Drzava { get; set; }
+        public string Proizvodjac { get; set; }
 
 
 

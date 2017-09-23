@@ -124,14 +124,14 @@
 
 
                 <div class="form-group">
-                    <asp:Label CssClass="control-label col-sm-2" ID="lblDrzava" runat="server" Text="Drzava:" AssociatedControlID="ddlDrzava"></asp:Label>
+                    <asp:Label CssClass="control-label col-sm-2" ID="lblProizvodjac" runat="server" Text="Proizvodjac:" AssociatedControlID="ddlProizvodjac"></asp:Label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlDrzava" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDDrzava" DataTextField="Naziv">
+                        <asp:DropDownList CssClass="btn btn-default" ID="ddlProizvodjac" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDProizvodjac" DataTextField="Naziv">
                             <Items>
                                 <asp:ListItem Text="Odaberi državu" Value="" Selected="True"></asp:ListItem>
                             </Items>
                         </asp:DropDownList>
-                        <asp:CustomValidator ID="validatorDdlDrzava" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlDrzava_ServerValidate"></asp:CustomValidator>
+                        <asp:CustomValidator ID="validatorDdlProizvodjac" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlProizvodjac_ServerValidate"></asp:CustomValidator>
 
                     </div>
                 </div>
@@ -158,7 +158,9 @@
     <br />
     <div class="row">
         <div class="col-md-offset-2 col-md-8 ">
-            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" ID="GridViewKorisnik" DataKeyNames="IDKorisnickiRacun" runat="server" AutoGenerateColumns="False" OnSelectedIndexChanged="GridViewKorisnik_SelectedIndexChanged">
+            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" ID="GridViewKorisnik" 
+                DataKeyNames="IDKorisnickiRacun" runat="server" AutoGenerateColumns="False" 
+                OnSelectedIndexChanged="GridViewKorisnik_SelectedIndexChanged">
 
                 <Columns>
 
@@ -240,15 +242,15 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="IDDrzava">
+                    <asp:TemplateField HeaderText="IDProizvodjac">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblIDDrzava" runat="server" Text='<%# Convert.ToString(Eval("IDDrzava")) == null ? "Nema" : Eval("IDDrzava") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblIDProizvodjac" runat="server" Text='<%# Convert.ToString(Eval("IDProizvodjac")) == null ? "Nema" : Eval("IDProizvodjac") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Drzava">
+                    <asp:TemplateField HeaderText="Proizvodjac">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblDrzava" runat="server" Text='<%# Convert.ToString(Eval("Drzava")) == null ? "Nema" : Eval("Drzava") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblProizvodjac" runat="server" Text='<%# Convert.ToString(Eval("Proizvodjac")) == null ? "Nema" : Eval("Proizvodjac") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 

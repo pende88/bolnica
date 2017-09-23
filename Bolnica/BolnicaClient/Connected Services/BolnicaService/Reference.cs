@@ -26,7 +26,7 @@ namespace BolnicaClient.BolnicaService {
         private string AdresaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DrzavaField;
+        private string ProizvodjacField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
@@ -38,7 +38,7 @@ namespace BolnicaClient.BolnicaService {
         private string GrupaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDDrzavaField;
+        private int IDProizvodjacField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDKorisnickaGrupaField;
@@ -91,14 +91,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Drzava {
+        public string Proizvodjac {
             get {
-                return this.DrzavaField;
+                return this.ProizvodjacField;
             }
             set {
-                if ((object.ReferenceEquals(this.DrzavaField, value) != true)) {
-                    this.DrzavaField = value;
-                    this.RaisePropertyChanged("Drzava");
+                if ((object.ReferenceEquals(this.ProizvodjacField, value) != true)) {
+                    this.ProizvodjacField = value;
+                    this.RaisePropertyChanged("Proizvodjac");
                 }
             }
         }
@@ -143,14 +143,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDDrzava {
+        public int IDProizvodjac {
             get {
-                return this.IDDrzavaField;
+                return this.IDProizvodjacField;
             }
             set {
-                if ((this.IDDrzavaField.Equals(value) != true)) {
-                    this.IDDrzavaField = value;
-                    this.RaisePropertyChanged("IDDrzava");
+                if ((this.IDProizvodjacField.Equals(value) != true)) {
+                    this.IDProizvodjacField = value;
+                    this.RaisePropertyChanged("IDProizvodjac");
                 }
             }
         }
@@ -345,15 +345,15 @@ namespace BolnicaClient.BolnicaService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Drzava", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Proizvodjac", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
     [System.SerializableAttribute()]
-    public partial class Drzava : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Proizvodjac : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDDrzavaField;
+        private int IDProizvodjacField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NazivField;
@@ -369,14 +369,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDDrzava {
+        public int IDProizvodjac {
             get {
-                return this.IDDrzavaField;
+                return this.IDProizvodjacField;
             }
             set {
-                if ((this.IDDrzavaField.Equals(value) != true)) {
-                    this.IDDrzavaField = value;
-                    this.RaisePropertyChanged("IDDrzava");
+                if ((this.IDProizvodjacField.Equals(value) != true)) {
+                    this.IDProizvodjacField = value;
+                    this.RaisePropertyChanged("IDProizvodjac");
                 }
             }
         }
@@ -619,93 +619,286 @@ namespace BolnicaClient.BolnicaService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Lijek", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Lijek : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string BrojOdobrenjaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDLIjekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivLijekaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int ProizvodjacIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string BrojOdobrenja {
+            get {
+                return this.BrojOdobrenjaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.BrojOdobrenjaField, value) != true)) {
+                    this.BrojOdobrenjaField = value;
+                    this.RaisePropertyChanged("BrojOdobrenja");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDLIjek {
+            get {
+                return this.IDLIjekField;
+            }
+            set {
+                if ((this.IDLIjekField.Equals(value) != true)) {
+                    this.IDLIjekField = value;
+                    this.RaisePropertyChanged("IDLIjek");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivLijeka {
+            get {
+                return this.NazivLijekaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivLijekaField, value) != true)) {
+                    this.NazivLijekaField = value;
+                    this.RaisePropertyChanged("NazivLijeka");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ProizvodjacID {
+            get {
+                return this.ProizvodjacIDField;
+            }
+            set {
+                if ((this.ProizvodjacIDField.Equals(value) != true)) {
+                    this.ProizvodjacIDField = value;
+                    this.RaisePropertyChanged("ProizvodjacID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Bolest", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Bolest : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int GodinaOtkricaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDBolestField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivBolestiField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string OpasnostField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int OpasnostIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int GodinaOtkrica {
+            get {
+                return this.GodinaOtkricaField;
+            }
+            set {
+                if ((this.GodinaOtkricaField.Equals(value) != true)) {
+                    this.GodinaOtkricaField = value;
+                    this.RaisePropertyChanged("GodinaOtkrica");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDBolest {
+            get {
+                return this.IDBolestField;
+            }
+            set {
+                if ((this.IDBolestField.Equals(value) != true)) {
+                    this.IDBolestField = value;
+                    this.RaisePropertyChanged("IDBolest");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivBolesti {
+            get {
+                return this.NazivBolestiField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivBolestiField, value) != true)) {
+                    this.NazivBolestiField = value;
+                    this.RaisePropertyChanged("NazivBolesti");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Opasnost {
+            get {
+                return this.OpasnostField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.OpasnostField, value) != true)) {
+                    this.OpasnostField = value;
+                    this.RaisePropertyChanged("Opasnost");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int OpasnostID {
+            get {
+                return this.OpasnostIDField;
+            }
+            set {
+                if ((this.OpasnostIDField.Equals(value) != true)) {
+                    this.OpasnostIDField = value;
+                    this.RaisePropertyChanged("OpasnostID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BolnicaService.IService1")]
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginKorisnikProvjera", ReplyAction="http://tempuri.org/IService1/LoginKorisnikProvjeraResponse")]
-        BolnicaClient.BolnicaService.Korisnik[] LoginKorisnikProvjera(string Username, string Password);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LoginKorisnikProvjera", ReplyAction="http://tempuri.org/IService1/LoginKorisnikProvjeraResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> LoginKorisnikProvjeraAsync(string Username, string Password);
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> LoginKorisnikProvjera(string Username, string Password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetKorisnik", ReplyAction="http://tempuri.org/IService1/GetKorisnikResponse")]
-        BolnicaClient.BolnicaService.Korisnik[] GetKorisnik();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetKorisnik", ReplyAction="http://tempuri.org/IService1/GetKorisnikResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> GetKorisnikAsync();
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetKorisnik();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddKorisnik", ReplyAction="http://tempuri.org/IService1/AddKorisnikResponse")]
         void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddKorisnik", ReplyAction="http://tempuri.org/IService1/AddKorisnikResponse")]
-        System.Threading.Tasks.Task AddKorisnikAsync(BolnicaClient.BolnicaService.Korisnik k);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateKorisnik", ReplyAction="http://tempuri.org/IService1/UpdateKorisnikResponse")]
         void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateKorisnik", ReplyAction="http://tempuri.org/IService1/UpdateKorisnikResponse")]
-        System.Threading.Tasks.Task UpdateKorisnikAsync(BolnicaClient.BolnicaService.Korisnik k);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteKorisnik", ReplyAction="http://tempuri.org/IService1/DeleteKorisnikResponse")]
         void DeleteKorisnik(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteKorisnik", ReplyAction="http://tempuri.org/IService1/DeleteKorisnikResponse")]
-        System.Threading.Tasks.Task DeleteKorisnikAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupa", ReplyAction="http://tempuri.org/IService1/GetGrupaResponse")]
-        BolnicaClient.BolnicaService.Grupa[] GetGrupa();
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Grupa> GetGrupa();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetGrupa", ReplyAction="http://tempuri.org/IService1/GetGrupaResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Grupa[]> GetGrupaAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDrzava", ReplyAction="http://tempuri.org/IService1/GetDrzavaResponse")]
-        BolnicaClient.BolnicaService.Drzava[] GetDrzava();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDrzava", ReplyAction="http://tempuri.org/IService1/GetDrzavaResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Drzava[]> GetDrzavaAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProizvodjac", ReplyAction="http://tempuri.org/IService1/GetProizvodjacResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByDoktorID", ReplyAction="http://tempuri.org/IService1/GetPacijentByDoktorIDResponse")]
-        BolnicaClient.BolnicaService.PacijentDoktor[] GetPacijentByDoktorID(int IDDoktor);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByDoktorID", ReplyAction="http://tempuri.org/IService1/GetPacijentByDoktorIDResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.PacijentDoktor[]> GetPacijentByDoktorIDAsync(int IDDoktor);
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetPacijentByDoktorID(int IDDoktor);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/AddPacijentDoktorVezaResponse")]
         void AddPacijentDoktorVeza(BolnicaClient.BolnicaService.PacijentDoktor pd);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/AddPacijentDoktorVezaResponse")]
-        System.Threading.Tasks.Task AddPacijentDoktorVezaAsync(BolnicaClient.BolnicaService.PacijentDoktor pd);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/UpdatePacijentDoktorVezaResponse")]
         void UpdatePacijentDoktorVeza(BolnicaClient.BolnicaService.PacijentDoktor pd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/UpdatePacijentDoktorVezaResponse")]
-        System.Threading.Tasks.Task UpdatePacijentDoktorVezaAsync(BolnicaClient.BolnicaService.PacijentDoktor pd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/DeletePacijentDoktorVezaResponse")]
         void DeletePacijentDoktorVeza(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePacijentDoktorVeza", ReplyAction="http://tempuri.org/IService1/DeletePacijentDoktorVezaResponse")]
-        System.Threading.Tasks.Task DeletePacijentDoktorVezaAsync(int id);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDoktor", ReplyAction="http://tempuri.org/IService1/GetDoktorResponse")]
-        BolnicaClient.BolnicaService.Doktor[] GetDoktor();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDoktor", ReplyAction="http://tempuri.org/IService1/GetDoktorResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Doktor[]> GetDoktorAsync();
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Doktor> GetDoktor();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijent", ReplyAction="http://tempuri.org/IService1/GetPacijentResponse")]
-        BolnicaClient.BolnicaService.Pacijent[] GetPacijent();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijent", ReplyAction="http://tempuri.org/IService1/GetPacijentResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Pacijent[]> GetPacijentAsync();
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Pacijent> GetPacijent();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByVeza", ReplyAction="http://tempuri.org/IService1/GetPacijentByVezaResponse")]
-        BolnicaClient.BolnicaService.Korisnik[] GetPacijentByVeza(int id);
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetPacijentByVeza(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByVeza", ReplyAction="http://tempuri.org/IService1/GetPacijentByVezaResponse")]
-        System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> GetPacijentByVezaAsync(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProizvodjac", ReplyAction="http://tempuri.org/IService1/AddProizvodjacResponse")]
+        void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateProizvodjac", ReplyAction="http://tempuri.org/IService1/UpdateProizvodjacResponse")]
+        void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteProizvodjac", ReplyAction="http://tempuri.org/IService1/DeleteProizvodjacResponse")]
+        void DeleteProizvodjac(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLijek", ReplyAction="http://tempuri.org/IService1/GetLijekResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Lijek> GetLijek();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddLijek", ReplyAction="http://tempuri.org/IService1/AddLijekResponse")]
+        void AddLijek(BolnicaClient.BolnicaService.Lijek l);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateLijek", ReplyAction="http://tempuri.org/IService1/UpdateLijekResponse")]
+        void UpdateLijek(BolnicaClient.BolnicaService.Lijek l);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteLijek", ReplyAction="http://tempuri.org/IService1/DeleteLijekResponse")]
+        void DeleteLijek(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBolest", ReplyAction="http://tempuri.org/IService1/GetBolestResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Bolest> GetBolest();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddBolest", ReplyAction="http://tempuri.org/IService1/AddBolestResponse")]
+        void AddBolest(BolnicaClient.BolnicaService.Bolest b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateBolest", ReplyAction="http://tempuri.org/IService1/UpdateBolestResponse")]
+        void UpdateBolest(BolnicaClient.BolnicaService.Bolest b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteBolest", ReplyAction="http://tempuri.org/IService1/DeleteBolestResponse")]
+        void DeleteBolest(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -735,116 +928,104 @@ namespace BolnicaClient.BolnicaService {
                 base(binding, remoteAddress) {
         }
         
-        public BolnicaClient.BolnicaService.Korisnik[] LoginKorisnikProvjera(string Username, string Password) {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> LoginKorisnikProvjera(string Username, string Password) {
             return base.Channel.LoginKorisnikProvjera(Username, Password);
         }
         
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> LoginKorisnikProvjeraAsync(string Username, string Password) {
-            return base.Channel.LoginKorisnikProvjeraAsync(Username, Password);
-        }
-        
-        public BolnicaClient.BolnicaService.Korisnik[] GetKorisnik() {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetKorisnik() {
             return base.Channel.GetKorisnik();
-        }
-        
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> GetKorisnikAsync() {
-            return base.Channel.GetKorisnikAsync();
         }
         
         public void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
             base.Channel.AddKorisnik(k);
         }
         
-        public System.Threading.Tasks.Task AddKorisnikAsync(BolnicaClient.BolnicaService.Korisnik k) {
-            return base.Channel.AddKorisnikAsync(k);
-        }
-        
         public void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
             base.Channel.UpdateKorisnik(k);
-        }
-        
-        public System.Threading.Tasks.Task UpdateKorisnikAsync(BolnicaClient.BolnicaService.Korisnik k) {
-            return base.Channel.UpdateKorisnikAsync(k);
         }
         
         public void DeleteKorisnik(int id) {
             base.Channel.DeleteKorisnik(id);
         }
         
-        public System.Threading.Tasks.Task DeleteKorisnikAsync(int id) {
-            return base.Channel.DeleteKorisnikAsync(id);
-        }
-        
-        public BolnicaClient.BolnicaService.Grupa[] GetGrupa() {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Grupa> GetGrupa() {
             return base.Channel.GetGrupa();
         }
         
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Grupa[]> GetGrupaAsync() {
-            return base.Channel.GetGrupaAsync();
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Proizvodjac> GetProizvodjac() {
+            return base.Channel.GetProizvodjac();
         }
         
-        public BolnicaClient.BolnicaService.Drzava[] GetDrzava() {
-            return base.Channel.GetDrzava();
-        }
-        
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Drzava[]> GetDrzavaAsync() {
-            return base.Channel.GetDrzavaAsync();
-        }
-        
-        public BolnicaClient.BolnicaService.PacijentDoktor[] GetPacijentByDoktorID(int IDDoktor) {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetPacijentByDoktorID(int IDDoktor) {
             return base.Channel.GetPacijentByDoktorID(IDDoktor);
-        }
-        
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.PacijentDoktor[]> GetPacijentByDoktorIDAsync(int IDDoktor) {
-            return base.Channel.GetPacijentByDoktorIDAsync(IDDoktor);
         }
         
         public void AddPacijentDoktorVeza(BolnicaClient.BolnicaService.PacijentDoktor pd) {
             base.Channel.AddPacijentDoktorVeza(pd);
         }
         
-        public System.Threading.Tasks.Task AddPacijentDoktorVezaAsync(BolnicaClient.BolnicaService.PacijentDoktor pd) {
-            return base.Channel.AddPacijentDoktorVezaAsync(pd);
-        }
-        
         public void UpdatePacijentDoktorVeza(BolnicaClient.BolnicaService.PacijentDoktor pd) {
             base.Channel.UpdatePacijentDoktorVeza(pd);
-        }
-        
-        public System.Threading.Tasks.Task UpdatePacijentDoktorVezaAsync(BolnicaClient.BolnicaService.PacijentDoktor pd) {
-            return base.Channel.UpdatePacijentDoktorVezaAsync(pd);
         }
         
         public void DeletePacijentDoktorVeza(int id) {
             base.Channel.DeletePacijentDoktorVeza(id);
         }
         
-        public System.Threading.Tasks.Task DeletePacijentDoktorVezaAsync(int id) {
-            return base.Channel.DeletePacijentDoktorVezaAsync(id);
-        }
-        
-        public BolnicaClient.BolnicaService.Doktor[] GetDoktor() {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Doktor> GetDoktor() {
             return base.Channel.GetDoktor();
         }
         
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Doktor[]> GetDoktorAsync() {
-            return base.Channel.GetDoktorAsync();
-        }
-        
-        public BolnicaClient.BolnicaService.Pacijent[] GetPacijent() {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Pacijent> GetPacijent() {
             return base.Channel.GetPacijent();
         }
         
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Pacijent[]> GetPacijentAsync() {
-            return base.Channel.GetPacijentAsync();
-        }
-        
-        public BolnicaClient.BolnicaService.Korisnik[] GetPacijentByVeza(int id) {
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetPacijentByVeza(int id) {
             return base.Channel.GetPacijentByVeza(id);
         }
         
-        public System.Threading.Tasks.Task<BolnicaClient.BolnicaService.Korisnik[]> GetPacijentByVezaAsync(int id) {
-            return base.Channel.GetPacijentByVezaAsync(id);
+        public void AddProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d) {
+            base.Channel.AddProizvodjac(d);
+        }
+        
+        public void UpdateProizvodjac(BolnicaClient.BolnicaService.Proizvodjac d) {
+            base.Channel.UpdateProizvodjac(d);
+        }
+        
+        public void DeleteProizvodjac(int id) {
+            base.Channel.DeleteProizvodjac(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Lijek> GetLijek() {
+            return base.Channel.GetLijek();
+        }
+        
+        public void AddLijek(BolnicaClient.BolnicaService.Lijek l) {
+            base.Channel.AddLijek(l);
+        }
+        
+        public void UpdateLijek(BolnicaClient.BolnicaService.Lijek l) {
+            base.Channel.UpdateLijek(l);
+        }
+        
+        public void DeleteLijek(int id) {
+            base.Channel.DeleteLijek(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Bolest> GetBolest() {
+            return base.Channel.GetBolest();
+        }
+        
+        public void AddBolest(BolnicaClient.BolnicaService.Bolest b) {
+            base.Channel.AddBolest(b);
+        }
+        
+        public void UpdateBolest(BolnicaClient.BolnicaService.Bolest b) {
+            base.Channel.UpdateBolest(b);
+        }
+        
+        public void DeleteBolest(int id) {
+            base.Channel.DeleteBolest(id);
         }
     }
 }

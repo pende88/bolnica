@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <asp:Label AssociatedControlID="txtPassword" ID="lblPassword" ControlStyle-CssClass="control-label  col-sm-2" runat="server">Password:</asp:Label>
                     <div class="col-sm-10">
-                        <asp:TextBox TextMode="Password" PasswordChar='*' ID="txtPassword" runat="server" Enabled="true" CssClass="form-control"></asp:TextBox>
+                        <asp:TextBox  ID="txtPassword" runat="server" Enabled="true" CssClass="form-control"></asp:TextBox>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ErrorMessage="Obavezan unos" ControlToValidate="txtPassword"></asp:RequiredFieldValidator>
                         <asp:RegularExpressionValidator ControlToValidate="txtPassword" ID="RegularExpressionValidatorPassword" runat="server" ValidationExpression="^[\s\S]{,}$" runat="server" ErrorMessage="Minimum 6 znakova je potrebno."></asp:RegularExpressionValidator>
                     </div>
@@ -147,14 +147,14 @@
 
 
                 <div class="form-group">
-                    <asp:Label CssClass="control-label col-sm-2" ID="lblDrzava" runat="server" Text="Drzava:" AssociatedControlID="ddlDrzava"></asp:Label>
+                    <asp:Label CssClass="control-label col-sm-2" ID="lblProizvodjac" runat="server" Text="Proizvodjac:" AssociatedControlID="ddlProizvodjac"></asp:Label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlDrzava" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDDrzava" DataTextField="Naziv">
+                        <asp:DropDownList CssClass="btn btn-default" ID="ddlProizvodjac" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDProizvodjac" DataTextField="Naziv">
                             <Items>
                                 <asp:ListItem Text="Odaberi državu" Value="" Selected="True"></asp:ListItem>
                             </Items>
                         </asp:DropDownList>
-                        <asp:CustomValidator ID="validatorDdlDrzava" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlDrzava_ServerValidate"></asp:CustomValidator>
+                        <asp:CustomValidator ID="validatorDdlProizvodjac" runat="server" ErrorMessage="Molimo odaberite drzavu" OnServerValidate="validatorDdlProizvodjac_ServerValidate"></asp:CustomValidator>
 
                     </div>
                 </div>
@@ -164,8 +164,7 @@
 
                         <asp:Button CssClass="btn btn-default" ID="btnSave" runat="server" Text="Save" OnClick="btnSave_Click" />
                         <asp:Button CssClass="btn btn-default" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-                       <%-- provjeri dali može ista metoda (vjerojatno ću morat iz drugih polja dobivat vrijednosti --%>
-                        <asp:Button CssClass="btn btn-default" ID="btnDodaj2" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" />
+                        <asp:Button CssClass="btn btn-default" ID="btnDodaj2" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" CausesValidation="false" />
                         <asp:Button CssClass="btn btn-default" ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </div>
                 </div>
@@ -178,58 +177,53 @@
     <br />
     <div class="row">
         <div class="col-md-offset-2 col-md-8 ">
-            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" ID="GridViewPacijentiByDoktor" ShowHeaderWhenEmpty="True"
-                DataKeyNames="PacijentKorisnickiRacunID" runat="server" AutoGenerateColumns="False" 
-                OnSelectedIndexChanged="GridViewPacijentiByDoktor_SelectedIndexChanged"
-                OnRowCommand="GridViewPacijentiByDoktor_RowCommand"
-                OnRowDataBound="GridViewPacijentiByDoktor_RowDataBound"
-                OnRowDeleted="GridViewPacijentiByDoktor_RowDeleted"
+            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" 
+                ID="GridViewPacijentiByDoktor" 
+                DataKeyNames="IDPacijentDoktorVeza"
                 OnRowDeleting="GridViewPacijentiByDoktor_RowDeleting"
-
+                runat="server" AutoGenerateColumns="False" 
+                OnSelectedIndexChanged="GridViewPacijentiByDoktor_SelectedIndexChanged"
                 >
-                <%-- ispitaj da li trebaju svi ovi eventi --%>
+               
                 <Columns>
-
-                   
-                    
-
-
 
                      <asp:TemplateField HeaderText="IDPacijentDoktorVeza">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblPacijentDoktorVeza" runat="server" Text='<%# Eval("IDPacijentDoktorVeza") %>' />
+                            <asp:Label  ID="lblPacijentDoktorVeza" runat="server" Text='<%# Eval("IDPacijentDoktorVeza") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                      <asp:TemplateField HeaderText="DoktorKorisnickiRacunID">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblDoktorKorisnickiRacunID" runat="server" Text='<%# Eval("DoktorKorisnickiRacunID") %>' />
+                            <asp:Label  ID="lblDoktorKorisnickiRacunID" runat="server" Text='<%# Eval("DoktorKorisnickiRacunID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                      <asp:TemplateField HeaderText="PacijentKorisnickiRacunID">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblPacijentKorisnickiRacunID" runat="server" Text='<%# Eval("PacijentKorisnickiRacunID") %>' />
+                            <asp:Label  ID="lblPacijentKorisnickiRacunID" runat="server" Text='<%# Eval("PacijentKorisnickiRacunID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
                     <asp:TemplateField HeaderText="NazivPacijenta">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblNazivPacijenta" runat="server" Text='<%# Eval("NazivPacijenta") %>' />
+                            <asp:Label  ID="lblNazivPacijenta" runat="server" Text='<%# Eval("NazivPacijenta") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField>
+                   <%-- <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnSelect" class="btn btn-link" runat="server" CommandName="Select" Text="Select" CausesValidation="false"  OnClick="GridViewPacijentiByDoktor_SelectedIndexChanged"/>
                         </ItemTemplate>
-                    </asp:TemplateField>
-
-<%--                    <asp:TemplateField>
-                        <ItemTemplate>
-                            <asp:LinkButton ID="lbtnDelete" class="btn btn-link" runat="server" CommandName="Delete" Text="Delete" CausesValidation="false" />
-                        </ItemTemplate>
                     </asp:TemplateField>--%>
+
+                  <%--  <asp:templatefield>
+                        <itemtemplate>
+                            <asp:Linkbutton id="lbtndelete" class="btn btn-link" runat="server" ComandName="Delete" text="delete" causesvalidation="false" OnClick="lbtndelete_Click" />
+                        </itemtemplate>
+                    </asp:templatefield>--%>
+
+                        <asp:CommandField ButtonType="Link" ShowSelectButton="true" ShowDeleteButton="true"  ItemStyle-Width="150"/>
 
 
                 </Columns>

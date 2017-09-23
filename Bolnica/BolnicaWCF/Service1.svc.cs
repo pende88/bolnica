@@ -43,9 +43,9 @@ namespace BolnicaWCF
             return (new Repository()).GetGrupa();
         }
 
-        public List<Drzava> GetDrzava()
+        public List<Proizvodjac> GetProizvodjac()
         {
-            return (new Repository()).GetDrzava();
+            return (new Repository()).GetProizvodjac();
         }
 
         public List<PacijentDoktor> GetPacijentByDoktorID(int IDDoktor)
@@ -82,5 +82,62 @@ namespace BolnicaWCF
         {
             return (new Repository()).GetPacijentByVeza(id);
         }
+
+        public void AddProizvodjac(Proizvodjac d)
+        {
+             new  Repository().AddProizvodjac(d);
+        }
+
+        public void UpdateProizvodjac(Proizvodjac d)
+        {
+             new  Repository().UpdateProizvodjac(d);
+        }
+
+        public void DeleteProizvodjac(int id)
+        {
+             new  Repository().DeleteProizvodjac(id);
+        }
+
+        public List<Lijek> GetLijek()
+        {
+            return (new Repository()).GetLijek();
+        }
+
+        public void AddLijek(Lijek l)
+        {
+            new Repository().AddLijek(l);
+        }
+
+        public void UpdateLijek(Lijek l)
+        {
+            new Repository().UpdateLijek(l);
+        }
+
+        public void DeleteLijek(int id)
+        {
+            new Repository().DeleteLijek(id);
+        }
+
+        public List<Bolest> GetBolest()
+        {
+            return (new Repository()).GetBolest();
+        }
+
+        public void AddBolest(Bolest b)
+        {
+            new Repository().AddBolest(b);
+        }
+
+        public void UpdateBolest(Bolest b)
+        {
+            new Repository().UpdateBolest(b);
+        }
+
+        public void DeleteBolest(int id)
+        {
+            new Repository().DeleteBolest(id);
+        }
+
+       
     }
 }

@@ -18,6 +18,7 @@ namespace BolnicaClient.Admin
             {
                 FillDdlOdabirDoktora();
                 FillDdlOdabirPacijenta();
+                FillDdlProizvodjac();
             }
         }
 
@@ -42,6 +43,20 @@ namespace BolnicaClient.Admin
                 proxy = new BolnicaService.Service1Client();
                 ddlOdabirPacijenta.DataSource = proxy.GetPacijent();
                 ddlOdabirPacijenta.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ("Pogreška pri učitavanju podataka, greška: " + ex);
+            }
+        }
+
+        private void FillDdlProizvodjac()
+        {
+            try
+            {
+                proxy = new BolnicaService.Service1Client();
+                ddlProizvodjac.DataSource = proxy.GetProizvodjac();
+                ddlProizvodjac.DataBind();
             }
             catch (Exception ex)
             {
@@ -80,13 +95,10 @@ namespace BolnicaClient.Admin
 
             try
             {
+                //najprije mi ovo nije radilo a kad sam dodao delete link button onda je ovo proradilo a link button mi ne radi
+                int veza = Convert.ToInt32((GridViewPacijentiByDoktor.SelectedRow.FindControl("lblPacijentKorisnickiRacunID") as Label).Text);
+
                 proxy = new BolnicaService.Service1Client();
-                
-
-                int veza = Convert.ToInt32((GridViewPacijentiByDoktor.SelectedRow.FindControl("IDPacijentDoktorVeza") as Label).Text);
-
-
-
                 var korisnik = proxy.GetPacijentByVeza(veza);
 
                 foreach (var kor in korisnik)
@@ -113,14 +125,20 @@ namespace BolnicaClient.Admin
 
                     txtPTTbroj.Text = kor.PTTBroj;
 
-                    ddlDrzava.SelectedValue = kor.IDDrzava.ToString();
+                    ddlProizvodjac.SelectedValue = kor.IDProizvodjac.ToString();
+
+                    
                 }
 
 
             }
             catch (Exception ex)
             {
-                lblStatus.Text = ("Operacija nije izvršena, greška: " + ex);
+
+                
+                    lblStatus.Text = ("Došlo je do greške: " + ex);
+                
+                
             }
 
 
@@ -133,17 +151,37 @@ namespace BolnicaClient.Admin
 
         protected void GridViewPacijentiByDoktor_RowDataBound(object sender, GridViewRowEventArgs e)
         {
+            if (e.Row.RowType == DataControlRowType.DataRow && e.Row.RowIndex != GridViewPacijentiByDoktor.EditIndex)
+            {
+                (e.Row.Cells[4].Controls[1] as LinkButton).Attributes["onclick"] = "return confirm('Jeste li sigurni?');";
+            }
 
         }
 
-        protected void GridViewPacijentiByDoktor_RowDeleted(object sender, GridViewDeletedEventArgs e)
-        {
-
-        }
+       
 
         protected void GridViewPacijentiByDoktor_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            try
+            {
+                //odmah puca čim probam dohvatit podatak iz tablice
+                //a na isti način radim select i tamo mi sve funkcionira
+                // otkrio sam da ovaj kod radi ako prvi put kada dođem na formu odaberem bilo koji select, nakon toga mogu bilo koji delete odabrat i sve radi
+               
 
+                int veza = Convert.ToInt32((GridViewPacijentiByDoktor.SelectedRow.FindControl("lblPacijentDoktorVeza") as Label).Text);
+
+                proxy = new BolnicaService.Service1Client();
+                proxy.DeletePacijentDoktorVeza(Convert.ToInt32(veza));
+                lblStatus.Text = ("Uspješno izbrisano");
+                FillGridViewPacijentiByDoktor();
+            }
+            catch(Exception ex)
+            {
+                lblStatus.Text=("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
+            }
+            
+            
         }
 
 
@@ -156,7 +194,15 @@ namespace BolnicaClient.Admin
                 proxy = new BolnicaService.Service1Client();
                 BolnicaService.PacijentDoktor pd = new BolnicaService.PacijentDoktor();
                 pd.DoktorKorisnickiRacunID = Convert.ToInt32(ddlOdabirDoktora.SelectedValue);
-                pd.PacijentKorisnickiRacunID = Convert.ToInt32(ddlOdabirPacijenta.SelectedValue);
+                if(sender == ddlOdabirPacijenta)
+                {
+                    pd.PacijentKorisnickiRacunID = Convert.ToInt32(ddlOdabirPacijenta.SelectedValue);
+                }
+                else
+                {
+                    pd.PacijentKorisnickiRacunID = Convert.ToInt32(txtIDKorisnickiRacun.Text);
+                }
+                
 
                 proxy.AddPacijentDoktorVeza(pd);
 
@@ -195,7 +241,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDDrzava = Convert.ToInt32(ddlDrzava.SelectedValue);
+                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
 
                         proxy.AddKorisnik(k);
 
@@ -243,7 +289,7 @@ namespace BolnicaClient.Admin
                         k.Adresa = txtAdresa.Text;
                         k.Grad = txtGrad.Text;
                         k.PTTBroj = txtPTTbroj.Text;
-                        k.IDDrzava = Convert.ToInt32(ddlDrzava.SelectedValue);
+                        k.IDProizvodjac = Convert.ToInt32(ddlProizvodjac.SelectedValue);
 
                         proxy.UpdateKorisnik(k);
 
@@ -339,9 +385,9 @@ namespace BolnicaClient.Admin
             }
         }
 
-        protected void validatorDdlDrzava_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void validatorDdlProizvodjac_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (ddlDrzava.SelectedValue.Equals(""))
+            if (ddlProizvodjac.SelectedValue.Equals(""))
             {
                 args.IsValid = false;
             }
@@ -352,5 +398,28 @@ namespace BolnicaClient.Admin
         {
             FillGridViewPacijentiByDoktor();
         }
+
+        //protected void lbtndelete_Click(object sender, EventArgs e)
+        //{
+
+        //    try
+        //    {
+
+               
+        //        int  id = Convert.ToInt32((GridViewPacijentiByDoktor.SelectedRow.FindControl("lblPacijentDoktorVeza") as Label).Text);
+
+
+
+        //        proxy = new BolnicaService.Service1Client();
+        //        proxy.DeletePacijentDoktorVeza(id);
+        //        lblStatus.Text = ("Uspješno izbrisano");
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        lblStatus.Text = ("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
+        //    }
+        //}
+
+
     }
 }

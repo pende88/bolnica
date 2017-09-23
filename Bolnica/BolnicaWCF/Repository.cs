@@ -98,8 +98,8 @@ namespace BolnicaWCF
                         k.PTTBroj = dr["PTTBroj"].ToString();
                         k.Grad = dr["Grad"].ToString();
                        
-                        k.IDDrzava = dr["IDDrzava"] == DBNull.Value ? 0 : (int)dr["IDDrzava"];
-                        k.Drzava = dr["Drzava"].ToString();
+                        k.IDProizvodjac = dr["IDProizvodjac"] == DBNull.Value ? 0 : (int)dr["IDProizvodjac"];
+                        k.Proizvodjac = dr["Proizvodjac"].ToString();
 
 
                         lista.Add(k);
@@ -137,7 +137,7 @@ namespace BolnicaWCF
                     command.Parameters.Add(new SqlParameter("@Adresa", k.Adresa));
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
-                    command.Parameters.Add(new SqlParameter("@DrzavaID", k.IDDrzava));
+                    command.Parameters.Add(new SqlParameter("@ProizvodjacID", k.IDProizvodjac));
 
                     command.ExecuteNonQuery();
                 }
@@ -171,7 +171,7 @@ namespace BolnicaWCF
                     command.Parameters.Add(new SqlParameter("@Adresa", k.Adresa));
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
-                    command.Parameters.Add(new SqlParameter("@DrzavaID", k.IDDrzava));
+                    command.Parameters.Add(new SqlParameter("@ProizvodjacID", k.IDProizvodjac));
 
                     command.ExecuteNonQuery();
                 }
@@ -244,43 +244,7 @@ namespace BolnicaWCF
             return lista;
         }
 
-        public List<Drzava> GetDrzava()
-        {
-            List<Drzava> lista = new List<Drzava>();
-
-            try
-            {
-                using (SqlConnection Sqlcon = new SqlConnection(_cs))
-                {
-                    SqlCommand cmd = new SqlCommand("dbo.GetDrzava", Sqlcon);
-
-                    cmd.CommandType = CommandType.StoredProcedure;
-
-                    Sqlcon.Open();
-
-                    SqlDataReader dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
-                    {
-                        Drzava d = new Drzava();
-
-                        d.IDDrzava = Convert.ToInt32(dr["IDDrzava"]);
-                        d.Naziv = dr["Naziv"].ToString();
-
-
-                        lista.Add(d);
-                    }
-
-                };
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-
-            return lista;
-        }
+      
 
 
 
@@ -483,7 +447,7 @@ namespace BolnicaWCF
                 {
                     SqlCommand cmd = new SqlCommand("dbo.GetPacijentByVeza", Sqlcon);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@IDPacijentDoktorVeza", id));
+                    cmd.Parameters.Add(new SqlParameter("@PacijentKorisnickiRacunID", id));
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     Sqlcon.Open();
@@ -494,7 +458,7 @@ namespace BolnicaWCF
                     {
                         Korisnik k = new Korisnik();
 
-                        k.IDKorisnickiRacun = Convert.ToInt32(dr["IDKorisnickiRacun"]);
+                        k.IDKorisnickiRacun = Convert.ToInt32(dr["PacijentKorisnickiRacunID"]);
                        
                         k.Username = dr["Username"].ToString();
                         k.Password = dr["Password"].ToString();
@@ -506,9 +470,9 @@ namespace BolnicaWCF
                         k.Adresa = dr["Adresa"].ToString();
                         k.PTTBroj = dr["PTTBroj"].ToString();
                         k.Grad = dr["Grad"].ToString();
-
-                        k.IDDrzava = dr["IDDrzava"] == DBNull.Value ? 0 : (int)dr["IDDrzava"];
-                        k.Drzava = dr["Drzava"].ToString();
+                        
+                        k.IDProizvodjac = Convert.ToInt32(dr["ProizvodjacID"].ToString());
+                        
 
 
                         lista.Add(k);
@@ -520,9 +484,343 @@ namespace BolnicaWCF
             {
                 throw ex;
             }
+            return lista;
+
+
+        }
+
+
+        public List<Proizvodjac> GetProizvodjac()
+        {
+            List<Proizvodjac> lista = new List<Proizvodjac>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetProizvodjac", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Proizvodjac pr = new Proizvodjac();
+
+                        pr.IDProizvodjac = Convert.ToInt32(dr["IDProizvodjac"]);
+                        pr.Naziv = dr["Naziv"].ToString();
+
+
+                        lista.Add(pr);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
 
             return lista;
+        }
+
+        public void AddProizvodjac  (Proizvodjac d)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.AddProizvodjac", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@Naziv", d.Naziv));
+                    
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void UpdateProizvodjac(Proizvodjac p)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.UpdateProizvodjac", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@IDProizvodjac", p.IDProizvodjac));
+                    command.Parameters.Add(new SqlParameter("@Naziv", p.Naziv));
+                   
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        public void DeleteProizvodjac(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.DeleteProizvodjac", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDProizvodjac", id));
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+
+        public List<Lijek> GetLijek()
+        {
+            List<Lijek> lista = new List<Lijek>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetLijek", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Lijek l = new Lijek();
+
+                        l.IDLIjek = Convert.ToInt32(dr["IDLijek"]);
+                        l.NazivLijeka = dr["NazivLijeka"].ToString();
+                        l.BrojOdobrenja = dr["BrojOdobrenja"].ToString();
+                        l.ProizvodjacID = Convert.ToInt32(dr["ProizvodjacID"]);
+
+
+                        lista.Add(l);
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+
+
+        }
+
+        public void AddLijek(Lijek l)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.AddLijek", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                   
+                    command.Parameters.Add(new SqlParameter("@Naziv", l.NazivLijeka));
+                    command.Parameters.Add(new SqlParameter("@GodinaOdobrenja", l.BrojOdobrenja));
+                    command.Parameters.Add(new SqlParameter("@ProizvodjacID", l.ProizvodjacID));
+                    
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void UpdateLijek(Lijek l)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.UpdateLijek", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@IDLijek", l.IDLIjek));
+                    command.Parameters.Add(new SqlParameter("@Naziv", l.NazivLijeka));
+                    command.Parameters.Add(new SqlParameter("@BrojOdobrenja", l.BrojOdobrenja));
+                    command.Parameters.Add(new SqlParameter("@ProizvodjacID", l.ProizvodjacID));
+                    
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void DeleteLijek(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.DeleteLijek", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDLijek", id));
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+
+
+
+
+        public List<Bolest> GetBolest()
+        {
+            List<Bolest> lista = new List<Bolest>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetBolest", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Bolest b = new Bolest();
+
+                        b.IDBolest= Convert.ToInt32(dr["IDBolest"]);
+                        b.NazivBolesti= dr["NazivBolesti"].ToString();
+                        b.GodinaOtkrica = Convert.ToInt32(dr["GodinaOtkrica"]);
+                        b.OpasnostID = Convert.ToInt32(dr["OpasnostID"]);
+                        b.Opasnost= dr["Opasnost"].ToString();
+                        lista.Add(b);
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+
+
+        }
+
+        public void AddBolest(Bolest b)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.AddBolest", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+
+                    command.Parameters.Add(new SqlParameter("@NazivBolest", b.NazivBolesti));
+                    command.Parameters.Add(new SqlParameter("@GodinaOtkrica", b.GodinaOtkrica));
+                    command.Parameters.Add(new SqlParameter("@OpasnostID", b.OpasnostID));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void UpdateBolest(Bolest b)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.UpdateBolest", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.Add(new SqlParameter("@IDBolest", b.IDBolest));
+                    command.Parameters.Add(new SqlParameter("@NazivBolest", b.NazivBolesti));
+                    command.Parameters.Add(new SqlParameter("@GodinaOtkrica", b.GodinaOtkrica));
+                    command.Parameters.Add(new SqlParameter("@OpasnostID", b.OpasnostID));
+
+                    command.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public void DeleteBolest(int id)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(_cs))
+                {
+                    conn.Open();
+                    SqlCommand command = new SqlCommand("dbo.DeleteBolest", conn);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.Add(new SqlParameter("@IDBolest", id));
+                    command.ExecuteNonQuery();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
         }
 
     }

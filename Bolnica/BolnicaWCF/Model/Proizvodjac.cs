@@ -9,9 +9,12 @@ namespace BolnicaWCF.Model
     [DataContract]
     public class Proizvodjac
     {
+
         [DataMember]
         public int IDProizvodjac { get; set; }
         [DataMember]
-        public string Naziv { get; set; }
+        public string NazivProizvdjaca { get; set; }
+
+
     }
 }

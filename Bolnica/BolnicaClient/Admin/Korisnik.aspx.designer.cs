@@ -364,31 +364,31 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator10;
         
         /// <summary>
-        /// lblDrzava control.
+        /// lblProizvodjac control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDrzava;
+        protected global::System.Web.UI.WebControls.Label lblProizvodjac;
         
         /// <summary>
-        /// ddlDrzava control.
+        /// ddlProizvodjac control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDrzava;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProizvodjac;
         
         /// <summary>
-        /// validatorDdlDrzava control.
+        /// validatorDdlProizvodjac control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validatorDdlDrzava;
+        protected global::System.Web.UI.WebControls.CustomValidator validatorDdlProizvodjac;
         
         /// <summary>
         /// btnSave control.

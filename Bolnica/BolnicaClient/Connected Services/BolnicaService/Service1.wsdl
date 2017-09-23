@@ -43,11 +43,11 @@
   <wsdl:message name="IService1_GetGrupa_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetGrupaResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDrzava_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetDrzava" />
+  <wsdl:message name="IService1_GetProizvodjac_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProizvodjac" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetDrzava_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetDrzavaResponse" />
+  <wsdl:message name="IService1_GetProizvodjac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProizvodjacResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetPacijentByDoktorID_InputMessage">
     <wsdl:part name="parameters" element="tns:GetPacijentByDoktorID" />
@@ -91,6 +91,72 @@
   <wsdl:message name="IService1_GetPacijentByVeza_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetPacijentByVezaResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddProizvodjac_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddProizvodjac" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddProizvodjac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddProizvodjacResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateProizvodjac_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProizvodjac" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateProizvodjac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProizvodjacResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteProizvodjac_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProizvodjac" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteProizvodjac_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProizvodjacResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBolest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBolest" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBolest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBolestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddBolest_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddBolest" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddBolest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddBolestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateBolest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBolest" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateBolest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBolestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteBolest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBolest" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteBolest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteBolestResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
@@ -116,9 +182,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetGrupa" message="tns:IService1_GetGrupa_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetGrupaResponse" message="tns:IService1_GetGrupa_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetDrzava">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDrzava" message="tns:IService1_GetDrzava_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDrzavaResponse" message="tns:IService1_GetDrzava_OutputMessage" />
+    <wsdl:operation name="GetProizvodjac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetProizvodjac" message="tns:IService1_GetProizvodjac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetProizvodjacResponse" message="tns:IService1_GetProizvodjac_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetPacijentByDoktorID">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByDoktorID" message="tns:IService1_GetPacijentByDoktorID_InputMessage" />
@@ -147,6 +213,50 @@
     <wsdl:operation name="GetPacijentByVeza">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByVeza" message="tns:IService1_GetPacijentByVeza_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentByVezaResponse" message="tns:IService1_GetPacijentByVeza_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddProizvodjac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddProizvodjac" message="tns:IService1_AddProizvodjac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddProizvodjacResponse" message="tns:IService1_AddProizvodjac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProizvodjac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateProizvodjac" message="tns:IService1_UpdateProizvodjac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateProizvodjacResponse" message="tns:IService1_UpdateProizvodjac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProizvodjac">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteProizvodjac" message="tns:IService1_DeleteProizvodjac_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteProizvodjacResponse" message="tns:IService1_DeleteProizvodjac_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLijek" message="tns:IService1_GetLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLijekResponse" message="tns:IService1_GetLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddLijek" message="tns:IService1_AddLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddLijekResponse" message="tns:IService1_AddLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateLijek" message="tns:IService1_UpdateLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateLijekResponse" message="tns:IService1_UpdateLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteLijek" message="tns:IService1_DeleteLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteLijekResponse" message="tns:IService1_DeleteLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBolest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBolest" message="tns:IService1_GetBolest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBolestResponse" message="tns:IService1_GetBolest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddBolest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddBolest" message="tns:IService1_AddBolest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddBolestResponse" message="tns:IService1_AddBolest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBolest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateBolest" message="tns:IService1_UpdateBolest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateBolestResponse" message="tns:IService1_UpdateBolest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBolest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteBolest" message="tns:IService1_DeleteBolest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteBolestResponse" message="tns:IService1_DeleteBolest_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -205,8 +315,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetDrzava">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetDrzava" style="document" />
+    <wsdl:operation name="GetProizvodjac">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetProizvodjac" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -270,6 +380,105 @@
     </wsdl:operation>
     <wsdl:operation name="GetPacijentByVeza">
       <soap:operation soapAction="http://tempuri.org/IService1/GetPacijentByVeza" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddProizvodjac">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddProizvodjac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProizvodjac">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateProizvodjac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProizvodjac">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteProizvodjac" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBolest">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetBolest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddBolest">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddBolest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBolest">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateBolest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteBolest">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteBolest" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
