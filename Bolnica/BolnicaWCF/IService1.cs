@@ -117,6 +117,52 @@ namespace BolnicaWCF
         [OperationContract]
         List<OpasnostBolesti> GetOpasnostBolesti();
 
+
+        [OperationContract]
+        List<Terapija> GetTerapija();
+
+        [OperationContract]
+        void AddTerapija(Terapija t);
+
+        [OperationContract]
+        void UpdateTerapija(Terapija t);
+
+        [OperationContract]
+        void DeleteTerapija(int id);
+
+        [OperationContract]
+        List<Bolest> GetBolestiDDL();
+
+        [OperationContract]
+        List<Lijek> GetLijekDDL();
+
+
+
+        [OperationContract]
+        List<TerapijaLijek> GetLijekByTerapija(int id);
+
+        [OperationContract]
+        void AddTerapijaLijek(TerapijaLijek tl);
+
+        [OperationContract]
+        void UpdateTerapijaLijek(TerapijaLijek tl);
+
+        [OperationContract]
+        void DeleteTerapijaLijek(int id);
+
+
+
+        [OperationContract]
+        List<PlanTerapije> GetPlanTerapije(int id);
+
+        [OperationContract]
+        void AddPlanTerapije(PlanTerapije pt);
+
+        [OperationContract]
+        void UpdatePlanTerapije(PlanTerapije pt);
+
+        [OperationContract]
+        void DeletePlanTerapije(int id);
     }
 
 

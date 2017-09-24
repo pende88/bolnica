@@ -151,4 +151,53 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="OpasnostBolesti" nillable="true" type="tns:OpasnostBolesti" />
+  <xs:complexType name="ArrayOfTerapija">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Terapija" nillable="true" type="tns:Terapija" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTerapija" nillable="true" type="tns:ArrayOfTerapija" />
+  <xs:complexType name="Terapija">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BolestID" type="xs:int" />
+      <xs:element minOccurs="0" name="DaniTrajanja" type="xs:int" />
+      <xs:element minOccurs="0" name="IDTerapija" type="xs:int" />
+      <xs:element minOccurs="0" name="Naziv" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NazivBolesti" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Terapija" nillable="true" type="tns:Terapija" />
+  <xs:complexType name="ArrayOfTerapijaLijek">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TerapijaLijek" nillable="true" type="tns:TerapijaLijek" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTerapijaLijek" nillable="true" type="tns:ArrayOfTerapijaLijek" />
+  <xs:complexType name="TerapijaLijek">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDTerapijaLijek" type="xs:int" />
+      <xs:element minOccurs="0" name="LijekID" type="xs:int" />
+      <xs:element minOccurs="0" name="NazivLijeka" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TerapijaID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TerapijaLijek" nillable="true" type="tns:TerapijaLijek" />
+  <xs:complexType name="ArrayOfPlanTerapije">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="PlanTerapije" nillable="true" type="tns:PlanTerapije" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPlanTerapije" nillable="true" type="tns:ArrayOfPlanTerapije" />
+  <xs:complexType name="PlanTerapije">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DatumPocetka" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DatumZavrsetka" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DoktorID" type="xs:int" />
+      <xs:element minOccurs="0" name="IDPlantTerapije" type="xs:int" />
+      <xs:element minOccurs="0" name="NazivTerapije" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PacijentID" type="xs:int" />
+      <xs:element minOccurs="0" name="TerapijaID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="PlanTerapije" nillable="true" type="tns:PlanTerapije" />
 </xs:schema>

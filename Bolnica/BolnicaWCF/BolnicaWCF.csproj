@@ -76,7 +76,10 @@
     <Compile Include="Model\OpasnostBolesti.cs" />
     <Compile Include="Model\Pacijent.cs" />
     <Compile Include="Model\PacijentDoktor.cs" />
+    <Compile Include="Model\PlanTerapije.cs" />
     <Compile Include="Model\Proizvodjac.cs" />
+    <Compile Include="Model\Terapija.cs" />
+    <Compile Include="Model\TerapijaLijek.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>

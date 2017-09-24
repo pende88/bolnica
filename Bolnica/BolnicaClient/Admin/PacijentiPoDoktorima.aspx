@@ -180,7 +180,7 @@
             <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" 
                 ID="GridViewPacijentiByDoktor" 
                 DataKeyNames="IDPacijentDoktorVeza"
-                OnRowDeleting="GridViewPacijentiByDoktor_RowDeleting"
+                ShowHeaderWhenEmpty="true"
                 runat="server" AutoGenerateColumns="False" 
                 OnSelectedIndexChanged="GridViewPacijentiByDoktor_SelectedIndexChanged"
                 >
@@ -211,19 +211,17 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                   <%-- <asp:TemplateField>
+                
+
+                    <asp:TemplateField HeaderText="Komanda">
                         <ItemTemplate>
-                            <asp:LinkButton ID="lbtnSelect" class="btn btn-link" runat="server" CommandName="Select" Text="Select" CausesValidation="false"  OnClick="GridViewPacijentiByDoktor_SelectedIndexChanged"/>
+                            <asp:LinkButton runat="server" ID="lbDelete" Text="Delete" CommandArgument='<%#Eval("IDPacijentDoktorVeza") %>'
+                                OnCommand="lbDelete_Command" CausesValidation="false">
+                            </asp:LinkButton>
                         </ItemTemplate>
-                    </asp:TemplateField>--%>
+                    </asp:TemplateField>
 
-                  <%--  <asp:templatefield>
-                        <itemtemplate>
-                            <asp:Linkbutton id="lbtndelete" class="btn btn-link" runat="server" ComandName="Delete" text="delete" causesvalidation="false" OnClick="lbtndelete_Click" />
-                        </itemtemplate>
-                    </asp:templatefield>--%>
-
-                        <asp:CommandField ButtonType="Link" ShowSelectButton="true" ShowDeleteButton="true"  ItemStyle-Width="150"/>
+                        <asp:CommandField ButtonType="Link" ShowSelectButton="true"  ItemStyle-Width="150"/>
 
 
                 </Columns>

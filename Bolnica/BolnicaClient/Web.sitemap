@@ -13,6 +13,9 @@
         <siteMapNode url ="~/Admin/Proizvodjaci.aspx" title="Proizvođači" description="Admin Proizvođača"></siteMapNode>
         <siteMapNode url ="~/Admin/Lijekovi.aspx" title="Lijekovi" description="Admin Lijekova"></siteMapNode>
         <siteMapNode url ="~/Admin/Bolesti.aspx" title="Bolesti" description="Admin Bolesti"></siteMapNode>
+        <siteMapNode url ="~/Admin/Terapija.aspx" title="Terapija" description="Admin Terapija"></siteMapNode>
+        <siteMapNode url ="~/Admin/PlanTerapije.aspx" title="PlanTerapije" description="Admin Plana terapije"></siteMapNode>
+
 
 
       </siteMapNode>

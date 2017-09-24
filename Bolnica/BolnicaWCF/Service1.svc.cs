@@ -162,5 +162,76 @@ namespace BolnicaWCF
         {
             return (new Repository()).GetOpasnostBolesti();
         }
+
+        public List<Terapija> GetTerapija()
+        {
+           return (new Repository()).GetTerapija();
+        }
+
+        public void AddTerapija(Terapija t)
+        {
+            new Repository().AddTerapija( t);
+        }
+
+        public void UpdateTerapija(Terapija t)
+        {
+            new Repository().UpdateTerapija( t);
+        }
+
+        public void DeleteTerapija(int id)
+        {
+            new Repository().DeleteTerapija(id);
+        }
+
+        public List<Bolest> GetBolestiDDL()
+        {
+            return (new Repository()).GetBolestiDDL();
+        }
+
+        public List<Lijek> GetLijekDDL()
+        {
+            return (new Repository()).GetLijekDDL();
+        }
+
+        public List<TerapijaLijek> GetLijekByTerapija(int id)
+        {
+            return (new Repository()).GetLijekByTerapija(id);
+        }
+
+        public void AddTerapijaLijek(TerapijaLijek tl)
+        {
+            new Repository().AddTerapijaLijek(tl);
+        }
+
+        public void UpdateTerapijaLijek(TerapijaLijek tl)
+        {
+            new Repository().UpdateTerapijaLijek(tl);
+        }
+
+        public void DeleteTerapijaLijek(int id)
+        {
+            new Repository().DeleteTerapijaLijek(id);
+        }
+
+        public List<PlanTerapije> GetPlanTerapije(int id)
+        {
+            return (new Repository()).GetPlanTerapije(id);
+        }
+
+        public void AddPlanTerapije(PlanTerapije pt)
+        {
+            new Repository().AddPlanTerapije(pt);
+
+        }
+
+        public void UpdatePlanTerapije(PlanTerapije pt)
+        {
+            new Repository().UpdatePlanTerapije(pt);
+        }
+
+        public void DeletePlanTerapije(int id)
+        {
+            new Repository().DeletePlanTerapije(id);
+        }
     }
 }

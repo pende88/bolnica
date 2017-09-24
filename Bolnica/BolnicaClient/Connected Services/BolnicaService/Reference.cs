@@ -959,6 +959,349 @@ namespace BolnicaClient.BolnicaService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Terapija", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class Terapija : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BolestIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DaniTrajanjaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDTerapijaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivBolestiField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BolestID {
+            get {
+                return this.BolestIDField;
+            }
+            set {
+                if ((this.BolestIDField.Equals(value) != true)) {
+                    this.BolestIDField = value;
+                    this.RaisePropertyChanged("BolestID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DaniTrajanja {
+            get {
+                return this.DaniTrajanjaField;
+            }
+            set {
+                if ((this.DaniTrajanjaField.Equals(value) != true)) {
+                    this.DaniTrajanjaField = value;
+                    this.RaisePropertyChanged("DaniTrajanja");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDTerapija {
+            get {
+                return this.IDTerapijaField;
+            }
+            set {
+                if ((this.IDTerapijaField.Equals(value) != true)) {
+                    this.IDTerapijaField = value;
+                    this.RaisePropertyChanged("IDTerapija");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Naziv {
+            get {
+                return this.NazivField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivField, value) != true)) {
+                    this.NazivField = value;
+                    this.RaisePropertyChanged("Naziv");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivBolesti {
+            get {
+                return this.NazivBolestiField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivBolestiField, value) != true)) {
+                    this.NazivBolestiField = value;
+                    this.RaisePropertyChanged("NazivBolesti");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TerapijaLijek", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class TerapijaLijek : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDTerapijaLijekField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int LijekIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivLijekaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TerapijaIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDTerapijaLijek {
+            get {
+                return this.IDTerapijaLijekField;
+            }
+            set {
+                if ((this.IDTerapijaLijekField.Equals(value) != true)) {
+                    this.IDTerapijaLijekField = value;
+                    this.RaisePropertyChanged("IDTerapijaLijek");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int LijekID {
+            get {
+                return this.LijekIDField;
+            }
+            set {
+                if ((this.LijekIDField.Equals(value) != true)) {
+                    this.LijekIDField = value;
+                    this.RaisePropertyChanged("LijekID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivLijeka {
+            get {
+                return this.NazivLijekaField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivLijekaField, value) != true)) {
+                    this.NazivLijekaField = value;
+                    this.RaisePropertyChanged("NazivLijeka");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TerapijaID {
+            get {
+                return this.TerapijaIDField;
+            }
+            set {
+                if ((this.TerapijaIDField.Equals(value) != true)) {
+                    this.TerapijaIDField = value;
+                    this.RaisePropertyChanged("TerapijaID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="PlanTerapije", Namespace="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model")]
+    [System.SerializableAttribute()]
+    public partial class PlanTerapije : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DatumPocetkaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime DatumZavrsetkaField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int DoktorIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDPlantTerapijeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivTerapijeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int PacijentIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int TerapijaIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DatumPocetka {
+            get {
+                return this.DatumPocetkaField;
+            }
+            set {
+                if ((this.DatumPocetkaField.Equals(value) != true)) {
+                    this.DatumPocetkaField = value;
+                    this.RaisePropertyChanged("DatumPocetka");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime DatumZavrsetka {
+            get {
+                return this.DatumZavrsetkaField;
+            }
+            set {
+                if ((this.DatumZavrsetkaField.Equals(value) != true)) {
+                    this.DatumZavrsetkaField = value;
+                    this.RaisePropertyChanged("DatumZavrsetka");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int DoktorID {
+            get {
+                return this.DoktorIDField;
+            }
+            set {
+                if ((this.DoktorIDField.Equals(value) != true)) {
+                    this.DoktorIDField = value;
+                    this.RaisePropertyChanged("DoktorID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IDPlantTerapije {
+            get {
+                return this.IDPlantTerapijeField;
+            }
+            set {
+                if ((this.IDPlantTerapijeField.Equals(value) != true)) {
+                    this.IDPlantTerapijeField = value;
+                    this.RaisePropertyChanged("IDPlantTerapije");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivTerapije {
+            get {
+                return this.NazivTerapijeField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivTerapijeField, value) != true)) {
+                    this.NazivTerapijeField = value;
+                    this.RaisePropertyChanged("NazivTerapije");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int PacijentID {
+            get {
+                return this.PacijentIDField;
+            }
+            set {
+                if ((this.PacijentIDField.Equals(value) != true)) {
+                    this.PacijentIDField = value;
+                    this.RaisePropertyChanged("PacijentID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int TerapijaID {
+            get {
+                return this.TerapijaIDField;
+            }
+            set {
+                if ((this.TerapijaIDField.Equals(value) != true)) {
+                    this.TerapijaIDField = value;
+                    this.RaisePropertyChanged("TerapijaID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BolnicaService.IService1")]
     public interface IService1 {
@@ -1052,6 +1395,48 @@ namespace BolnicaClient.BolnicaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOpasnostBolesti", ReplyAction="http://tempuri.org/IService1/GetOpasnostBolestiResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.OpasnostBolesti> GetOpasnostBolesti();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTerapija", ReplyAction="http://tempuri.org/IService1/GetTerapijaResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Terapija> GetTerapija();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTerapija", ReplyAction="http://tempuri.org/IService1/AddTerapijaResponse")]
+        void AddTerapija(BolnicaClient.BolnicaService.Terapija t);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTerapija", ReplyAction="http://tempuri.org/IService1/UpdateTerapijaResponse")]
+        void UpdateTerapija(BolnicaClient.BolnicaService.Terapija t);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTerapija", ReplyAction="http://tempuri.org/IService1/DeleteTerapijaResponse")]
+        void DeleteTerapija(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetBolestiDDL", ReplyAction="http://tempuri.org/IService1/GetBolestiDDLResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Bolest> GetBolestiDDL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLijekDDL", ReplyAction="http://tempuri.org/IService1/GetLijekDDLResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Lijek> GetLijekDDL();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetLijekByTerapija", ReplyAction="http://tempuri.org/IService1/GetLijekByTerapijaResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.TerapijaLijek> GetLijekByTerapija(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddTerapijaLijek", ReplyAction="http://tempuri.org/IService1/AddTerapijaLijekResponse")]
+        void AddTerapijaLijek(BolnicaClient.BolnicaService.TerapijaLijek tl);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateTerapijaLijek", ReplyAction="http://tempuri.org/IService1/UpdateTerapijaLijekResponse")]
+        void UpdateTerapijaLijek(BolnicaClient.BolnicaService.TerapijaLijek tl);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeleteTerapijaLijek", ReplyAction="http://tempuri.org/IService1/DeleteTerapijaLijekResponse")]
+        void DeleteTerapijaLijek(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlanTerapije", ReplyAction="http://tempuri.org/IService1/GetPlanTerapijeResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.PlanTerapije> GetPlanTerapije(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlanTerapije", ReplyAction="http://tempuri.org/IService1/AddPlanTerapijeResponse")]
+        void AddPlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdatePlanTerapije", ReplyAction="http://tempuri.org/IService1/UpdatePlanTerapijeResponse")]
+        void UpdatePlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlanTerapije", ReplyAction="http://tempuri.org/IService1/DeletePlanTerapijeResponse")]
+        void DeletePlanTerapije(int id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1199,6 +1584,62 @@ namespace BolnicaClient.BolnicaService {
         
         public System.Collections.Generic.List<BolnicaClient.BolnicaService.OpasnostBolesti> GetOpasnostBolesti() {
             return base.Channel.GetOpasnostBolesti();
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Terapija> GetTerapija() {
+            return base.Channel.GetTerapija();
+        }
+        
+        public void AddTerapija(BolnicaClient.BolnicaService.Terapija t) {
+            base.Channel.AddTerapija(t);
+        }
+        
+        public void UpdateTerapija(BolnicaClient.BolnicaService.Terapija t) {
+            base.Channel.UpdateTerapija(t);
+        }
+        
+        public void DeleteTerapija(int id) {
+            base.Channel.DeleteTerapija(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Bolest> GetBolestiDDL() {
+            return base.Channel.GetBolestiDDL();
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Lijek> GetLijekDDL() {
+            return base.Channel.GetLijekDDL();
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.TerapijaLijek> GetLijekByTerapija(int id) {
+            return base.Channel.GetLijekByTerapija(id);
+        }
+        
+        public void AddTerapijaLijek(BolnicaClient.BolnicaService.TerapijaLijek tl) {
+            base.Channel.AddTerapijaLijek(tl);
+        }
+        
+        public void UpdateTerapijaLijek(BolnicaClient.BolnicaService.TerapijaLijek tl) {
+            base.Channel.UpdateTerapijaLijek(tl);
+        }
+        
+        public void DeleteTerapijaLijek(int id) {
+            base.Channel.DeleteTerapijaLijek(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.PlanTerapije> GetPlanTerapije(int id) {
+            return base.Channel.GetPlanTerapije(id);
+        }
+        
+        public void AddPlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt) {
+            base.Channel.AddPlanTerapije(pt);
+        }
+        
+        public void UpdatePlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt) {
+            base.Channel.UpdatePlanTerapije(pt);
+        }
+        
+        public void DeletePlanTerapije(int id) {
+            base.Channel.DeletePlanTerapije(id);
         }
     }
 }

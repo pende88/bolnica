@@ -427,7 +427,29 @@ namespace BolnicaClient.Admin
         {
             FillGridViewPacijentiByDoktor();
         }
-        
 
+        protected void lbDelete_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                
+
+                int veza = Convert.ToInt32(e.CommandArgument);
+
+                proxy = new BolnicaService.Service1Client();
+                proxy.DeletePacijentDoktorVeza(Convert.ToInt32(veza));
+                lblStatus.Text = ("Uspješno izbrisano");
+                FillGridViewPacijentiByDoktor();
+
+                btnSave.Enabled = true;
+                btnDodaj.Enabled = false;
+                btnDodaj2.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
+            }
+        }
     }
 }

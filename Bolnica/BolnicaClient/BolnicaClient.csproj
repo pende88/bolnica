@@ -73,7 +73,9 @@
     <Content Include="Admin\Korisnik.aspx" />
     <Content Include="Admin\Lijekovi.aspx" />
     <Content Include="Admin\PacijentiPoDoktorima.aspx" />
+    <Content Include="Admin\PlanTerapije.aspx" />
     <Content Include="Admin\Proizvodjaci.aspx" />
+    <Content Include="Admin\Terapija.aspx" />
     <Content Include="Admin\Web.config" />
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Bolest.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -102,7 +104,16 @@
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.PacijentDoktor.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.PlanTerapije.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Proizvodjac.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.Terapija.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\BolnicaService\BolnicaClient.BolnicaService.TerapijaLijek.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\BolnicaService\Service1.disco" />
@@ -185,6 +196,13 @@
     <Compile Include="Admin\PacijentiPoDoktorima.aspx.designer.cs">
       <DependentUpon>PacijentiPoDoktorima.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Admin\PlanTerapije.aspx.cs">
+      <DependentUpon>PlanTerapije.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\PlanTerapije.aspx.designer.cs">
+      <DependentUpon>PlanTerapije.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin\ProbaAdmin.aspx.cs">
       <DependentUpon>ProbaAdmin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -198,6 +216,13 @@
     </Compile>
     <Compile Include="Admin\Proizvodjaci.aspx.designer.cs">
       <DependentUpon>Proizvodjaci.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Terapija.aspx.cs">
+      <DependentUpon>Terapija.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Terapija.aspx.designer.cs">
+      <DependentUpon>Terapija.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\BolnicaService\Reference.cs">
       <AutoGen>True</AutoGen>

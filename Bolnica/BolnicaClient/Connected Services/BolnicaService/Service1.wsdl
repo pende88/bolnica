@@ -187,6 +187,90 @@
   <wsdl:message name="IService1_GetOpasnostBolesti_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOpasnostBolestiResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetTerapija_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerapija" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetTerapija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTerapijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddTerapija_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTerapija" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddTerapija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTerapijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTerapija_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerapija" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTerapija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerapijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTerapija_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTerapija" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTerapija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTerapijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBolestiDDL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBolestiDDL" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetBolestiDDL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBolestiDDLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijekDDL_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijekDDL" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijekDDL_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijekDDLResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijekByTerapija_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijekByTerapija" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetLijekByTerapija_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLijekByTerapijaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddTerapijaLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddTerapijaLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddTerapijaLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddTerapijaLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTerapijaLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerapijaLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdateTerapijaLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTerapijaLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTerapijaLijek_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTerapijaLijek" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteTerapijaLijek_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTerapijaLijekResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPlanTerapije_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlanTerapije" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPlanTerapije_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlanTerapijeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPlanTerapije_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlanTerapije" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddPlanTerapije_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPlanTerapijeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePlanTerapije_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlanTerapije" />
+  </wsdl:message>
+  <wsdl:message name="IService1_UpdatePlanTerapije_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePlanTerapijeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePlanTerapije_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlanTerapije" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeletePlanTerapije_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePlanTerapijeResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
@@ -307,6 +391,62 @@
     <wsdl:operation name="GetOpasnostBolesti">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetOpasnostBolesti" message="tns:IService1_GetOpasnostBolesti_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetOpasnostBolestiResponse" message="tns:IService1_GetOpasnostBolesti_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTerapija">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetTerapija" message="tns:IService1_GetTerapija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetTerapijaResponse" message="tns:IService1_GetTerapija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTerapija">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddTerapija" message="tns:IService1_AddTerapija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddTerapijaResponse" message="tns:IService1_AddTerapija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerapija">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTerapija" message="tns:IService1_UpdateTerapija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTerapijaResponse" message="tns:IService1_UpdateTerapija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTerapija">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTerapija" message="tns:IService1_DeleteTerapija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteTerapijaResponse" message="tns:IService1_DeleteTerapija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBolestiDDL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetBolestiDDL" message="tns:IService1_GetBolestiDDL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetBolestiDDLResponse" message="tns:IService1_GetBolestiDDL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLijekDDL">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLijekDDL" message="tns:IService1_GetLijekDDL_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLijekDDLResponse" message="tns:IService1_GetLijekDDL_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLijekByTerapija">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetLijekByTerapija" message="tns:IService1_GetLijekByTerapija_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetLijekByTerapijaResponse" message="tns:IService1_GetLijekByTerapija_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTerapijaLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddTerapijaLijek" message="tns:IService1_AddTerapijaLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddTerapijaLijekResponse" message="tns:IService1_AddTerapijaLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerapijaLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdateTerapijaLijek" message="tns:IService1_UpdateTerapijaLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdateTerapijaLijekResponse" message="tns:IService1_UpdateTerapijaLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTerapijaLijek">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteTerapijaLijek" message="tns:IService1_DeleteTerapijaLijek_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteTerapijaLijekResponse" message="tns:IService1_DeleteTerapijaLijek_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlanTerapije">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPlanTerapije" message="tns:IService1_GetPlanTerapije_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPlanTerapijeResponse" message="tns:IService1_GetPlanTerapije_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPlanTerapije">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddPlanTerapije" message="tns:IService1_AddPlanTerapije_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddPlanTerapijeResponse" message="tns:IService1_AddPlanTerapije_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlanTerapije">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/UpdatePlanTerapije" message="tns:IService1_UpdatePlanTerapije_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/UpdatePlanTerapijeResponse" message="tns:IService1_UpdatePlanTerapije_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlanTerapije">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePlanTerapije" message="tns:IService1_DeletePlanTerapije_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePlanTerapijeResponse" message="tns:IService1_DeletePlanTerapije_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -574,6 +714,132 @@
     </wsdl:operation>
     <wsdl:operation name="GetOpasnostBolesti">
       <soap:operation soapAction="http://tempuri.org/IService1/GetOpasnostBolesti" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTerapija">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetTerapija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTerapija">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddTerapija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerapija">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTerapija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTerapija">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteTerapija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBolestiDDL">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetBolestiDDL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLijekDDL">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLijekDDL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLijekByTerapija">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetLijekByTerapija" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTerapijaLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddTerapijaLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTerapijaLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdateTerapijaLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTerapijaLijek">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteTerapijaLijek" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlanTerapije">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPlanTerapije" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPlanTerapije">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddPlanTerapije" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePlanTerapije">
+      <soap:operation soapAction="http://tempuri.org/IService1/UpdatePlanTerapije" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlanTerapije">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeletePlanTerapije" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
