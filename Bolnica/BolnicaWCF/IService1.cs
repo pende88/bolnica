@@ -156,6 +156,9 @@ namespace BolnicaWCF
         List<PlanTerapije> GetPlanTerapije(int id);
 
         [OperationContract]
+        List<Terapija> GetTerapijaDDL();
+
+        [OperationContract]
         void AddPlanTerapije(PlanTerapije pt);
 
         [OperationContract]

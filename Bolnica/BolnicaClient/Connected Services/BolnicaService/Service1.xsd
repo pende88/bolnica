@@ -504,10 +504,22 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetTerapijaDDL">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTerapijaDDLResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="GetTerapijaDDLResult" nillable="true" type="q34:ArrayOfTerapija" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddPlanTerapije">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pt" nillable="true" type="q34:PlanTerapije" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pt" nillable="true" type="q35:PlanTerapije" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -519,7 +531,7 @@
   <xs:element name="UpdatePlanTerapije">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pt" nillable="true" type="q35:PlanTerapije" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/BolnicaWCF.Model" minOccurs="0" name="pt" nillable="true" type="q36:PlanTerapije" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

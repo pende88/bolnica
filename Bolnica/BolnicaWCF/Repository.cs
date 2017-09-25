@@ -1013,6 +1013,43 @@ namespace BolnicaWCF
 
         }
 
+        public List<Terapija> GetTerapijaDDL()
+        {
+            List<Terapija> lista = new List<Terapija>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetTerapijaDDL", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Terapija t = new Terapija();
+
+                        t.IDTerapija = Convert.ToInt32(dr["IDTerapija"]);
+                        t.Naziv = dr["Naziv"].ToString();
+                        
+
+                        lista.Add(t);
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+
+
+        }
+
         public void AddTerapija(Terapija t)
         {
             try
@@ -1286,7 +1323,7 @@ namespace BolnicaWCF
                     SqlCommand cmd = new SqlCommand("dbo.GetPlanTerapije", Sqlcon);
 
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.Add(new SqlParameter("@Pacijent", id));
+                    cmd.Parameters.Add(new SqlParameter("@PacijentID", id));
 
                     Sqlcon.Open();
 
@@ -1296,9 +1333,9 @@ namespace BolnicaWCF
                     {
                         PlanTerapije pt = new PlanTerapije();
 
-                        pt.IDPlantTerapije= Convert.ToInt32(dr["IDPlantTerapije"]);
-                        pt.DoktorID = Convert.ToInt32(dr["DoktorID"]);
-                        pt.PacijentID= Convert.ToInt32(dr["PacijentID"]);
+                        pt.IDPlanTerapije= Convert.ToInt32(dr["IDPlanTerapije"]);
+                        pt.DoktorID = Convert.ToInt32(dr["DoktorKorisnickiRacunID"]);
+                        pt.PacijentID= Convert.ToInt32(dr["PacijentKorisnickiRacunID"]);
                         pt.TerapijaID= Convert.ToInt32(dr["TerapijaID"]);
 
                         pt.NazivTerapije = dr["Naziv"].ToString();
@@ -1355,7 +1392,7 @@ namespace BolnicaWCF
                     SqlCommand command = new SqlCommand("dbo.UpdatePlanTerapije", conn);
                     command.CommandType = CommandType.StoredProcedure;
 
-                    command.Parameters.Add(new SqlParameter("@IDPlanTerapije", pt.IDPlantTerapije));
+                    command.Parameters.Add(new SqlParameter("@IDPlanTerapije", pt.IDPlanTerapije));
                     command.Parameters.Add(new SqlParameter("@DoktorID", pt.DoktorID));
                     command.Parameters.Add(new SqlParameter("@PacijentID", pt.PacijentID));
                     command.Parameters.Add(new SqlParameter("@TerapijaID", pt.TerapijaID));

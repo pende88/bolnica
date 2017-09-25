@@ -193,7 +193,7 @@
       <xs:element minOccurs="0" name="DatumPocetka" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DatumZavrsetka" type="xs:dateTime" />
       <xs:element minOccurs="0" name="DoktorID" type="xs:int" />
-      <xs:element minOccurs="0" name="IDPlantTerapije" type="xs:int" />
+      <xs:element minOccurs="0" name="IDPlanTerapije" type="xs:int" />
       <xs:element minOccurs="0" name="NazivTerapije" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="PacijentID" type="xs:int" />
       <xs:element minOccurs="0" name="TerapijaID" type="xs:int" />

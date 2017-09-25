@@ -1,9 +1,11 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanTerapije.aspx.cs" Inherits="BolnicaClient.Admin.PlanTerapije" %>
+﻿<%@ Page Title="" UICulture="hr" Culture="hr-HR" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PlanTerapije.aspx.cs" Inherits="BolnicaClient.Admin.PlanTerapije" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
+    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div class="row">
 
         <br />
@@ -17,7 +19,8 @@
                 <div class="form-group">
                     <asp:Label CssClass="control-label col-sm-2" ID="lblDoktor" runat="server" Text="Odaberite Doktora:" AssociatedControlID="ddlDoktor"></asp:Label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlDoktor" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDKOrisnickiRacun" DataTextField="NazivDoktora">
+                        <asp:DropDownList CssClass="btn btn-default" ID="ddlDoktor" runat="server" AppendDataBoundItems="true" AutoPostBack="true" 
+                            DataValueField="IDKOrisnickiRacun" DataTextField="NazivDoktora" OnSelectedIndexChanged="ddlDoktor_SelectedIndexChanged">
                             <Items>
                                 <asp:ListItem Text="Odaberite doktora" Value="" Selected="True"></asp:ListItem>
                             </Items>
@@ -83,7 +86,7 @@
                   <div class="form-group">
                     <asp:Label CssClass="control-label col-sm-2" ID="lblOdabirTerapije" runat="server" Text="Odaberite terapiju:" AssociatedControlID="ddlTerapija"></asp:Label>
                     <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlTerapija" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDTerapija" DataTextField="Naziv">
+                        <asp:DropDownList CssClass="btn btn-default" ID="ddlTerapija" runat="server" AppendDataBoundItems="true" AutoPostBack="true" DataValueField="IDTerapija" DataTextField="Naziv" >
                             <Items>
                                 <asp:ListItem Text="Odaberite terapiju" Value="" Selected="True"></asp:ListItem>
                             </Items>
@@ -93,9 +96,10 @@
                 </div>
 
                  <div class="form-group">
-                    <asp:Label AssociatedControlID="txtDatumPocetka" ID="lblLijek" ControlStyle-CssClass="control-label  col-sm-2" runat="server">Naziv Lijeka:</asp:Label>
+                    <asp:Label AssociatedControlID="txtDatumPocetka" ID="lblDatumPocetka" ControlStyle-CssClass="control-label  col-sm-2" runat="server">Datum Početka:</asp:Label>
                     <div class="col-sm-10">
                         <asp:TextBox ID="txtDatumPocetka" runat="server" Enabled="true" CssClass="form-control"></asp:TextBox>
+                        <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" Format="dd-MM-yyyy" TargetControlID="txtDatumPocetka" />
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ErrorMessage="Obavezan unos" ControlToValidate="txtDatumPocetka"></asp:RequiredFieldValidator>
                     </div>
                 </div>
@@ -117,7 +121,8 @@
                     <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered"
                         ID="GridViewTerapija"
                         DataKeyNames="IDPlanTerapije" runat="server" AutoGenerateColumns="False"
-                        OnSelectedIndexChanged="GridViewTerapija_SelectedIndexChanged">
+                        OnSelectedIndexChanged="GridViewTerapija_SelectedIndexChanged"
+                        >
 
                         <Columns>
 
@@ -153,13 +158,13 @@
 
                             <asp:TemplateField HeaderText="Datum Početka">
                                 <ItemTemplate>
-                                    <asp:Label nulldisplaytext="Null" ID="lblDatumPocetka" runat="server" Text='<%# Convert.ToString(Eval("DatumPocetka")) == null ? "Nema" : Eval("DatumPocetka") %>' />
+                                    <asp:Label nulldisplaytext="Null" ID="lblDatumPocetka" runat="server" Text='<%#Eval("DatumPocetka","{0:dd-MM-yyyy}")%>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 
                             <asp:TemplateField HeaderText="Datum Završetka">
                                 <ItemTemplate>
-                                    <asp:Label nulldisplaytext="Null" ID="lblDatumZavrsetka" runat="server" Text='<%# Convert.ToString(Eval("DatumZavrsetka")) == null ? "Nema" : Eval("DatumZavrsetka") %>' />
+                                    <asp:Label nulldisplaytext="Null" ID="lblDatumZavrsetka" runat="server" Text='<%#Eval("DatumZavrsetka","{0:dd-MM-yyyy}")%>' />
                                 </ItemTemplate>
                             </asp:TemplateField>
 

@@ -10,7 +10,7 @@ namespace BolnicaWCF.Model
     public class PlanTerapije
     {
         [DataMember]
-        public int IDPlantTerapije { get; set; }
+        public int IDPlanTerapije { get; set; }
 
         [DataMember]
         public int DoktorID { get; set; }

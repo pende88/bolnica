@@ -233,5 +233,11 @@ namespace BolnicaWCF
         {
             new Repository().DeletePlanTerapije(id);
         }
+
+        public List<Terapija> GetTerapijaDDL()
+        {
+            return (new Repository()).GetTerapijaDDL();
+
+        }
     }
 }

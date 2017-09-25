@@ -1180,7 +1180,7 @@ namespace BolnicaClient.BolnicaService {
         private int DoktorIDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDPlantTerapijeField;
+        private int IDPlanTerapijeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NazivTerapijeField;
@@ -1241,14 +1241,14 @@ namespace BolnicaClient.BolnicaService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IDPlantTerapije {
+        public int IDPlanTerapije {
             get {
-                return this.IDPlantTerapijeField;
+                return this.IDPlanTerapijeField;
             }
             set {
-                if ((this.IDPlantTerapijeField.Equals(value) != true)) {
-                    this.IDPlantTerapijeField = value;
-                    this.RaisePropertyChanged("IDPlantTerapije");
+                if ((this.IDPlanTerapijeField.Equals(value) != true)) {
+                    this.IDPlanTerapijeField = value;
+                    this.RaisePropertyChanged("IDPlanTerapije");
                 }
             }
         }
@@ -1428,6 +1428,9 @@ namespace BolnicaClient.BolnicaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPlanTerapije", ReplyAction="http://tempuri.org/IService1/GetPlanTerapijeResponse")]
         System.Collections.Generic.List<BolnicaClient.BolnicaService.PlanTerapije> GetPlanTerapije(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetTerapijaDDL", ReplyAction="http://tempuri.org/IService1/GetTerapijaDDLResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Terapija> GetTerapijaDDL();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddPlanTerapije", ReplyAction="http://tempuri.org/IService1/AddPlanTerapijeResponse")]
         void AddPlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt);
@@ -1628,6 +1631,10 @@ namespace BolnicaClient.BolnicaService {
         
         public System.Collections.Generic.List<BolnicaClient.BolnicaService.PlanTerapije> GetPlanTerapije(int id) {
             return base.Channel.GetPlanTerapije(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Terapija> GetTerapijaDDL() {
+            return base.Channel.GetTerapijaDDL();
         }
         
         public void AddPlanTerapije(BolnicaClient.BolnicaService.PlanTerapije pt) {
