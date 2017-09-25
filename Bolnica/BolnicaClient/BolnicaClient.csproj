@@ -126,6 +126,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="Doktor\PregledPacijenata.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Doktor\Web.config" />
     <Content Include="Pacijent\Web.config" />
@@ -140,7 +141,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
-    <Content Include="Admin\ProbaAdmin.aspx" />
     <Content Include="default.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Site1.Master" />
@@ -206,13 +206,6 @@
     <Compile Include="Admin\PlanTerapije.aspx.designer.cs">
       <DependentUpon>PlanTerapije.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\ProbaAdmin.aspx.cs">
-      <DependentUpon>ProbaAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin\ProbaAdmin.aspx.designer.cs">
-      <DependentUpon>ProbaAdmin.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin\Proizvodjaci.aspx.cs">
       <DependentUpon>Proizvodjaci.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -238,6 +231,13 @@
     </Compile>
     <Compile Include="default.aspx.designer.cs">
       <DependentUpon>default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Doktor\PregledPacijenata.aspx.cs">
+      <DependentUpon>PregledPacijenata.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Doktor\PregledPacijenata.aspx.designer.cs">
+      <DependentUpon>PregledPacijenata.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

@@ -39,6 +39,7 @@ namespace BolnicaClient
 
             int UserId = 0;
             string roles = String.Empty;
+            string prezime = String.Empty;
             try
             {
                 proxy = new BolnicaService.Service1Client();
@@ -55,10 +56,12 @@ namespace BolnicaClient
             {
                 UserId = k.IDKorisnickiRacun;
                 roles = k.Grupa;
+                prezime = k.Prezime;
                 
             }
 
             this.Session["TrenutniKorisnik"] = UserId;
+            this.Session["Prezime"] = prezime;
 
 
             switch (UserId)

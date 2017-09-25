@@ -27,7 +27,7 @@ namespace BolnicaClient
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblstatus.Text = Convert.ToString(this.Session["TrenutniKorisnik"]);
+            lblstatus.Text = "Howdy " + Convert.ToString(this.Session["TrenutniKorisnik"]);
 
         }
     }

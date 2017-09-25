@@ -1313,7 +1313,7 @@ namespace BolnicaClient.BolnicaService {
         System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetKorisnik();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddKorisnik", ReplyAction="http://tempuri.org/IService1/AddKorisnikResponse")]
-        void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k);
+        int AddKorisnik(BolnicaClient.BolnicaService.Korisnik k);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/UpdateKorisnik", ReplyAction="http://tempuri.org/IService1/UpdateKorisnikResponse")]
         void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k);
@@ -1477,8 +1477,8 @@ namespace BolnicaClient.BolnicaService {
             return base.Channel.GetKorisnik();
         }
         
-        public void AddKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
-            base.Channel.AddKorisnik(k);
+        public int AddKorisnik(BolnicaClient.BolnicaService.Korisnik k) {
+            return base.Channel.AddKorisnik(k);
         }
         
         public void UpdateKorisnik(BolnicaClient.BolnicaService.Korisnik k) {

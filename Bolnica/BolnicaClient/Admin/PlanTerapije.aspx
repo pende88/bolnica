@@ -111,11 +111,16 @@
                 <div class="form-group">
         <div class="col-sm-10 col-sm-offset-2">
 
+            <br />
+            <br />
+
             <asp:Button CssClass="btn btn-default" ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" />
             <asp:Button CssClass="btn btn-default" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
             <asp:Button CssClass="btn btn-default" ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
         </div>
     </div>
+            <br />
+            <br />
 
                 <div class="col-md-offset-2 col-md-8 ">
                     <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered"

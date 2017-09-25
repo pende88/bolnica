@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BolnicaClient.Admin {
+namespace BolnicaClient.Doktor {
     
     
-    public partial class Korisnik {
+    public partial class PregledPacijenata {
+        
+        /// <summary>
+        /// lblPrezimeDoktora control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPrezimeDoktora;
+        
+        /// <summary>
+        /// hfDoktorID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfDoktorID;
         
         /// <summary>
         /// lblIDKorisnickiRacun control.
@@ -92,33 +110,6 @@ namespace BolnicaClient.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
-        
-        /// <summary>
-        /// lblGrupa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblGrupa;
-        
-        /// <summary>
-        /// ddlGrupa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlGrupa;
-        
-        /// <summary>
-        /// validatorDdlGrupa control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CustomValidator validatorDdlGrupa;
         
         /// <summary>
         /// lblIme control.

@@ -125,18 +125,18 @@
                 <asp:Label CssClass="control-label col-sm-2" ID="lblOdabirLijeka" runat="server" Text="Odabir lijeka:" AssociatedControlID="ddlLijek"></asp:Label>
                 <div class="col-sm-10">
                     <asp:DropDownList CssClass="btn btn-default" ID="ddlLijek" runat="server" AppendDataBoundItems="true" 
-                        AutoPostBack="false" DataValueField="IDLijek" DataTextField="NazivLijeka"
-                        
+                        AutoPostBack="true" DataValueField="IDLijek" DataTextField="NazivLijeka"
+                        OnSelectedIndexChanged="ddlLijek_SelectedIndexChanged"
                         >
                         <Items>
                             <asp:ListItem Text="Odaberite Lijek" Value="" Selected="True"></asp:ListItem>
                         </Items>
                     </asp:DropDownList>
-                   
+                    <asp:CustomValidator ID="CustomValidatorOdabiraLijeka" runat="server" ErrorMessage="Pa nemoš dodat prazan lijek" OnServerValidate="CustomValidatorOdabiraLijeka_ServerValidate"  ></asp:CustomValidator>
                 </div>
             </div>
 
-          <asp:Button CssClass="btn btn-default" ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" CausesValidation ="false" />
+          <asp:Button CssClass="btn btn-default" ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" CausesValidation ="true" />
 
         <asp:Label ID="lblStatusDodavanja" runat="server" Text="" CssClass="col-md-offset-4"></asp:Label>
     <br />
@@ -175,7 +175,6 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                 <%--   <asp:CommandField ButtonType="Link" ShowDeleteButton="true"   ItemStyle-Width="150"/>--%>
 
                     <asp:TemplateField HeaderText="Komanda">
                         <ItemTemplate>

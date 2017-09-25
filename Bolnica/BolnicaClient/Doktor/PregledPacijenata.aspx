@@ -1,15 +1,19 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Korisnik.aspx.cs" Inherits="BolnicaClient.Admin.Korisnik" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PregledPacijenata.aspx.cs" Inherits="BolnicaClient.Doktor.PregledPacijenata" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
+
+ <div class="row">
 
         <br />
         <br />
+     <asp:Label ID="lblPrezimeDoktora" runat="server" Text=""></asp:Label>
+      <asp:HiddenField ID="hfDoktorID" runat="server" />
+      <br />
+        <br />
         <div class="col-md-8 col-md-offset-2">
             <fieldset>
-                <legend>Korisnici</legend>
+                <legend>Pacijenti</legend>
 
                 <div class="form-group">
                     <asp:Label ID="lblIDKorisnickiRacun" ControlStyle-CssClass="control-label  col-sm-2" runat="server">ID Korisničkog Računa:</asp:Label>
@@ -35,18 +39,8 @@
                         </div>
                 </div>
 
-                <div class="form-group">
-                    <asp:Label CssClass="control-label col-sm-2" ID="lblGrupa" runat="server" Text="Grupa:" AssociatedControlID="ddlGrupa"></asp:Label>
-                    <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlGrupa" runat="server" AppendDataBoundItems="true" AutoPostBack="false" DataValueField="IDKorisnickaGrupa" DataTextField="KorisnickaGrupaNaziv">
-                            <Items>
-                                <asp:ListItem Text="Odaberi grupu korisnika" Value="" Selected="True"></asp:ListItem>
-                            </Items>
-                        </asp:DropDownList>
-                        <asp:CustomValidator ID="validatorDdlGrupa" runat="server" ErrorMessage="Molimo odaberite grupu" OnServerValidate="validatorDdlGrupa_ServerValidate"></asp:CustomValidator>
-
-                    </div>
-                </div>
+               
+               
 
                 <div class="form-group">
                     <asp:Label AssociatedControlID="txtIme" ID="lblIme" ControlStyle-CssClass="control-label  col-sm-2" runat="server">Ime:</asp:Label>
@@ -170,17 +164,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="IDKorisnickaGrupa">
-                        <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblIDKorisnickaGrupa" runat="server" Text='<%# Convert.ToString(Eval("IDKorisnickaGrupa")) == null ? "Nema" : Eval("IDKorisnickaGrupa") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Grupa">
-                        <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblGrupa" runat="server" Text='<%# Convert.ToString(Eval("Grupa")) == null ? "Nema" : Eval("Grupa") %>' />
-                        </ItemTemplate>
-                    </asp:TemplateField>
+                    
 
                     <asp:TemplateField HeaderText="Username">
                         <ItemTemplate>
@@ -254,6 +238,14 @@
                         </ItemTemplate>
                     </asp:TemplateField>
 
+                     <asp:TemplateField HeaderText="Dodavanje terapije">
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="lbDodajTerapija" Text="Dodaj terapiju" CommandArgument='<%#Eval("IDKorisnickiRacun") %>'
+                                OnCommand="lbDodajTerapija_Command" CausesValidation ="false">
+                            </asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
                     <asp:TemplateField>
                         <ItemTemplate>
                             <asp:LinkButton ID="lbtnSelect" class="btn btn-link" runat="server" CommandName="Select" Text="Select" CausesValidation="false" />
@@ -272,5 +264,4 @@
      
 
         <div class="com-md-2"></div>
-    </div>
-</asp:Content>
+    </div></asp:Content>

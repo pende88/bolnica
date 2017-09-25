@@ -23,9 +23,9 @@ namespace BolnicaWCF
             return (new Repository()).GetKorisnik();
         }
 
-        public void AddKorisnik(Korisnik k)
+        public int AddKorisnik(Korisnik k)
         {
-            new Repository().AddKorisnik(k);
+            return (new Repository()).AddKorisnik(k);
         }
 
         public void UpdateKorisnik(Korisnik k)

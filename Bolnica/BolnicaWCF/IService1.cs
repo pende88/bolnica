@@ -21,7 +21,7 @@ namespace BolnicaWCF
         List<Korisnik> GetKorisnik();
 
         [OperationContract]
-        void AddKorisnik(Korisnik k);
+        int AddKorisnik(Korisnik k);
 
         [OperationContract]
         void UpdateKorisnik(Korisnik k);

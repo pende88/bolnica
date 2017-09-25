@@ -116,14 +116,20 @@ namespace BolnicaWCF
             return lista;
         }
 
-        public void AddKorisnik(Korisnik k)
+        public int AddKorisnik(Korisnik k)
         {
+
+            int idPacijenta;
             try
             {
                 using (SqlConnection conn = new SqlConnection(_cs))
                 {
                     conn.Open();
                     SqlCommand command = new SqlCommand("dbo.AddKorisnik", conn);
+                    SqlParameter returnParameter = command.Parameters.Add("RetVal", SqlDbType.Int);
+                    returnParameter.Direction = ParameterDirection.ReturnValue;
+
+
                     command.CommandType = CommandType.StoredProcedure;
 
                     command.Parameters.Add(new SqlParameter("@Username", k.Username));
@@ -138,8 +144,10 @@ namespace BolnicaWCF
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
                     command.Parameters.Add(new SqlParameter("@DrzavaID", k.DrzavaID));
-
+                    
                     command.ExecuteNonQuery();
+                    idPacijenta = (int)returnParameter.Value;
+
                 }
             }
             catch (Exception ex)
@@ -147,6 +155,7 @@ namespace BolnicaWCF
 
                 throw ex;
             }
+            return idPacijenta;
         }
 
         public void UpdateKorisnik(Korisnik k)
@@ -171,7 +180,7 @@ namespace BolnicaWCF
                     command.Parameters.Add(new SqlParameter("@Adresa", k.Adresa));
                     command.Parameters.Add(new SqlParameter("@Grad", k.Grad));
                     command.Parameters.Add(new SqlParameter("@PTTbroj", k.PTTBroj));
-                    command.Parameters.Add(new SqlParameter("@IDDrzava", k.DrzavaID));
+                    command.Parameters.Add(new SqlParameter("@DrzavaID", k.DrzavaID));
 
                     command.ExecuteNonQuery();
                 }
@@ -1340,7 +1349,7 @@ namespace BolnicaWCF
 
                         pt.NazivTerapije = dr["Naziv"].ToString();
                         pt.DatumPocetka = Convert.ToDateTime(dr["DatumPocetka"]);
-                        pt.DatumZavrsetka= Convert.ToDateTime(dr["DatumPocetka"]);
+                        pt.DatumZavrsetka= Convert.ToDateTime(dr["DatumZavrsetka"]);
                                                                          
 
                         lista.Add(pt);

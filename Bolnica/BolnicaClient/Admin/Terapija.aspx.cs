@@ -98,7 +98,6 @@ namespace BolnicaClient.Admin
             btnDelete.Enabled = true;
             btnUpdate.Enabled = true;
             ddlLijek.Enabled = true;
-            btnDodaj.Enabled = true;
 
             FillGridViewLijek();
 
@@ -313,6 +312,27 @@ namespace BolnicaClient.Admin
             catch (Exception ex)
             {
                 lblStatus.Text = ("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
+            }
+        }
+
+        protected void CustomValidatorOdabiraLijeka_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(ddlLijek.SelectedValue == "")
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void ddlLijek_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(ddlLijek.SelectedValue != "")
+            {
+                btnDodaj.Enabled = true;
+
+            }
+            else
+            {
+                btnDodaj.Enabled = false;
             }
         }
     }
