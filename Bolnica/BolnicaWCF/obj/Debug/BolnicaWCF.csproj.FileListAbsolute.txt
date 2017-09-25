@@ -4,3 +4,4 @@ C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\bin\Boln
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\bin\BolnicaWCF.pdb
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.dll
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.pdb
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaWCF\obj\Debug\BolnicaWCF.csprojResolveAssemblyReference.cache

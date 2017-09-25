@@ -40,15 +40,6 @@ namespace BolnicaClient.Admin {
         protected global::System.Web.UI.WebControls.DropDownList ddlDoktor;
         
         /// <summary>
-        /// lblStatusPacijenti control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatusPacijenti;
-        
-        /// <summary>
         /// GridViewPacijent control.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,15 @@ namespace BolnicaClient.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView GridViewPacijent;
+        
+        /// <summary>
+        /// lblStatusPacijenti control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblStatusPacijenti;
         
         /// <summary>
         /// lblOdabirTerapije control.

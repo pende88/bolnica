@@ -24,6 +24,7 @@ namespace BolnicaClient.Admin
                 ddlTerapija.Enabled = false;
                 ddlDoktor.Enabled = true;
                 btnDodaj.Enabled = false;
+                txtDatumPocetka.Enabled = false;
 
             }
         }
@@ -56,6 +57,7 @@ namespace BolnicaClient.Admin
                 proxy = new BolnicaService.Service1Client();
                 GridViewPacijent.DataSource = proxy.GetPacijentByDoktorID(idDoktor);
                 GridViewPacijent.DataBind();
+                
             }
             catch (Exception ex)
             {
@@ -71,7 +73,11 @@ namespace BolnicaClient.Admin
             ddlTerapija.Enabled = true;
             btnUpdate.Enabled = false;
             btnDodaj.Enabled = true;
+            txtDatumPocetka.Enabled = true;
         }
+
+
+
 
         private void FillGridViewTerapija()
         {
@@ -104,6 +110,9 @@ namespace BolnicaClient.Admin
         }
 
 
+
+        
+
         protected void btnDodaj_Click(object sender, EventArgs e)
         {
             try
@@ -118,24 +127,14 @@ namespace BolnicaClient.Admin
                 pt.DatumPocetka = Convert.ToDateTime(txtDatumPocetka.Text);
 
                 proxy.AddPlanTerapije(pt);
-                lblStatusPacijenti.Text = "Lijek uspješno dodan terapiji";
+                lblStatusPacijenti.Text = "Terapija dodana";
                 FillGridViewTerapija();
             }
             catch (Exception ex)
             {
-                lblStatusPacijenti.Text = ("Pogreška kod dodavanja lijeka u terapiju, greška: " + ex);
+                lblStatusPacijenti.Text = ("Pogreška kod dodavanja terapije, greška: " + ex);
             }
         }
-
-
-
-
-
-
-
-
-        
-
 
 
         protected void CustomValidatorTerapija_ServerValidate(object source, ServerValidateEventArgs args)
@@ -232,6 +231,13 @@ namespace BolnicaClient.Admin
         protected void btnClear_Click(object sender, EventArgs e)
         {
             ClearAll();
+            btnUpdate.Enabled = false;
+            btnDodaj.Enabled = false;
+
+            lblStatusPacijenti.Text = "";
+
+            GridViewTerapija.DataSource = null;
+            GridViewTerapija.DataBind();
         }
 
         protected void GridViewTerapija_SelectedIndexChanged(object sender, EventArgs e)

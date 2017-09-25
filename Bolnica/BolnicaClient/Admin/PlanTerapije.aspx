@@ -30,7 +30,6 @@
 
 
 
-                <asp:Label ID="lblStatusPacijenti" runat="server" Text="" CssClass="col-md-offset-4"></asp:Label>
                 <br />
                 <div class="row">
                     <div class="col-md-offset-2 col-md-8 ">
@@ -72,6 +71,7 @@
     </div>
 
 
+                    <asp:Label ID="lblStatusPacijenti" runat="server" Text="" CssClass="col-md-offset-4"></asp:Label>
 
 
    
