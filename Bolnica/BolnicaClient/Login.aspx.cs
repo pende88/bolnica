@@ -34,12 +34,23 @@ namespace BolnicaClient
             }
         }
 
+
+
+
         protected void ValidateUser(object sender, EventArgs e)
         {
 
-            int UserId = 0;
-            string roles = String.Empty;
-            string prezime = String.Empty;
+            //ovdje ubaciti logiku provjere cookia
+
+
+
+            int UserId=0;
+            string roles= String.Empty;
+            string prezime= String.Empty;
+
+
+
+            
             try
             {
                 proxy = new BolnicaService.Service1Client();
@@ -52,7 +63,7 @@ namespace BolnicaClient
 
             var kor = proxy.LoginKorisnikProvjera(Login1.UserName, Login1.Password);
 
-            foreach(var k in kor)// tu je problem ne dobiva vrijednost
+            foreach(var k in kor)
             {
                 UserId = k.IDKorisnickiRacun;
                 roles = k.Grupa;
@@ -71,15 +82,26 @@ namespace BolnicaClient
                         break;
 
                     default:
-                        FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
-                        string hash = FormsAuthentication.Encrypt(ticket);
-                        HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
+                    FormsAuthenticationTicket ticket = new FormsAuthenticationTicket(1, Login1.UserName, DateTime.Now, DateTime.Now.AddMinutes(2880), Login1.RememberMeSet, roles, FormsAuthentication.FormsCookiePath);
+                    string hash = FormsAuthentication.Encrypt(ticket);
+                    HttpCookie cookie = new HttpCookie(FormsAuthentication.FormsCookieName, hash);
 
-                        if (ticket.IsPersistent)
-                        {
-                            cookie.Expires = ticket.Expiration;
-                        }
-                        Response.Cookies.Add(cookie);
+
+
+                    if (ticket.IsPersistent)
+                    {
+                        cookie.Expires = ticket.Expiration;
+                    }
+
+
+                    //HttpCookie podaciKorisnika = new HttpCookie("userInfo");
+                    //podaciKorisnika["UserId"] = UserId;
+                    //podaciKorisnika["prezime"] = prezime;
+                    //podaciKorisnika["username"] = userName;
+                    //podaciKorisnika["password"] = paswword;
+
+                    Response.Cookies.Add(cookie);
+                    // ovdje eventualno možemo odrediti gdje želimo da role ode nakon login-a
                         Response.Redirect(FormsAuthentication.GetRedirectUrl(Login1.UserName, Login1.RememberMeSet));
                         break;
                 }

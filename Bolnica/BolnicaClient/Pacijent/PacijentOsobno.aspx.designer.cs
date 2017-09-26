@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BolnicaClient.Doktor {
+namespace BolnicaClient.Pacijent {
     
     
     public partial class PregledPacijenata {
@@ -22,13 +22,13 @@ namespace BolnicaClient.Doktor {
         protected global::System.Web.UI.WebControls.Label lblPrezimeDoktora;
         
         /// <summary>
-        /// hfDoktorID control.
+        /// hfPacijentID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hfDoktorID;
+        protected global::System.Web.UI.WebControls.HiddenField hfPacijentID;
         
         /// <summary>
         /// lblIDKorisnickiRacun control.
@@ -382,15 +382,6 @@ namespace BolnicaClient.Doktor {
         protected global::System.Web.UI.WebControls.CustomValidator validatorDdlDrzava;
         
         /// <summary>
-        /// btnSave control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
-        
-        /// <summary>
         /// btnUpdate control.
         /// </summary>
         /// <remarks>
@@ -398,51 +389,6 @@ namespace BolnicaClient.Doktor {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnUpdate;
-        
-        /// <summary>
-        /// btnDelete control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDelete;
-        
-        /// <summary>
-        /// btnClear control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnClear;
-        
-        /// <summary>
-        /// lblPacijent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPacijent;
-        
-        /// <summary>
-        /// ddlPacijent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPacijent;
-        
-        /// <summary>
-        /// btnDodaj control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDodaj;
         
         /// <summary>
         /// lblStatus control.
@@ -454,12 +400,30 @@ namespace BolnicaClient.Doktor {
         protected global::System.Web.UI.WebControls.Label lblStatus;
         
         /// <summary>
-        /// GridViewKorisnik control.
+        /// GridViewTerapija control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridViewKorisnik;
+        protected global::System.Web.UI.WebControls.GridView GridViewTerapija;
+        
+        /// <summary>
+        /// GridviewLijek control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridviewLijek;
+        
+        /// <summary>
+        /// GridViewDoktor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GridViewDoktor;
     }
 }

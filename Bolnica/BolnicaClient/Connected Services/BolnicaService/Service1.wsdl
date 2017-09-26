@@ -277,6 +277,18 @@
   <wsdl:message name="IService1_DeletePlanTerapije_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeletePlanTerapijeResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetPacijentByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPacijentByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoktorByPacijent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoktorByPacijent" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetDoktorByPacijent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDoktorByPacijentResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="LoginKorisnikProvjera">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LoginKorisnikProvjera" message="tns:IService1_LoginKorisnikProvjera_InputMessage" />
@@ -457,6 +469,14 @@
     <wsdl:operation name="DeletePlanTerapije">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeletePlanTerapije" message="tns:IService1_DeletePlanTerapije_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeletePlanTerapijeResponse" message="tns:IService1_DeletePlanTerapije_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetPacijentByID" message="tns:IService1_GetPacijentByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetPacijentByIDResponse" message="tns:IService1_GetPacijentByID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDoktorByPacijent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetDoktorByPacijent" message="tns:IService1_GetDoktorByPacijent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetDoktorByPacijentResponse" message="tns:IService1_GetDoktorByPacijent_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -859,6 +879,24 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePlanTerapije">
       <soap:operation soapAction="http://tempuri.org/IService1/DeletePlanTerapije" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPacijentByID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetPacijentByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDoktorByPacijent">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetDoktorByPacijent" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

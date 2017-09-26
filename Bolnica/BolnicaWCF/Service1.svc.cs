@@ -239,5 +239,15 @@ namespace BolnicaWCF
             return (new Repository()).GetTerapijaDDL();
 
         }
+
+        public List<Korisnik> GetPacijentByID(int id)
+        {
+            return (new Repository()).GetPacijentByID(id);
+        }
+
+        public List<PacijentDoktor> GetDoktorByPacijent(int idPacijent)
+        {
+            return (new Repository()).GetDoktorByPacijent(idPacijent);
+        }
     }
 }

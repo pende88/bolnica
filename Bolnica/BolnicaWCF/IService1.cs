@@ -166,7 +166,14 @@ namespace BolnicaWCF
 
         [OperationContract]
         void DeletePlanTerapije(int id);
+
+        [OperationContract]
+        List<Korisnik> GetPacijentByID(int id);
+
+        [OperationContract]
+        List<PacijentDoktor> GetDoktorByPacijent(int idPacijent);
     }
+
 
 
 }

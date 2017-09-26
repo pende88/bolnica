@@ -18,5 +18,8 @@ namespace BolnicaWCF.Model
         public int PacijentKorisnickiRacunID { get; set; }
         [DataMember]
         public string NazivPacijenta { get; set; }
+
+        [DataMember]
+        public string NazivDoktora { get; set; }
     }
 }

@@ -14,17 +14,39 @@ namespace BolnicaClient.Doktor
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           lblPrezimeDoktora.Text =  "Dobrodošli doktore " + Convert.ToString(this.Session["Prezime"]);
-            hfDoktorID.Value = this.Session["TrenutniKorisnik"].ToString();
+           lblPrezimeDoktora.Text =  "Dobrodošli doktore " + Convert.ToString(Session["Prezime"]);
+           if(Session["TrenutniKorisnik"]!= null)
+            {
+                hfDoktorID.Value = Session["TrenutniKorisnik"].ToString();
+            }
+            else
+            {
+                Response.Redirect("~/Login.aspx");
+            }
 
             if (!IsPostBack)
             {
                 FillGridView();
                 FillDdlDrzava();
-
+                FillDdlPacijent();
                 btnSave.Enabled = true;
                 btnDelete.Enabled = false;
                 btnUpdate.Enabled = false;
+                btnDodaj.Enabled = false;
+            }
+        }
+
+        private void FillDdlPacijent()
+        {
+            try
+            {
+                proxy = new BolnicaService.Service1Client();
+                ddlPacijent.DataSource = proxy.GetPacijent();
+                ddlPacijent.DataBind();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ("Pogreška pri učitavanju podataka, greška: " + ex);
             }
         }
 
@@ -32,8 +54,9 @@ namespace BolnicaClient.Doktor
         {
             try
             {
+                
                 proxy = new BolnicaService.Service1Client();
-                GridViewKorisnik.DataSource = proxy.GetKorisnik();
+                GridViewKorisnik.DataSource = proxy.GetPacijentByDoktorID(Convert.ToInt32(hfDoktorID.Value));
                 GridViewKorisnik.DataBind();
             }
             catch (Exception ex)
@@ -61,43 +84,91 @@ namespace BolnicaClient.Doktor
 
         protected void GridViewKorisnik_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-
-
-            txtIDKorisnickiRacun.Text = GridViewKorisnik.DataKeys[GridViewKorisnik.SelectedRow.RowIndex].Value.ToString();
-
-            txtUsername.Text = (GridViewKorisnik.SelectedRow.FindControl("lblUsername") as Label).Text;
-
-            txtPassword.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPassword") as Label).Text;
-
-           
-
-            txtIme.Text = (GridViewKorisnik.SelectedRow.FindControl("lblIMe") as Label).Text;
-
-            txtPrezime.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPrezime") as Label).Text;
-
-            txtOIB.Text = (GridViewKorisnik.SelectedRow.FindControl("lblOIB") as Label).Text;
-
-            txtTelefon.Text = (GridViewKorisnik.SelectedRow.FindControl("lblTelefon") as Label).Text;
-
-            txtEmail.Text = (GridViewKorisnik.SelectedRow.FindControl("lblEmail") as Label).Text;
-
-            txtAdresa.Text = (GridViewKorisnik.SelectedRow.FindControl("lblAdresa") as Label).Text;
-
-            txtGrad.Text = (GridViewKorisnik.SelectedRow.FindControl("lblGrad") as Label).Text;
-
-            txtPTTbroj.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPTTbroj") as Label).Text;
-
-            string probaProizvodjac = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
-            if (probaProizvodjac == "")
+            try
             {
-                ddlDrzava.SelectedValue = "";
-            }
-            else
-            {
-                ddlDrzava.SelectedValue = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
+                int veza = Convert.ToInt32(Convert.ToInt32(GridViewKorisnik.DataKeys[GridViewKorisnik.SelectedRow.RowIndex].Value));
+                proxy = new BolnicaService.Service1Client();
+                var korisnik = proxy.GetPacijentByVeza(veza);
+
+                foreach (var kor in korisnik)
+                {
+                    txtIDKorisnickiRacun.Text = Convert.ToString(kor.IDKorisnickiRacun);
+
+                    txtUsername.Text = kor.Username;
+
+                    txtPassword.Text = kor.Password;
+
+                    txtIme.Text = kor.Ime;
+
+                    txtPrezime.Text = kor.Prezime;
+
+                    txtOIB.Text = kor.OIB;
+
+                    txtTelefon.Text = kor.Telefon;
+
+                    txtEmail.Text = kor.Email;
+
+                    txtAdresa.Text = kor.Adresa;
+
+                    txtGrad.Text = kor.Grad;
+
+                    txtPTTbroj.Text = kor.PTTBroj;
+
+                    ddlDrzava.SelectedValue = kor.DrzavaID.ToString();
+
+
+
+                }
+                btnSave.Enabled = false;
+                
+                btnUpdate.Enabled = true;
+
 
             }
+            catch (Exception ex)
+            {
+
+
+                lblStatus.Text = ("Došlo je do greške: " + ex);
+
+
+            }
+
+
+            //txtIDKorisnickiRacun.Text = GridViewKorisnik.DataKeys[GridViewKorisnik.SelectedRow.RowIndex].Value.ToString();
+
+            //txtUsername.Text = (GridViewKorisnik.SelectedRow.FindControl("lblUsername") as Label).Text;
+
+            //txtPassword.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPassword") as Label).Text;
+
+
+
+            //txtIme.Text = (GridViewKorisnik.SelectedRow.FindControl("lblIMe") as Label).Text;
+
+            //txtPrezime.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPrezime") as Label).Text;
+
+            //txtOIB.Text = (GridViewKorisnik.SelectedRow.FindControl("lblOIB") as Label).Text;
+
+            //txtTelefon.Text = (GridViewKorisnik.SelectedRow.FindControl("lblTelefon") as Label).Text;
+
+            //txtEmail.Text = (GridViewKorisnik.SelectedRow.FindControl("lblEmail") as Label).Text;
+
+            //txtAdresa.Text = (GridViewKorisnik.SelectedRow.FindControl("lblAdresa") as Label).Text;
+
+            //txtGrad.Text = (GridViewKorisnik.SelectedRow.FindControl("lblGrad") as Label).Text;
+
+            //txtPTTbroj.Text = (GridViewKorisnik.SelectedRow.FindControl("lblPTTbroj") as Label).Text;
+
+            //string probaProizvodjac = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
+            //if (probaProizvodjac == "")
+            //{
+            //    ddlDrzava.SelectedValue = "";
+            //}
+            //else
+            //{
+            //    ddlDrzava.SelectedValue = (GridViewKorisnik.SelectedRow.FindControl("lblDrzavaID") as Label).Text.Trim();
+
+            //}
 
             btnSave.Enabled = false;
             btnDelete.Enabled = true;
@@ -324,9 +395,64 @@ namespace BolnicaClient.Doktor
             int idPacijenta = Convert.ToInt32(e.CommandArgument);
             int idDoktora = Convert.ToInt32(hfDoktorID.Value);
 
-           // Response.Redirect("~/Doktor/Terapija.aspx?idDoktora" + idDoktora + "&idPacijenta" + idPacijenta); 
+           Response.Redirect("~/Doktor/PlaniranjeTerapije.aspx?idDoktora=" + idDoktora + "&idPacijenta=" + idPacijenta); 
 
             
+        
+        }
+
+        protected void lbDelete_Command(object sender, CommandEventArgs e)
+        {
+            try
+            {
+                int veza = Convert.ToInt32(e.CommandArgument);
+
+                proxy = new BolnicaService.Service1Client();
+                proxy.DeletePacijentDoktorVeza(veza);
+                lblStatus.Text = ("Uspješno izbrisano");
+                FillGridView();
+
+
+                btnSave.Enabled = false;
+                btnUpdate.Enabled = false;
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ("Došlo je do pogreške ili nije moguće obrisati podatke" + ex);
+            }
+        }
+
+        protected void btnDodaj_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                proxy = new BolnicaService.Service1Client();
+                BolnicaService.PacijentDoktor p = new BolnicaService.PacijentDoktor();
+
+
+                p.PacijentKorisnickiRacunID = Convert.ToInt32(ddlPacijent.SelectedValue);
+                p.DoktorKorisnickiRacunID = Convert.ToInt32(hfDoktorID.Value);
+
+                proxy.AddPacijentDoktorVeza(p);
+                lblStatus.Text = "Pacijent dodan";
+                FillGridView();
+            }
+            catch (Exception ex)
+            {
+                lblStatus.Text = ("Pogreška kod dodavanja terapije, greška: " + ex);
+            }
+        }
+
+        protected void ddlPacijent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ddlPacijent.SelectedValue != "")
+            {
+                btnDodaj.Enabled = true;
+            }
+            else
+            {
+                btnDodaj.Enabled = false;
+            }
         }
     }
 }

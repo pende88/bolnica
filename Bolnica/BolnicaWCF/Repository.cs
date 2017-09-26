@@ -46,6 +46,7 @@ namespace BolnicaWCF
                         if (k.IDKorisnickiRacun != -1)
                         {
                             k.Grupa = dr["Naziv"].ToString();
+                            k.Prezime = dr["Prezime"].ToString();
 
                         }
 
@@ -1437,6 +1438,99 @@ namespace BolnicaWCF
 
                 throw ex;
             }
+        }
+
+
+        public List<Korisnik> GetPacijentByID(int id)
+        {
+            List<Korisnik> lista = new List<Korisnik>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetPacijentByID", Sqlcon);
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("@PacijentID", id));
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        Korisnik k = new Korisnik();
+
+                        k.IDKorisnickiRacun = Convert.ToInt32(dr["IDKorisnickiRacun"]);
+                        
+                        k.Username = dr["Username"].ToString();
+                        k.Password = dr["Password"].ToString();
+                        k.Ime = dr["Ime"].ToString();
+                        k.Prezime = dr["Prezime"].ToString();
+                        k.OIB = dr["OIB"].ToString();
+                        k.Telefon = dr["Telefon"].ToString();
+                        k.Email = dr["Email"].ToString();
+                        k.Adresa = dr["Adresa"].ToString();
+                        k.PTTBroj = dr["PTTBroj"].ToString();
+                        k.Grad = dr["Grad"].ToString();
+
+                        k.DrzavaID = dr["DrzavaID"] == DBNull.Value ? 0 : (int)dr["DrzavaID"];
+                        //k.Drzava = dr["Drzava"].ToString();
+
+
+                        lista.Add(k);
+
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return lista;
+
+        }
+
+        public List<PacijentDoktor> GetDoktorByPacijent(int idPacijent)
+        {
+            List<PacijentDoktor> lista = new List<PacijentDoktor>();
+
+            try
+            {
+                using (SqlConnection Sqlcon = new SqlConnection(_cs))
+                {
+                    SqlCommand cmd = new SqlCommand("dbo.GetDoktorByPacijent", Sqlcon);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.Add(new SqlParameter("PacijentID", idPacijent));
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    Sqlcon.Open();
+
+                    SqlDataReader dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        PacijentDoktor pd = new PacijentDoktor();
+
+                        
+                        pd.DoktorKorisnickiRacunID = Convert.ToInt32(dr["DoktorKorisnickiRacunID"]);
+                        
+                        pd.NazivDoktora = dr["NazivDoktora"].ToString();
+
+
+                        lista.Add(pd);
+                    }
+
+                };
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+
+            return lista;
         }
 
     }

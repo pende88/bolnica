@@ -420,6 +420,9 @@ namespace BolnicaClient.BolnicaService {
         private int IDPacijentDoktorVezaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NazivDoktoraField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NazivPacijentaField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -457,6 +460,19 @@ namespace BolnicaClient.BolnicaService {
                 if ((this.IDPacijentDoktorVezaField.Equals(value) != true)) {
                     this.IDPacijentDoktorVezaField = value;
                     this.RaisePropertyChanged("IDPacijentDoktorVeza");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string NazivDoktora {
+            get {
+                return this.NazivDoktoraField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NazivDoktoraField, value) != true)) {
+                    this.NazivDoktoraField = value;
+                    this.RaisePropertyChanged("NazivDoktora");
                 }
             }
         }
@@ -1440,6 +1456,12 @@ namespace BolnicaClient.BolnicaService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/DeletePlanTerapije", ReplyAction="http://tempuri.org/IService1/DeletePlanTerapijeResponse")]
         void DeletePlanTerapije(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetPacijentByID", ReplyAction="http://tempuri.org/IService1/GetPacijentByIDResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetPacijentByID(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDoktorByPacijent", ReplyAction="http://tempuri.org/IService1/GetDoktorByPacijentResponse")]
+        System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetDoktorByPacijent(int idPacijent);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1647,6 +1669,14 @@ namespace BolnicaClient.BolnicaService {
         
         public void DeletePlanTerapije(int id) {
             base.Channel.DeletePlanTerapije(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.Korisnik> GetPacijentByID(int id) {
+            return base.Channel.GetPacijentByID(id);
+        }
+        
+        public System.Collections.Generic.List<BolnicaClient.BolnicaService.PacijentDoktor> GetDoktorByPacijent(int idPacijent) {
+            return base.Channel.GetDoktorByPacijent(idPacijent);
         }
     }
 }

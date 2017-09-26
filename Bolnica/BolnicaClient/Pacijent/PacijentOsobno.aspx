@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PregledPacijenata.aspx.cs" Inherits="BolnicaClient.Doktor.PregledPacijenata" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="PacijentOsobno.aspx.cs" Inherits="BolnicaClient.Pacijent.PregledPacijenata" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -9,12 +9,12 @@
         <br />
         <br />
         <asp:Label ID="lblPrezimeDoktora" runat="server" Text=""></asp:Label>
-        <asp:HiddenField ID="hfDoktorID" runat="server" />
+        <asp:HiddenField ID="hfPacijentID" runat="server" />
         <br />
         <br />
         <div class="col-md-8 col-md-offset-2">
             <fieldset>
-                <legend>Pacijenti</legend>
+                <legend>Osobni podaci</legend>
 
                 <div class="form-group">
                     <asp:Label ID="lblIDKorisnickiRacun" ControlStyle-CssClass="control-label  col-sm-2" runat="server">ID Korisničkog Računa:</asp:Label>
@@ -135,29 +135,11 @@
                 <div class="form-group">
                     <div class="col-sm-10 col-sm-offset-2">
 
-                        <asp:Button CssClass="btn btn-default" ID="btnSave" runat="server" Text="Save i Dodaj" OnClick="btnSave_Click" />
                         <asp:Button CssClass="btn btn-default" ID="btnUpdate" runat="server" Text="Update" OnClick="btnUpdate_Click" />
-                        <asp:Button CssClass="btn btn-default" ID="btnDelete" runat="server" Text="Delete" OnClientClick="return ShowConfirm(this.id);" OnClick="btnDelete_Click" CausesValidation="false" />
-                        <asp:Button CssClass="btn btn-default" ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" CausesValidation="false" />
                     </div>
                 </div>
 
-                  <div class="form-group">
-                    <asp:Label CssClass="control-label col-sm-2" ID="lblPacijent" runat="server" Text="Odabir pacijenta:" AssociatedControlID="ddlPacijent"></asp:Label>
-                    <div class="col-sm-10">
-                        <asp:DropDownList CssClass="btn btn-default" ID="ddlPacijent" runat="server" 
-                            AppendDataBoundItems="true" AutoPostBack="true" DataValueField="IDKOrisnickiRacun"
-                            DataTextField="NazivPacijenta"
-                            OnSelectedIndexChanged="ddlPacijent_SelectedIndexChanged">
-
-                            <Items>
-                                <asp:ListItem Text="Odaberi pacijenta" Value="" Selected="True"></asp:ListItem>
-                            </Items>
-                        </asp:DropDownList>
-                         <asp:Button CssClass="btn btn-default" ID="btnDodaj" runat="server" Text="Dodaj" OnClick="btnDodaj_Click" CausesValidation="false"/>
-
-                    </div>
-                </div>
+                 
             </fieldset>
         </div>
     </div>
@@ -168,15 +150,17 @@
     <br />
     <div class="row">
         <div class="col-md-offset-2 col-md-8 ">
-            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" ID="GridViewKorisnik"
-                DataKeyNames="PacijentKorisnickiRacunID" runat="server" AutoGenerateColumns="False"
-                OnSelectedIndexChanged="GridViewKorisnik_SelectedIndexChanged">
+            <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" 
+                ID="GridViewTerapija"
+                DataKeyNames="TerapijaID" runat="server"
+                AutoGenerateColumns="False"
+                OnSelectedIndexChanged="GridViewTerapija_SelectedIndexChanged">
 
                 <Columns>
 
-                    <asp:TemplateField HeaderText="ID veze">
+                    <asp:TemplateField HeaderText="ID Terapije">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblIDPacijentDoktorVeza" runat="server" Text='<%# Eval("IDPacijentDoktorVeza") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblIDPlanTerapije" runat="server" Text='<%# Eval("IDPlanTerapije") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
@@ -184,39 +168,40 @@
 
                     <asp:TemplateField HeaderText="ID Doktor">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblDoktorKorisnickiRacunID" runat="server" Text='<%# Convert.ToString(Eval("DoktorKorisnickiRacunID")) == null ? "Nema" : Eval("DoktorKorisnickiRacunID") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblDoktorID" runat="server" Text='<%# Convert.ToString(Eval("DoktorID")) == null ? "Nema" : Eval("DoktorID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="ID Pacijent">
+                    <asp:TemplateField HeaderText="Pacijent ID">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblPacijentKorisnickiRacunID" runat="server" Text='<%# Convert.ToString(Eval("PacijentKorisnickiRacunID")) == null ? "Nema" : Eval("PacijentKorisnickiRacunID") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblPacijentID" runat="server" Text='<%# Convert.ToString(Eval("PacijentID")) == null ? "Nema" : Eval("PacijentID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                    <asp:TemplateField HeaderText="Naziv Pacijenta">
+                      <asp:TemplateField HeaderText="ID Terapije">
                         <ItemTemplate>
-                            <asp:Label nulldisplaytext="Null" ID="lblNazivPacijenta" runat="server" Text='<%# Convert.ToString(Eval("NazivPacijenta")) == null ? "Nema" : Eval("NazivPacijenta") %>' />
+                            <asp:Label nulldisplaytext="Null" ID="lblTerapijaID" runat="server" Text='<%# Convert.ToString(Eval("TerapijaID")) == null ? "Nema" : Eval("TerapijaID") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-
-
-                    <asp:TemplateField HeaderText="Dodavanje terapije">
+                    <asp:TemplateField HeaderText="Naziv Terapije">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" ID="lbDodajTerapija" Text="Dodaj terapiju" CommandArgument='<%#Eval("PacijentKorisnickiRacunID") %>'
-                                OnCommand="lbDodajTerapija_Command" CausesValidation="false">
-                            </asp:LinkButton>
+                            <asp:Label nulldisplaytext="Null" ID="lblNazivTerapije" runat="server" Text='<%# Convert.ToString(Eval("NazivTerapije")) == null ? "Nema" : Eval("NazivTerapije") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
 
-                       <asp:TemplateField HeaderText="Brisanje">
+                       <asp:TemplateField HeaderText="Datum Početka">
                         <ItemTemplate>
-                            <asp:LinkButton runat="server" ID="lbDelete" Text="Delete" CommandArgument='<%#Eval("IDPacijentDoktorVeza") %>'
-                                OnCommand="lbDelete_Command" CausesValidation ="false">
-                            </asp:LinkButton>
+                            <asp:Label nulldisplaytext="Null" ID="lblDatumPocetka" runat="server" Text='<%# Convert.ToString(Eval("DatumPocetka")) == null ? "Nema" : Eval("DatumPocetka") %>' />
                         </ItemTemplate>
                     </asp:TemplateField>
+
+                   <asp:TemplateField HeaderText="Datum Zavrsetka">
+                        <ItemTemplate>
+                            <asp:Label nulldisplaytext="Null" ID="lblDatumZavrsetka" runat="server" Text='<%# Convert.ToString(Eval("DatumZavrsetka")) == null ? "Nema" : Eval("DatumZavrsetka") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
 
                     <asp:TemplateField>
                         <ItemTemplate>
@@ -232,9 +217,72 @@
         </div>
         <br />
         <br />
+         <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" 
+                ID="GridviewLijek" 
+                DataKeyNames="LijekID" runat="server" AutoGenerateColumns="False" 
+                OnSelectedIndexChanged="GridviewLijek_SelectedIndexChanged">
 
+                <Columns>
+
+                    <asp:TemplateField HeaderText="ID Lijek">
+                        <ItemTemplate>
+                            <asp:Label nulldisplaytext="Null" ID="IDLijek" runat="server" Text='<%# Eval("LijekID") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Naziv lijeka">
+                        <ItemTemplate>
+                            <asp:Label nulldisplaytext="Null" ID="lblNazivLijeka" runat="server" Text='<%# Convert.ToString(Eval("NazivLijeka")) == null ? "Nema" : Eval("NazivLijeka") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                  
+                   
+
+                  
+
+                </Columns>
+
+
+            </asp:GridView>
+        </div>
+        <br />
+        <br />
+
+    <asp:GridView CssClass="table table-hover table-striped table-responsive table-bordered" 
+                ID="GridViewDoktor" 
+                DataKeyNames="PacijentKorisnickiRacunID" runat="server" AutoGenerateColumns="False" 
+                >
+
+                <Columns>
+
+                    
+                   
+
+                    <asp:TemplateField HeaderText="ID Doktora">
+                        <ItemTemplate>
+                            <asp:Label nulldisplaytext="Null" ID="lblDoktorKorisnickiRacunID" runat="server" Text='<%# Eval("DoktorKorisnickiRacunID") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                    <asp:TemplateField HeaderText="Naziv Doktora">
+                        <ItemTemplate>
+                            <asp:Label nulldisplaytext="Null" ID="lblNazivDoktora" runat="server" Text='<%# Convert.ToString(Eval("NazivDoktora")) == null ? "Nema" : Eval("NazivDoktora") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+
+                  
+ 
+
+                </Columns>
+
+
+            </asp:GridView>
+        
+        <br />
+        <br />
 
 
         <div class="com-md-2"></div>
-    </div>
+    
 </asp:Content>

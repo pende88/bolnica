@@ -54,5 +54,5 @@ C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\bin\M
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\obj\Debug\BolnicaClient.dll
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\obj\Debug\BolnicaClient.pdb
-C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\obj\Debug\BolnicaClient.csprojResolveAssemblyReference.cache
 C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\bin\AjaxControlToolkit.dll
+C:\Users\Bravarica\source\repos\GitHub local\bolnica\Bolnica\BolnicaClient\obj\Debug\BolnicaClient.csprojResolveAssemblyReference.cache
